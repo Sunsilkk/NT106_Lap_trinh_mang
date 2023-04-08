@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,53 +20,99 @@ namespace TCP_Client
 {
     public partial class TCP_Client : Form
     {
+        Socket client;
         public TCP_Client()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
+            Connect();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            int port = 11000;
-            TcpClient client = new TcpClient();
-            client.Connect(ip, port);
-            MessageBox.Show("client connected!!");
-            NetworkStream ns = client.GetStream();
-            Thread thread = new Thread(o => ReceiveData((TcpClient)o));
-
-            thread.Start(client);
-
-            string s;
-            while (!string.IsNullOrEmpty((s = textInput.Text)))
-            {
-                byte[] buffer = Encoding.UTF32.GetBytes(s);
-                ns.Write(buffer, 0, buffer.Length);
-            }
-
-            client.Client.Shutdown(SocketShutdown.Send);
-            thread.Join();
-            ns.Close();
-            client.Close();
-          //  Console.WriteLine("disconnect from server!!");
-          //  Console.ReadKey();
+            Send();
+            AddMessage(txtMessage.Text);
         }
 
-        private void TCP_Client_Load(object sender, EventArgs e)
+        void Connect()
         {
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("172.0.0.1"), 8080);
+            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            try
+            {
+                client.Connect(IP);
+            }
+            catch
+            {
+                MessageBox.Show("Có lỗi xảy ra:", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
+            Thread listen = new Thread(Receive);
+            listen.Start();
         }
 
-        static void ReceiveData(TcpClient client)
+        //note
+        void Close()
         {
-            NetworkStream ns = client.GetStream();
-            byte[] receivedBytes = new byte[1024];
-            int byte_count;
+           client.Close();
+        }
 
-            while ((byte_count = ns.Read(receivedBytes, 0, receivedBytes.Length)) > 0)
+        void Send()
+        {
+            client.Send(Serialize(txtMessage.Text));
+        }
+
+        void Receive()
+        {
+            try
             {
-                Console.Write(Encoding.UTF32.GetString(receivedBytes, 0, byte_count));
+                while (true)
+                {
+                    byte[] data = new byte[1024];
+                    client.Receive(data);
+                    string message = (string)Deserialize(data);
+                    AddMessage(message );
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                Close();
+            }
+           
+            
+        }
+
+        void AddMessage(string s)
+        {
+            lsMessage.Items.Add(new ListViewItem() { Text = s });
+            txtMessage.Clear();
+        }
+
+        byte[] Serialize (object obj) 
+        { 
+            MemoryStream stream = new MemoryStream();
+            BinaryFormatter bf = new BinaryFormatter();
+
+            bf.Serialize(stream, obj);
+
+            return stream.ToArray();
+        }
+
+        object Deserialize (byte [] data) 
+        {
+            MemoryStream stream = new MemoryStream(data);
+            BinaryFormatter bf = new BinaryFormatter();
+
+            return bf.Deserialize(stream);
+        }
+
+
+        private void TCP_Client_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Close();
         }
     }
 }

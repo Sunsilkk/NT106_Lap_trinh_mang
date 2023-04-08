@@ -28,47 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textInput = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.b_gửi = new System.Windows.Forms.Button();
+            this.lsMessage = new System.Windows.Forms.ListView();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // b_gửi
             // 
-            this.button1.Location = new System.Drawing.Point(308, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.b_gửi.Location = new System.Drawing.Point(639, 343);
+            this.b_gửi.Margin = new System.Windows.Forms.Padding(2);
+            this.b_gửi.Name = "b_gửi";
+            this.b_gửi.Size = new System.Drawing.Size(89, 68);
+            this.b_gửi.TabIndex = 0;
+            this.b_gửi.Text = "button1";
+            this.b_gửi.UseVisualStyleBackColor = true;
+            this.b_gửi.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textInput
+            // lsMessage
             // 
-            this.textInput.Location = new System.Drawing.Point(603, 73);
-            this.textInput.Name = "textInput";
-            this.textInput.Size = new System.Drawing.Size(100, 26);
-            this.textInput.TabIndex = 1;
+            this.lsMessage.HideSelection = false;
+            this.lsMessage.Location = new System.Drawing.Point(40, 23);
+            this.lsMessage.Name = "lsMessage";
+            this.lsMessage.Size = new System.Drawing.Size(688, 272);
+            this.lsMessage.TabIndex = 1;
+            this.lsMessage.UseCompatibleStateImageBehavior = false;
+            this.lsMessage.View = System.Windows.Forms.View.List;
             // 
-            // textBox2
+            // txtMessage
             // 
-            this.textBox2.Location = new System.Drawing.Point(353, 335);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 2;
+            this.txtMessage.Location = new System.Drawing.Point(40, 368);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(367, 20);
+            this.txtMessage.TabIndex = 2;
             // 
             // TCP_Client
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textInput);
-            this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.lsMessage);
+            this.Controls.Add(this.b_gửi);
             this.Name = "TCP_Client";
             this.Text = "TCP Client";
-            this.Load += new System.EventHandler(this.TCP_Client_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TCP_Client_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,9 +79,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textInput;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button b_gửi;
+        private System.Windows.Forms.ListView lsMessage;
+        private System.Windows.Forms.TextBox txtMessage;
     }
 }
 
