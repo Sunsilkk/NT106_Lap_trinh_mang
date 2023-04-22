@@ -1,0 +1,33 @@
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\bin\Debug\BTT6.exe.config
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\bin\Debug\BTT6.exe
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\bin\Debug\BTT6.pdb
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.csproj.AssemblyReference.cache
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.csproj.SuggestedBindingRedirects.cache
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.Form1.resources
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.Properties.Resources.resources
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.csproj.GenerateResource.cache
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.csproj.CoreCompileInputs.cache
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.exe
+D:\OEP_HK2\NT106\Thực hành\Lab1\BTT6\BTT6\obj\Debug\BTT6.pdb
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\bin\Debug\BTT6.exe.config
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\bin\Debug\BTT6.exe
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\bin\Debug\BTT6.pdb
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.AssemblyReference.cache
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.SuggestedBindingRedirects.cache
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.Form1.resources
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.Properties.Resources.resources
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.GenerateResource.cache
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.CoreCompileInputs.cache
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.exe
+C:\Users\duong\Downloads\BTT6\BTT6\BTT6\obj\Debug\BTT6.pdb
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\bin\Debug\BTT6.exe.config
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\bin\Debug\BTT6.exe
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\bin\Debug\BTT6.pdb
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.AssemblyReference.cache
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.SuggestedBindingRedirects.cache
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.Form1.resources
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.Properties.Resources.resources
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.GenerateResource.cache
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.csproj.CoreCompileInputs.cache
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.exe
+D:\Code\NT106_Lập trình mạng\Week6\Another Api\BTT6\BTT6\BTT6\obj\Debug\BTT6.pdb
