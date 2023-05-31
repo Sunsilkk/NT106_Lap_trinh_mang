@@ -1,25 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Security;
-using Npgsql;
-using Postgrest.Attributes;
-using Postgrest.Models;
-using System.Security.Policy;
-using System.Windows.Input;
-using System.Reflection;
-using Supabase.Interfaces;
-using System.Xml.Linq;
-using Supabase;
-using static Supabase.StatelessClient;
-using static Supabase.SupabaseModel;
-using System.Net.NetworkInformation;
+
 
 namespace WindowsFormsApp1
 {
@@ -29,7 +11,6 @@ namespace WindowsFormsApp1
         public Customer_panel2()
         {
             InitializeComponent();
-            
         }
        
         private async void Customer_panel2_Load(object sender, EventArgs e)
@@ -75,9 +56,6 @@ namespace WindowsFormsApp1
             dgv_customer.Dock = DockStyle.Fill;
             panel1.Controls.Add(dgv_customer);
         }
-        
-
-
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -85,9 +63,6 @@ namespace WindowsFormsApp1
             customers_Registration_Form.ShowDialog();
             dgv_customer.Rows.Clear();
             Customer_panel2_Load(sender, e );
-            
-
-            
         }
 
 
@@ -125,8 +100,6 @@ namespace WindowsFormsApp1
             }
         }
        
-
-
         private async void bt_delete_Click(object sender, EventArgs e)
         {
             try
