@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 using Supabase;
 using WindowsFormsApp1.Class;
 
@@ -41,11 +42,11 @@ namespace WindowsFormsApp1
 
             //var result1 = await supabase.From<Cages>().Select("pettypeID = 'Dog', count(*)").Get();
             //var result1 = await supabase.From<Cages>().Select("pettypeID, count(*)").Eq("pettypeID", "Dog").Get();
-            string query = "SELECT pettypeID, COUNT(*) FROM Cages GROUP BY pettypeID";
-
-            int count = int.Parse(query);
-
-            lbl_Dog.Text = count.ToString();
+            var response = await supabase
+                .From("<Cages>")
+                .Select("COUNT(*)")
+                .Eq("pettypeID", "Dog")
+                .Execute();
         }
     }
 }
