@@ -85,5 +85,16 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void bt_Transactor_Click(object sender, EventArgs e)
+        {
+            checkform(panel6);
+            Transaction_panel2 transactor_Panel2 = new Transaction_panel2();
+            transactor_Panel2.TopLevel = false;
+            transactor_Panel2.Dock = DockStyle.Fill;
+            panel6.Controls.Add (transactor_Panel2);
+            transactor_Panel2.FormBorderStyle=System.Windows.Forms.FormBorderStyle.None;
+            transactor_Panel2.Show();
+        }
     }
 }
