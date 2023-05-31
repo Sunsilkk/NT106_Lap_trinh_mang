@@ -33,7 +33,7 @@
             this.bt_Transactor = new System.Windows.Forms.Button();
             this.bn_products = new System.Windows.Forms.Button();
             this.bt_customer = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Home = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             this.panel3.Controls.Add(this.bt_Transactor);
             this.panel3.Controls.Add(this.bn_products);
             this.panel3.Controls.Add(this.bt_customer);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btn_Home);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -99,17 +99,17 @@
             this.bt_customer.UseVisualStyleBackColor = true;
             this.bt_customer.Click += new System.EventHandler(this.bt_customer_Click);
             // 
-            // button1
+            // btn_Home
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 142);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 88);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Home";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Home.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Home.Location = new System.Drawing.Point(0, 142);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.Size = new System.Drawing.Size(166, 88);
+            this.btn_Home.TabIndex = 4;
+            this.btn_Home.Text = "Home";
+            this.btn_Home.UseVisualStyleBackColor = true;
+            this.btn_Home.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -163,7 +163,7 @@
         private System.Windows.Forms.Button bt_Transactor;
         private System.Windows.Forms.Button bn_products;
         private System.Windows.Forms.Button bt_customer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;

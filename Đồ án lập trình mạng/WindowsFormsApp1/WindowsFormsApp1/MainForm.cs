@@ -31,7 +31,8 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            HomeNV homeNV = new HomeNV();
+            homeNV.Show();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

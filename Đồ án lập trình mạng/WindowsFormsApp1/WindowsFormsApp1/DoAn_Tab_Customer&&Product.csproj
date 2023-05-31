@@ -142,7 +142,9 @@
     <Compile Include="Add_products.Designer.cs">
       <DependentUpon>Add_products.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Class_Cages.cs" />
     <Compile Include="Class\Class_Customer.cs" />
+    <Compile Include="Class\Class_Pet.cs" />
     <Compile Include="Class\Class_Pet_Type.cs" />
     <Compile Include="Class\Class_Products.cs" />
     <Compile Include="Class\Class_Product_Type.cs" />
@@ -158,6 +160,12 @@
     </Compile>
     <Compile Include="Customer_panel2.Designer.cs">
       <DependentUpon>Customer_panel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeNV.Designer.cs">
+      <DependentUpon>HomeNV.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -193,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer_panel2.resx">
       <DependentUpon>Customer_panel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeNV.resx">
+      <DependentUpon>HomeNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
