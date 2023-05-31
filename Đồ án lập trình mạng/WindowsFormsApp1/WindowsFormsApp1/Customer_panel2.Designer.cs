@@ -39,10 +39,9 @@
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 116);
+            this.panel1.Location = new System.Drawing.Point(12, 130);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(704, 282);
+            this.panel1.Size = new System.Drawing.Size(1265, 451);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -51,16 +50,15 @@
             this.panel2.Controls.Add(this.btn_search);
             this.panel2.Controls.Add(this.txt_search);
             this.panel2.Controls.Add(this.btn_Add);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(12, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(704, 116);
+            this.panel2.Size = new System.Drawing.Size(840, 86);
             this.panel2.TabIndex = 1;
             // 
             // bt_delete
             // 
             this.bt_delete.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bt_delete.Location = new System.Drawing.Point(78, 23);
+            this.bt_delete.Location = new System.Drawing.Point(72, 20);
             this.bt_delete.Name = "bt_delete";
             this.bt_delete.Size = new System.Drawing.Size(61, 40);
             this.bt_delete.TabIndex = 6;
@@ -101,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 398);
+            this.ClientSize = new System.Drawing.Size(1302, 680);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Customer_panel2";

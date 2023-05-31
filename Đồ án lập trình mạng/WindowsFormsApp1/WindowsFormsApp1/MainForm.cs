@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
             checkform(panel6);           
             Customer_panel2 customerpanel2 = new Customer_panel2();
             customerpanel2.TopLevel = false;
-            customerpanel2.Dock = DockStyle.Fill;
+           // customerpanel2.Dock = DockStyle.Fill;
             panel6.Controls.Add(customerpanel2);
             customerpanel2.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             customerpanel2.Show();        
@@ -96,5 +96,7 @@ namespace WindowsFormsApp1
             transactor_Panel2.FormBorderStyle=System.Windows.Forms.FormBorderStyle.None;
             transactor_Panel2.Show();
         }
+
+ 
     }
 }
