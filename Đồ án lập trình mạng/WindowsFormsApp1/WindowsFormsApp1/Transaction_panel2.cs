@@ -9,7 +9,6 @@ namespace WindowsFormsApp1
     public partial class Transaction_panel2 : Form
     {
         Supabase.Client supabase;
-        DataGridView dgv_transactions = new DataGridView();
         public Transaction_panel2()
         {
             InitializeComponent();
