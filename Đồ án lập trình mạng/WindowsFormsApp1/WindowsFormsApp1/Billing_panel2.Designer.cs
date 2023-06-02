@@ -35,17 +35,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lb_total = new System.Windows.Forms.Label();
             this.dgv_Billing = new System.Windows.Forms.DataGridView();
-            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cb_Select = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cb_Qty = new System.Windows.Forms.ComboBox();
             this.bt_Cash = new System.Windows.Forms.Button();
+            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Billing)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,59 +91,17 @@
             this.dgv_Billing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Billing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NO,
-            this.Price,
             this.dgv_Name,
             this.Type,
             this.Category,
-            this.Qty});
+            this.Qty,
+            this.Price});
             this.dgv_Billing.Location = new System.Drawing.Point(0, 63);
             this.dgv_Billing.Name = "dgv_Billing";
             this.dgv_Billing.RowHeadersWidth = 62;
             this.dgv_Billing.RowTemplate.Height = 28;
             this.dgv_Billing.Size = new System.Drawing.Size(971, 452);
             this.dgv_Billing.TabIndex = 4;
-            // 
-            // NO
-            // 
-            this.NO.HeaderText = "NO";
-            this.NO.MinimumWidth = 8;
-            this.NO.Name = "NO";
-            this.NO.Width = 150;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 8;
-            this.Price.Name = "Price";
-            this.Price.Width = 150;
-            // 
-            // dgv_Name
-            // 
-            this.dgv_Name.HeaderText = "Name";
-            this.dgv_Name.MinimumWidth = 8;
-            this.dgv_Name.Name = "dgv_Name";
-            this.dgv_Name.Width = 150;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Type";
-            this.Type.MinimumWidth = 8;
-            this.Type.Name = "Type";
-            this.Type.Width = 150;
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 8;
-            this.Category.Name = "Category";
-            this.Category.Width = 150;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.MinimumWidth = 8;
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 150;
             // 
             // cb_Select
             // 
@@ -189,6 +147,48 @@
             this.bt_Cash.Text = "Cash";
             this.bt_Cash.UseVisualStyleBackColor = true;
             // 
+            // NO
+            // 
+            this.NO.HeaderText = "NO";
+            this.NO.MinimumWidth = 8;
+            this.NO.Name = "NO";
+            this.NO.Width = 150;
+            // 
+            // dgv_Name
+            // 
+            this.dgv_Name.HeaderText = "Name";
+            this.dgv_Name.MinimumWidth = 8;
+            this.dgv_Name.Name = "dgv_Name";
+            this.dgv_Name.Width = 150;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.MinimumWidth = 8;
+            this.Type.Name = "Type";
+            this.Type.Width = 150;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 8;
+            this.Category.Name = "Category";
+            this.Category.Width = 150;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.MinimumWidth = 8;
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 150;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 8;
+            this.Price.Name = "Price";
+            this.Price.Width = 150;
+            // 
             // Billing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -226,10 +226,10 @@
         private System.Windows.Forms.Button bt_Cash;
         public System.Windows.Forms.Label lb_total;
         private System.Windows.Forms.DataGridViewTextBoxColumn NO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }

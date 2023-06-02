@@ -10,6 +10,7 @@ namespace WindowsFormsApp1
     {
         Supabase.Client supabase;
         List<products> productList;
+        products product_t=new products();
         public Billing()
         {
             InitializeComponent();
@@ -35,15 +36,24 @@ namespace WindowsFormsApp1
         }
         private void bt_Add_Product_Click(object sender, EventArgs e)
         {
-            if (cb_Qty.SelectedItem != null && cb_Select.SelectedItem !=null)
+            try
             {
-                
-
+                if (cb_Qty.SelectedItem != null && cb_Select.SelectedItem != null)
+                {
+                    int row = dgv_Billing.RowCount;
+                    dgv_Billing.Rows.Add(row, product_t.Name, product_t.Type_id, product_t.Pet_type_id, cb_Qty.SelectedItem, product_t.Price);
+                }
+                long sum=Int32.Parse(lb_total.Text);
+                int qty = (int)cb_Qty.SelectedItem ;
+                sum += Int32.Parse(product_t.Price) * qty;
+                lb_total.Text= sum.ToString();
             }
+            catch { }
+
         }
         private async Task LoadData()
         {
-            productList = await GetProducts(); // Lưu danh sách sản phẩm vào biến tạm thời
+            productList = await GetProducts(); 
             foreach (var product in productList)
             {
                 cb_Select.Items.Add(product.Name);
@@ -51,7 +61,7 @@ namespace WindowsFormsApp1
         }
         private async void Billing_Load(object sender, EventArgs e)
         {
-            lb_total.Text = string.Empty;
+            lb_total.Text = "0";
 
             await LoadData();
         }
@@ -60,11 +70,11 @@ namespace WindowsFormsApp1
         {
             cb_Qty.Items.Clear();
             cb_Qty.SelectedIndex = -1;
-           
             foreach (var product in productList)
             {
                 if (product.Name == cb_Select.SelectedItem.ToString())
                 {
+                    product_t=product;
                     int x = 0;
                     try
                     {
