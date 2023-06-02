@@ -35,7 +35,11 @@ namespace WindowsFormsApp1
         }
         private void bt_Add_Product_Click(object sender, EventArgs e)
         {
+            if (cb_Qty.SelectedItem != null && cb_Select.SelectedItem !=null)
+            {
+                
 
+            }
         }
         private async Task LoadData()
         {
@@ -74,10 +78,9 @@ namespace WindowsFormsApp1
                     {
                         cb_Qty.Items.Add(i);
                     }
-                    break; // Ngừng vòng lặp khi tìm thấy sản phẩm phù hợp
+                    break;
                 }
             }
-
         }
     }
 }
