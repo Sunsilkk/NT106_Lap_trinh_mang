@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.btn_Add = new System.Windows.Forms.Button();
+            this.bt_search = new System.Windows.Forms.Button();
             this.bt_delete = new System.Windows.Forms.Button();
-            this.dgv_product = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pet_type_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 116);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(704, 282);
+            this.panel1.TabIndex = 1;
             // 
             // txt_search
             // 
@@ -61,6 +62,17 @@
             this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
+            // bt_search
+            // 
+            this.bt_search.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.bt_search.Location = new System.Drawing.Point(626, 55);
+            this.bt_search.Name = "bt_search";
+            this.bt_search.Size = new System.Drawing.Size(66, 40);
+            this.bt_search.TabIndex = 7;
+            this.bt_search.Text = "Search";
+            this.bt_search.UseVisualStyleBackColor = false;
+            this.bt_search.Click += new System.EventHandler(this.bt_search_Click);
+            // 
             // bt_delete
             // 
             this.bt_delete.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -72,103 +84,30 @@
             this.bt_delete.UseVisualStyleBackColor = false;
             this.bt_delete.Click += new System.EventHandler(this.bt_delete_Click);
             // 
-            // dgv_product
-            // 
-            this.dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Type_Id,
-            this.Pet_type_id,
-            this.Name,
-            this.Stock,
-            this.Price,
-            this.Created_At});
-            this.dgv_product.Location = new System.Drawing.Point(45, 140);
-            this.dgv_product.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_product.Name = "dgv_product";
-            this.dgv_product.RowHeadersWidth = 62;
-            this.dgv_product.RowTemplate.Height = 28;
-            this.dgv_product.Size = new System.Drawing.Size(808, 231);
-            this.dgv_product.TabIndex = 9;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Width = 150;
-            // 
-            // Type_Id
-            // 
-            this.Type_Id.HeaderText = "Type Id";
-            this.Type_Id.MinimumWidth = 8;
-            this.Type_Id.Name = "Type_Id";
-            this.Type_Id.Width = 200;
-            // 
-            // Pet_type_id
-            // 
-            this.Pet_type_id.HeaderText = "Pet type id";
-            this.Pet_type_id.MinimumWidth = 8;
-            this.Pet_type_id.Name = "Pet_type_id";
-            this.Pet_type_id.Width = 200;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.MinimumWidth = 8;
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 6;
-            this.Stock.Name = "Stock";
-            this.Stock.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.Width = 125;
-            // 
-            // Created_At
-            // 
-            this.Created_At.HeaderText = "Created At";
-            this.Created_At.MinimumWidth = 6;
-            this.Created_At.Name = "Created_At";
-            this.Created_At.Width = 125;
-            // 
             // Product_panel2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 398);
-            this.Controls.Add(this.dgv_product);
+            this.ClientSize = new System.Drawing.Size(704, 398);
             this.Controls.Add(this.bt_delete);
+            this.Controls.Add(this.bt_search);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.btn_Add);
-          
+            this.Controls.Add(this.panel1);
+            this.Name = "Product_panel2";
             this.Text = "Product_panel2";
             this.Load += new System.EventHandler(this.Product_panel2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btn_Add;
+        private System.Windows.Forms.Button bt_search;
         private System.Windows.Forms.Button bt_delete;
-        private System.Windows.Forms.DataGridView dgv_product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pet_type_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
     }
 }

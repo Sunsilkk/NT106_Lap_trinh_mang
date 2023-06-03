@@ -107,7 +107,7 @@
             this.Controls.Add(this.tb_Search);
             this.Controls.Add(this.dgv_transaction);
             this.Name = "Transaction_panel2";
-            this.Text = "Transactor";
+            this.Text = "Transaction";
             this.Load += new System.EventHandler(this.Transactor_panel2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_transaction)).EndInit();
             this.ResumeLayout(false);

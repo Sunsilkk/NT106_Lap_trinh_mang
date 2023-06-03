@@ -97,6 +97,16 @@ namespace WindowsFormsApp1
             transactor_Panel2.Show();
         }
 
- 
+        private void bt_Billing_Click(object sender, EventArgs e)
+        {
+            checkform (panel6);
+            Billing billing_Panel2 = new Billing();
+            billing_Panel2.TopLevel = false;
+            billing_Panel2.Dock = DockStyle.Fill;
+            panel6.Controls.Add (billing_Panel2);
+            billing_Panel2.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            billing_Panel2.Show();
+
+        }
     }
 }

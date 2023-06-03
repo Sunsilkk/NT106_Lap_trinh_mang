@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bt_delete = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.btn_Add = new System.Windows.Forms.Button();
-            this.dgv_customer = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customer)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(12, 130);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1265, 451);
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.bt_delete);
+            this.panel2.Controls.Add(this.btn_search);
             this.panel2.Controls.Add(this.txt_search);
             this.panel2.Controls.Add(this.btn_Add);
             this.panel2.Location = new System.Drawing.Point(12, 21);
@@ -62,6 +65,16 @@
             this.bt_delete.Text = "Delete";
             this.bt_delete.UseVisualStyleBackColor = false;
             this.bt_delete.Click += new System.EventHandler(this.bt_delete_Click);
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(623, 27);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(69, 33);
+            this.btn_search.TabIndex = 5;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // txt_search
             // 
@@ -82,85 +95,29 @@
             this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // dgv_customer
-            // 
-            this.dgv_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_customer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Name,
-            this.address,
-            this.Phone,
-            this.Created_At});
-            this.dgv_customer.Location = new System.Drawing.Point(12, 157);
-            this.dgv_customer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgv_customer.Name = "dgv_customer";
-            this.dgv_customer.RowHeadersWidth = 62;
-            this.dgv_customer.RowTemplate.Height = 28;
-            this.dgv_customer.Size = new System.Drawing.Size(937, 452);
-            this.dgv_customer.TabIndex = 2;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.Width = 150;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.MinimumWidth = 8;
-            this.Name.Name = "Name";
-            this.Name.Width = 200;
-            // 
-            // address
-            // 
-            this.address.HeaderText = "Address";
-            this.address.MinimumWidth = 8;
-            this.address.Name = "address";
-            this.address.Width = 200;
-            // 
-            // Phone
-            // 
-            this.Phone.HeaderText = "Phone";
-            this.Phone.MinimumWidth = 8;
-            this.Phone.Name = "Phone";
-            this.Phone.Width = 200;
-            // 
-            // Created_At
-            // 
-            this.Created_At.HeaderText = "Created At";
-            this.Created_At.MinimumWidth = 6;
-            this.Created_At.Name = "Created_At";
-            this.Created_At.Width = 125;
-            // 
             // Customer_panel2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 680);
-            this.Controls.Add(this.dgv_customer);
             this.Controls.Add(this.panel2);
-           
+            this.Controls.Add(this.panel1);
+            this.Name = "Customer_panel2";
             this.Text = "Customer_panel2";
             this.Load += new System.EventHandler(this.Customer_panel2_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customer)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btn_Add;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button bt_delete;
-        private System.Windows.Forms.DataGridView dgv_customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
     }
 }

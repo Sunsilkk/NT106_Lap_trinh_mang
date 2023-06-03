@@ -9,7 +9,6 @@ namespace WindowsFormsApp1
     public partial class Transaction_panel2 : Form
     {
         Supabase.Client supabase;
-        DataGridView dgv_transactions = new DataGridView();
         public Transaction_panel2()
         {
             InitializeComponent();
@@ -44,10 +43,14 @@ namespace WindowsFormsApp1
         private async Task LoadData()
         {
             var transactions = await GetTransactions();
-            foreach (var transaction in transactions)
+            try
             {
-                dgv_transaction.Rows.Add(transaction.Id, transaction.Customer_id, transaction.Product_id, transaction.Cashier_id);
+                foreach (var transaction in transactions)
+                {
+                    dgv_transaction.Rows.Add(transaction.Id, transaction.Customer_id, transaction.Product_id, transaction.Cashier_id);
+                }
             }
+            catch (Exception ex) { }
         }
         private void bt_Search_Click(object sender, EventArgs e)
         {
