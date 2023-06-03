@@ -1,15 +1,16 @@
 ﻿using System;
-using ZXing;
-using ZXing.Common;
-using ZXing.QrCode.Internal;
-using ZXing.Rendering;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaTypeNames = System.Net.Mime.MediaTypeNames;
-
+using ZXing;
+using ZXing.Client.Result;
+using ZXing.Common;
+using ZXing.PDF417.Internal;
+using ZXing.QrCode.Internal;
+using ZXing.Rendering;
+using ZXing.Windows.Compatibility;
 
 namespace WindowsFormsApp1
 {
@@ -106,7 +107,7 @@ namespace WindowsFormsApp1
         private void bt_Cash_Click(object sender, EventArgs e)
         {
             var qrcode_text = $"2|99|{"0355082441"}|{"Vo Thi Hoai Thanh"}|{"21520458@gm.uit.edu.vn"}|0|0|{lb_total.Text}";
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            var barcodeWriter = new BarcodeWriter<Bitmap>();
             EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
             encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
             barcodeWriter.Renderer = new BitmapRenderer();
