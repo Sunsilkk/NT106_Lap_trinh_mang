@@ -1,19 +1,7 @@
-﻿using Postgrest.Attributes;
-using Postgrest.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using Npgsql;
-using System.Security.Policy;
-using System.Windows.Input;
-using Supabase.Interfaces;
 
 
 namespace WindowsFormsApp1

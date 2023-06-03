@@ -66,3 +66,7 @@ D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFo
 D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Transaction_panel2.resources
 D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Billing.resources
+D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zxing.dll
+D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zxing.presentation.dll
+D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zxing.xml
+D:\NT106_Lap_trinh_mang\Đồ án lập trình mạng\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\zxing.presentation.xml
