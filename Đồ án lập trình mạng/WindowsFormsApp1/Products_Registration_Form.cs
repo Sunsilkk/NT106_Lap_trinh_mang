@@ -33,8 +33,8 @@ namespace WindowsFormsApp1
                     Type_id = txt_product_type_id.Text,
                     Pet_type_id = txt_pet_type_id.Text,
                     Name = txt_name.Text,
-                    Stock = txt_stock.Text, 
-                    Price = txt_price.Text,
+                    Stock = long.Parse(txt_stock.Text), 
+                    Price = long.Parse(txt_price.Text),
                     Created_at = createdAt
                 };
 
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
             
             foreach (var ty in type)
             {
-                dgv_type.Rows.Add(ty.Id, ty.Name);
+                dgv_type.Rows.Add(ty.Id, ty.Type);
             }
            
             dgv_type.Dock = DockStyle.Fill;
@@ -80,7 +80,7 @@ namespace WindowsFormsApp1
             dgv_pet_type.Columns[1].Name = "Name";
             foreach (var pty in type1)
             {
-                dgv_pet_type.Rows.Add(pty.Id, pty.Name);
+                dgv_pet_type.Rows.Add(pty.Id, pty.Type);
             }
             dgv_pet_type.Dock = DockStyle.Fill;
             panel4.Controls.Add(dgv_pet_type);

@@ -2,26 +2,23 @@
 using Postgrest.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ColumnAttribute = Postgrest.Attributes.ColumnAttribute;
-using TableAttribute = Postgrest.Attributes.TableAttribute;
 
 namespace WindowsFormsApp1.Class
 {
-    [Table("transactions")]
-    class Transactions : BaseModel
+    [Table("billing")]
+    class Billing : BaseModel
     {
         [PrimaryKey("id", true)]
         public Guid Id { get; set; }
 
-        [Column("product_id")]
-        public Guid ProductId { get; set; }
+        [Column("customer_id")]
+        public Guid CustomerId { get; set; }
 
-        [Column("quantity")]
-        public long Quantity { get; set; }
+        [Column("cashier_id")]
+        public Guid CashierId { get; set; }
 
         [Column("total")]
         public long Total { get; set; }

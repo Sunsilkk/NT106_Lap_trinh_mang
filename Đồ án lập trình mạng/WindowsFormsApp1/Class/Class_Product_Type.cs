@@ -14,8 +14,8 @@ namespace WindowsFormsApp1
         [PrimaryKey("id")]
         public Guid Id { get; set; }
 
-        [Column("name")]
-        public string Name { get; set; }
+        [Column("type")]
+        public string Type { get; set; }
         
         [Column("created_at")]
         public DateTimeOffset Created_at { get; set; }
