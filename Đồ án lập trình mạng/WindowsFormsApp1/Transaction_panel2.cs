@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             {
                 foreach (var transaction in transactions)
                 {
-                    dgv_transaction.Rows.Add(transaction.Id, transaction.Customer_id, transaction.Product_id, transaction.Cashier_id);
+                    dgv_transaction.Rows.Add(transaction.Id, transaction.ProductId, transaction.Quantity, transaction.Total);
                 }
             }
             catch (Exception ex) { }

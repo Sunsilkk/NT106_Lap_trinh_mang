@@ -16,20 +16,20 @@ namespace WindowsFormsApp1
         public Guid Id { get; set; }
 
         [Column("type_id")]
-        public string Type_id { get; set; }
+        public string? Type_id { get; set; }
 
         [Column("pet_type_id")]
-        public string Pet_type_id { get; set; }
+        public string? Pet_type_id { get; set; }
 
         [Column("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
 
         [Column("stock")]
-        public string Stock { get; set; }
+        public long Stock { get; set; }
 
         [Column("price")]
-        public string Price { get; set; }
+        public long Price { get; set; }
 
         [Column("created_at")]
         public DateTimeOffset Created_at { get; set; }

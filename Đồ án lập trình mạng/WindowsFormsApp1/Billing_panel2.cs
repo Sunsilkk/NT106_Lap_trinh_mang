@@ -1,26 +1,37 @@
-﻿using System;
+﻿using Postgrest;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Class;
 using ZXing;
-using ZXing.Client.Result;
 using ZXing.Common;
-using ZXing.PDF417.Internal;
 using ZXing.QrCode.Internal;
-using ZXing.Rendering;
 using ZXing.Windows.Compatibility;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace WindowsFormsApp1
 {
     public partial class Billing_panel2 : Form
     {
-        Supabase.Client supabase;
-        List<products> productList;
-        products product_t=new products();
+        private Supabase.Client supabase;
+        private List<products> productList;
+        private products currentProduct = new products();
+        private List<Transactions> transactions;
+        private Billing billing;
+
         public Billing_panel2()
         {
+            transactions = new List<Transactions>();
+
+            billing = new Billing
+            {
+                Id = Guid.NewGuid()
+            };
+
             InitializeComponent();
             InitializeSupabase();
         }
@@ -45,21 +56,53 @@ namespace WindowsFormsApp1
             return product;
         }
 
-        private void bt_Add_Product_Click(object sender, EventArgs e)
+        private async void bt_Add_Product_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cb_Qty.SelectedItem != null && cb_Select.SelectedItem != null)
+                if (cb_Qty.SelectedItem == null) return;
+                if (cb_Select.SelectedItem == null) return;
+
+                var order = dgv_Billing.RowCount;
+
+                var typeNameResult = await supabase
+                    .From<product_types>()
+                    .Select("type")
+                    .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
+                    .Get();
+
+                var petTypeNameResult = await supabase
+                    .From<pet_types>()
+                    .Select("type")
+                    .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
+                    .Get();
+
+                var typeName = typeNameResult.Model.Type;
+                var petTypeName = petTypeNameResult.Model.Type;
+
+                dgv_Billing.Rows.Add(order, currentProduct.Name, typeName, petTypeName, cb_Qty.SelectedItem, currentProduct.Price);
+
+                var qty = long.Parse(cb_Qty.SelectedItem.ToString());
+
+                var currentTransaction = new Transactions
                 {
-                    int row = dgv_Billing.RowCount;
-                    dgv_Billing.Rows.Add(row, product_t.Name, product_t.Type_id, product_t.Pet_type_id, cb_Qty.SelectedItem, product_t.Price);
-                }
-                long sum = Int32.Parse(lb_total.Text);
-                int qty = (int)cb_Qty.SelectedItem;
-                sum += Int32.Parse(product_t.Price) * qty;
-                lb_total.Text = sum.ToString();
+                    Id = billing.Id,
+                    ProductId = currentProduct.Id,
+                    Quantity = qty,
+                    Total = currentProduct.Price * qty,
+                    CreatedAt = DateTime.Now,
+                };
+
+                billing.Total += currentTransaction.Total;
+
+                lb_total.Text = billing.Total.ToString();
+
+                transactions.Add(currentTransaction);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private async Task LoadData()
@@ -81,55 +124,79 @@ namespace WindowsFormsApp1
         {
             cb_Qty.Items.Clear();
             cb_Qty.SelectedIndex = -1;
-            foreach (var product in productList)
+
+            var productNames = new HashSet<string>(productList.Select(p => p.Name));
+
+            if (productNames.Contains(cb_Select.SelectedItem.ToString()))
             {
-                if (product.Name == cb_Select.SelectedItem.ToString())
+                currentProduct = productList.FirstOrDefault(p => p.Name == cb_Select.SelectedItem.ToString());
+
+                if (currentProduct != null)
                 {
-                    product_t = product;
-                    int x = 0;
-                    try
+                    for (int stockCount = 1; stockCount <= currentProduct.Stock; stockCount++)
                     {
-                        x = Int32.Parse(product.Stock);
+                        cb_Qty.Items.Add(stockCount);
                     }
-                    catch
-                    {
-                        x = 1;
-                    }
-                    for (int i = 1; i <= x; i++)
-                    {
-                        cb_Qty.Items.Add(i);
-                    }
-                    break;
                 }
             }
         }
 
-        private void bt_Cash_Click(object sender, EventArgs e)
+        private async void bt_Cash_Click(object sender, EventArgs e)
         {
-            var qrcode_text = $"2|99|{"0355082441"}|{"Vo Thi Hoai Thanh"}|{"21520458@gm.uit.edu.vn"}|0|0|{lb_total.Text}";
-            var barcodeWriter = new BarcodeWriter<Bitmap>();
-            EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
-            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-            barcodeWriter.Renderer = new BitmapRenderer();
-            barcodeWriter.Options = encodingOptions;
-            barcodeWriter.Format = BarcodeFormat.QR_CODE;
-            Bitmap bitmap = barcodeWriter.Write(qrcode_text);
-            Bitmap logo = resizeImage(Properties.Resources.MoMo_Logo, 64, 64) as Bitmap;
-            Graphics g = Graphics.FromImage(bitmap);
-            g.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
+            var qrBitmap = GenerateQRBitmap();
 
-            using (var qrCodeForm = new QRCodeForm(bitmap))
+            billing.CustomerId = Guid.Parse("904ad093-36d7-4fce-ac7c-1f1b8e515dee");
+            billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
+            billing.CreatedAt = DateTime.Now;
+
+            await supabase.From<Billing>().Insert(billing);
+
+            await supabase.From<Transactions>().Insert(transactions);
+
+            using var qrCodeForm = new QRCodeForm(qrBitmap);
+            qrCodeForm.ShowDialog();
+        }
+
+        private Bitmap GenerateQRBitmap()
+        {
+            var momoQr = new MomoQR
             {
-                qrCodeForm.ShowDialog();
-            }
+                PhoneNumber = "0355082441",
+                Name = "Vo Thi Hoai Thanh",
+                Email = "21520458@gm.uit.edu.vn",
+                Total = int.Parse(lb_total.Text),
+                Message = billing.Id.ToString(),
+            };
+
+            var encodingOptions = new EncodingOptions
+            {
+                Width = 250,
+                Height = 250,
+                Margin = 0,
+                PureBarcode = false,
+            };
+            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+
+            var barcodeWriter = new BarcodeWriter<Bitmap>
+            {
+                Renderer = new BitmapRenderer(),
+                Options = encodingOptions,
+                Format = BarcodeFormat.QR_CODE,
+            };
+
+            var bitmap = barcodeWriter.Write(momoQr.ToString());
+            var logo = resizeImage(Properties.Resources.MoMo_Logo, 64, 64);
+            var graphic = Graphics.FromImage(bitmap);
+            graphic.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
+            return bitmap;
         }
 
         public Bitmap resizeImage(Image originalImage, int new_height, int new_width)
         {
-            Bitmap new_image = new Bitmap(new_width, new_height);
-            Graphics g = Graphics.FromImage(new_image);
-            g.InterpolationMode = InterpolationMode.High;
-            g.DrawImage(originalImage, 0, 0, new_width, new_height);
+            var new_image = new Bitmap(new_width, new_height);
+            var graphic = Graphics.FromImage(new_image);
+            graphic.InterpolationMode = InterpolationMode.High;
+            graphic.DrawImage(originalImage, 0, 0, new_width, new_height);
             return new_image;
         }
     }
@@ -151,8 +218,13 @@ namespace WindowsFormsApp1
 
         private void InitializeComponent()
         {
+            this.SuspendLayout();
+            // 
+            // QRCodeForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "QRCodeForm";
+            this.ResumeLayout(false);
         }
-
     }
 }
-
