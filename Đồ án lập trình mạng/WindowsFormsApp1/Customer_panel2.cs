@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Customer_panel2 : Form
+    public partial class Customer_panel2 : UserControl
     {
 
         public Customer_panel2()

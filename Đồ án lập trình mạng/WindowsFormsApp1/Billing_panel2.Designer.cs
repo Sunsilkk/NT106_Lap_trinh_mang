@@ -192,8 +192,6 @@
             // 
             // Billing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 608);
             this.Controls.Add(this.bt_Cash);
             this.Controls.Add(this.cb_Qty);

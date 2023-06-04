@@ -6,7 +6,7 @@ using WindowsFormsApp1.Class;
 
 namespace WindowsFormsApp1
 {
-    public partial class Transaction_panel2 : Form
+    public partial class Transaction_panel2 : UserControl
     {
         Supabase.Client supabase;
         public Transaction_panel2()

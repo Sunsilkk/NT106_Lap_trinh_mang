@@ -29,81 +29,83 @@
         private void InitializeComponent()
         {
             dgv_transaction = new System.Windows.Forms.DataGridView();
-            tb_Search = new System.Windows.Forms.TextBox();
-            label1 = new System.Windows.Forms.Label();
             ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             productId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tb_Search = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgv_transaction).BeginInit();
             SuspendLayout();
             // 
             // dgv_transaction
             // 
+            dgv_transaction.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            dgv_transaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_transaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_transaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, productId, quantity, total });
-            dgv_transaction.Location = new System.Drawing.Point(1, 66);
+            dgv_transaction.Location = new System.Drawing.Point(16, 62);
+            dgv_transaction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgv_transaction.Name = "dgv_transaction";
             dgv_transaction.RowHeadersWidth = 62;
             dgv_transaction.RowTemplate.Height = 28;
-            dgv_transaction.Size = new System.Drawing.Size(710, 384);
+            dgv_transaction.Size = new System.Drawing.Size(930, 488);
             dgv_transaction.TabIndex = 0;
-            // 
-            // tb_Search
-            // 
-            tb_Search.Location = new System.Drawing.Point(507, 22);
-            tb_Search.Name = "tb_Search";
-            tb_Search.Size = new System.Drawing.Size(167, 27);
-            tb_Search.TabIndex = 1;
-            tb_Search.TextChanged += tb_Search_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(425, 24);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(53, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Search";
             // 
             // ID
             // 
             ID.HeaderText = "ID";
             ID.MinimumWidth = 8;
             ID.Name = "ID";
-            ID.Width = 150;
             // 
             // productId
             // 
             productId.HeaderText = "Product ID";
             productId.MinimumWidth = 8;
             productId.Name = "productId";
-            productId.Width = 200;
             // 
             // quantity
             // 
             quantity.HeaderText = "Quantity";
             quantity.MinimumWidth = 8;
             quantity.Name = "quantity";
-            quantity.Width = 200;
             // 
             // total
             // 
             total.HeaderText = "Total";
             total.MinimumWidth = 8;
             total.Name = "total";
-            total.Width = 200;
+            // 
+            // tb_Search
+            // 
+            tb_Search.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            tb_Search.Location = new System.Drawing.Point(799, 21);
+            tb_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            tb_Search.Name = "tb_Search";
+            tb_Search.Size = new System.Drawing.Size(147, 23);
+            tb_Search.TabIndex = 1;
+            tb_Search.TextChanged += tb_Search_TextChanged;
+            // 
+            // label1
+            // 
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(738, 24);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(42, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search";
             // 
             // Transaction_panel2
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(711, 450);
             Controls.Add(label1);
             Controls.Add(tb_Search);
             Controls.Add(dgv_transaction);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "Transaction_panel2";
-            Text = "Transaction";
+            Size = new System.Drawing.Size(972, 563);
             Load += Transactor_panel2_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_transaction).EndInit();
             ResumeLayout(false);
