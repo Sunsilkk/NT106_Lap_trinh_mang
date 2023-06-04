@@ -183,9 +183,8 @@ namespace WindowsFormsApp1
                 Options = encodingOptions,
                 Format = BarcodeFormat.QR_CODE,
             };
-
             var bitmap = barcodeWriter.Write(momoQr.ToString());
-            var logo = resizeImage(Properties.Resources.MoMo_Logo, 64, 64);
+            var logo = resizeImage(MyPet.Properties.Resources.MoMo_Logo, 64, 64);
             var graphic = Graphics.FromImage(bitmap);
             graphic.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
             return bitmap;
