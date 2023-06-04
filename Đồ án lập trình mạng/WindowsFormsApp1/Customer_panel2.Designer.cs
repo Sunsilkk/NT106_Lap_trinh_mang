@@ -28,96 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.bt_delete = new System.Windows.Forms.Button();
-            this.btn_search = new System.Windows.Forms.Button();
-            this.txt_search = new System.Windows.Forms.TextBox();
-            this.btn_Add = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(12, 130);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1265, 451);
-            this.panel1.TabIndex = 0;
+            panel2 = new System.Windows.Forms.Panel();
+            bt_delete = new System.Windows.Forms.Button();
+            txt_search = new System.Windows.Forms.TextBox();
+            btn_Add = new System.Windows.Forms.Button();
+            dgv_customer = new System.Windows.Forms.DataGridView();
+            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            search = new System.Windows.Forms.Label();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
+            SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.bt_delete);
-            this.panel2.Controls.Add(this.btn_search);
-            this.panel2.Controls.Add(this.txt_search);
-            this.panel2.Controls.Add(this.btn_Add);
-            this.panel2.Location = new System.Drawing.Point(12, 21);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(840, 86);
-            this.panel2.TabIndex = 1;
+            panel2.Controls.Add(search);
+            panel2.Controls.Add(bt_delete);
+            panel2.Controls.Add(txt_search);
+            panel2.Controls.Add(btn_Add);
+            panel2.Location = new System.Drawing.Point(12, 26);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(840, 108);
+            panel2.TabIndex = 1;
             // 
             // bt_delete
             // 
-            this.bt_delete.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bt_delete.Location = new System.Drawing.Point(72, 20);
-            this.bt_delete.Name = "bt_delete";
-            this.bt_delete.Size = new System.Drawing.Size(61, 40);
-            this.bt_delete.TabIndex = 6;
-            this.bt_delete.Text = "Delete";
-            this.bt_delete.UseVisualStyleBackColor = false;
-            this.bt_delete.Click += new System.EventHandler(this.bt_delete_Click);
-            // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(623, 27);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(69, 33);
-            this.btn_search.TabIndex = 5;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            bt_delete.BackColor = System.Drawing.Color.WhiteSmoke;
+            bt_delete.Location = new System.Drawing.Point(72, 25);
+            bt_delete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            bt_delete.Name = "bt_delete";
+            bt_delete.Size = new System.Drawing.Size(61, 50);
+            bt_delete.TabIndex = 6;
+            bt_delete.Text = "Delete";
+            bt_delete.UseVisualStyleBackColor = false;
+            bt_delete.Click += bt_delete_Click;
             // 
             // txt_search
             // 
-            this.txt_search.Location = new System.Drawing.Point(402, 32);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(215, 22);
-            this.txt_search.TabIndex = 4;
-            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
+            txt_search.Location = new System.Drawing.Point(402, 36);
+            txt_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_search.Name = "txt_search";
+            txt_search.Size = new System.Drawing.Size(215, 27);
+            txt_search.TabIndex = 4;
+            txt_search.TextChanged += txt_search_TextChanged;
             // 
             // btn_Add
             // 
-            this.btn_Add.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_Add.Location = new System.Drawing.Point(12, 20);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(54, 40);
-            this.btn_Add.TabIndex = 3;
-            this.btn_Add.Text = "ADD";
-            this.btn_Add.UseVisualStyleBackColor = false;
-            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
+            btn_Add.BackColor = System.Drawing.Color.WhiteSmoke;
+            btn_Add.Location = new System.Drawing.Point(12, 25);
+            btn_Add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btn_Add.Name = "btn_Add";
+            btn_Add.Size = new System.Drawing.Size(54, 50);
+            btn_Add.TabIndex = 3;
+            btn_Add.Text = "ADD";
+            btn_Add.UseVisualStyleBackColor = false;
+            btn_Add.Click += btn_Add_Click;
+            // 
+            // dgv_customer
+            // 
+            dgv_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_customer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Name, address, Phone, Created_At });
+            dgv_customer.Location = new System.Drawing.Point(12, 164);
+            dgv_customer.Name = "dgv_customer";
+            dgv_customer.RowHeadersWidth = 62;
+            dgv_customer.RowTemplate.Height = 28;
+            dgv_customer.Size = new System.Drawing.Size(938, 401);
+            dgv_customer.TabIndex = 2;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.Width = 150;
+            // 
+            // Name
+            // 
+            Name.HeaderText = "Name";
+            Name.MinimumWidth = 8;
+            Name.Name = "Name";
+            Name.Width = 200;
+            // 
+            // address
+            // 
+            address.HeaderText = "Address";
+            address.MinimumWidth = 8;
+            address.Name = "address";
+            address.Width = 200;
+            // 
+            // Phone
+            // 
+            Phone.HeaderText = "Phone";
+            Phone.MinimumWidth = 8;
+            Phone.Name = "Phone";
+            Phone.Width = 200;
+            // 
+            // Created_At
+            // 
+            Created_At.HeaderText = "Created At";
+            Created_At.MinimumWidth = 6;
+            Created_At.Name = "Created_At";
+            Created_At.Width = 125;
+            // 
+            // search
+            // 
+            search.AutoSize = true;
+            search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            search.Location = new System.Drawing.Point(312, 36);
+            search.Name = "search";
+            search.Size = new System.Drawing.Size(74, 28);
+            search.TabIndex = 7;
+            search.Text = "Search:";
             // 
             // Customer_panel2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 680);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Name = "Customer_panel2";
-            this.Text = "Customer_panel2";
-            this.Load += new System.EventHandler(this.Customer_panel2_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1302, 850);
+            Controls.Add(dgv_customer);
+            Controls.Add(panel2);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            
+            Text = "Customer_panel2";
+            Load += Customer_panel2_Load;
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_customer).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btn_Add;
-        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button bt_delete;
+        private System.Windows.Forms.DataGridView dgv_customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
+        private System.Windows.Forms.Label search;
     }
 }

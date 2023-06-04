@@ -21,7 +21,12 @@ namespace WindowsFormsApp1
 
         private async void bt_add_Click(object sender, EventArgs e)
         {
-           await Insert_Products();
+            await Insert_Products();
+            txt_name.Clear();
+            txt_stock.Clear();
+            txt_price.Clear();
+            txt_pet_type_id.Clear();
+            txt_product_type_id.Clear();
         }
         async Task Insert_Products()
         {
@@ -38,7 +43,7 @@ namespace WindowsFormsApp1
                     Created_at = createdAt
                 };
 
-                var result = await SupabaseClient.From<products>().Insert(model);
+                var result = await SupabaseClient.From<products>().Insert(model);               
                 MessageBox.Show("Them khach hang thanh cong!");
 
             }
@@ -48,8 +53,7 @@ namespace WindowsFormsApp1
             }
 
         }
-        //DataGridView dgv_type = new DataGridView();
-        //DataGridView dgv_pet_type = new DataGridView();
+        
       
         async Task load_product_type()
         {
@@ -101,6 +105,8 @@ namespace WindowsFormsApp1
             txt_name.Clear();
             txt_stock.Clear();
             txt_price.Clear();
+            txt_pet_type_id.Clear();
+            txt_product_type_id.Clear();
         }
 
         private async void Products_Registration_Form_Load(object sender, EventArgs e)
