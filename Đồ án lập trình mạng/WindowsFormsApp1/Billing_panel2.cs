@@ -11,7 +11,6 @@ using ZXing;
 using ZXing.Common;
 using ZXing.QrCode.Internal;
 using ZXing.Windows.Compatibility;
-using static System.Windows.Forms.Design.AxImporter;
 
 namespace WindowsFormsApp1
 {

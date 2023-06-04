@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             // 
             tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            tabControl1.ItemSize = new System.Drawing.Size(120, 240);
+            tabControl1.ItemSize = new System.Drawing.Size(90, 150);
             tabControl1.Location = new System.Drawing.Point(0, 0);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
@@ -55,6 +55,7 @@ namespace WindowsFormsApp1
             tabControl1.Size = new System.Drawing.Size(1491, 788);
             tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             tabControl1.TabIndex = 2;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // MainForm
             // 

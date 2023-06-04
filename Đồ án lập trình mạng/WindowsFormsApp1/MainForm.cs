@@ -1,6 +1,5 @@
 ﻿using Pet_Management;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -11,10 +10,13 @@ namespace WindowsFormsApp1
         public MainForm()
         {
             InitializeComponent();
-            AddNewTab(new Billing_panel2(), "Billing");
+            AddNewTab(new Home(), "Home");
             AddNewTab(new Customer_panel2(), "Customers");
+            AddNewTab(new Cage(), "Cage");
             AddNewTab(new Product_panel2(), "Products");
+            AddNewTab(new Billing_panel2(), "Billing");
             AddNewTab(new Transaction_panel2(), "Transactions");
+
         }
 
         private void AddNewTab(Control control, string tabTitle)
@@ -27,6 +29,11 @@ namespace WindowsFormsApp1
         }
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

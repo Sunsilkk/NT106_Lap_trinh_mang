@@ -2,10 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using System.Security.Policy;
-using System.Windows.Input;
-using Supabase.Interfaces;
 
 
 namespace WindowsFormsApp1
