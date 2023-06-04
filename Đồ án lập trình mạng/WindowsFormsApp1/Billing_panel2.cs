@@ -15,7 +15,7 @@ using static System.Windows.Forms.Design.AxImporter;
 
 namespace WindowsFormsApp1
 {
-    public partial class Billing_panel2 : Form
+    public partial class Billing_panel2 : UserControl
     {
         private Supabase.Client supabase;
         private List<products> productList;
@@ -185,7 +185,7 @@ namespace WindowsFormsApp1
             };
 
             var bitmap = barcodeWriter.Write(momoQr.ToString());
-            var logo = resizeImage(Properties.Resources.MoMo_Logo, 64, 64);
+            var logo = resizeImage(Pet_Management.Properties.Resources.MoMo_Logo, 64, 64);
             var graphic = Graphics.FromImage(bitmap);
             graphic.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
             return bitmap;
