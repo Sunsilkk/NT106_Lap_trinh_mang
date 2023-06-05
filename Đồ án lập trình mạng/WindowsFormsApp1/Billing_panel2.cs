@@ -102,6 +102,8 @@ namespace WindowsFormsApp1
                 lb_total.Text = billing.Total.ToString();
 
                 transactions.Add(currentTransaction);
+                cb_Qty.SelectedIndex = -1;
+
             }
             catch (Exception ex)
             {
@@ -209,7 +211,20 @@ namespace WindowsFormsApp1
 
         }
 
+        private void kryptonColorButton1_SelectedColorChanged(object sender, Krypton.Toolkit.ColorEventArgs e)
+        {
 
+        }
+
+        private void kryptonHeader1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public partial class QRCodeForm : Form

@@ -61,5 +61,10 @@ namespace Pet_Management
             LoadData();
 
         }
+
+        private void metroProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
