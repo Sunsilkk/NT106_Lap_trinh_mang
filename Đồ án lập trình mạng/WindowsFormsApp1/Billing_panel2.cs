@@ -1,4 +1,5 @@
 ﻿using Postgrest;
+using Supabase.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -34,7 +35,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             InitializeSupabase();
         }
-
+        public Supabase.Client SupabaseClient { get; set; }
         private void InitializeSupabase()
         {
             var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
@@ -91,7 +92,11 @@ namespace WindowsFormsApp1
                     Total = currentProduct.Price * qty,
                     CreatedAt = DateTime.Now,
                 };
-
+                var update = await SupabaseClient
+                        .From<Products>()
+                        .Where(x => x.Id != null)
+                        .Single();
+                if (update != null) update.Stock-=qty;
                 billing.Total += currentTransaction.Total;
 
                 lb_total.Text = billing.Total.ToString();

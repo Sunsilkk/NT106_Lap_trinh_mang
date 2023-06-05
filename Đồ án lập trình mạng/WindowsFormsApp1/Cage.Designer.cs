@@ -28,29 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
+            dgv_Cages = new System.Windows.Forms.DataGridView();
+            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            PET_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            PET_TYPE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            EMPTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgv_Cages).BeginInit();
             SuspendLayout();
             // 
-            // metroProgressBar1
+            // dgv_Cages
             // 
-            metroProgressBar1.Location = new System.Drawing.Point(113, 96);
-            metroProgressBar1.Name = "metroProgressBar1";
-            metroProgressBar1.Size = new System.Drawing.Size(551, 65);
-            metroProgressBar1.TabIndex = 0;
-            metroProgressBar1.Click += metroProgressBar1_Click;
+            dgv_Cages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Cages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, PET_ID, PET_TYPE_ID, EMPTY });
+            dgv_Cages.Location = new System.Drawing.Point(15, 39);
+            dgv_Cages.Name = "dgv_Cages";
+            dgv_Cages.RowHeadersWidth = 62;
+            dgv_Cages.RowTemplate.Height = 33;
+            dgv_Cages.Size = new System.Drawing.Size(760, 408);
+            dgv_Cages.TabIndex = 0;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.Width = 150;
+            // 
+            // PET_ID
+            // 
+            PET_ID.HeaderText = "PET ID";
+            PET_ID.MinimumWidth = 8;
+            PET_ID.Name = "PET_ID";
+            PET_ID.Width = 150;
+            // 
+            // PET_TYPE_ID
+            // 
+            PET_TYPE_ID.HeaderText = "PET TYPE ID";
+            PET_TYPE_ID.MinimumWidth = 8;
+            PET_TYPE_ID.Name = "PET_TYPE_ID";
+            PET_TYPE_ID.Width = 150;
+            // 
+            // EMPTY
+            // 
+            EMPTY.HeaderText = "EMPTY";
+            EMPTY.MinimumWidth = 8;
+            EMPTY.Name = "EMPTY";
+            EMPTY.Width = 150;
             // 
             // Cage
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(metroProgressBar1);
+            Controls.Add(dgv_Cages);
             Name = "Cage";
             Size = new System.Drawing.Size(800, 450);
+            ((System.ComponentModel.ISupportInitialize)dgv_Cages).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
+        private System.Windows.Forms.DataGridView dgv_Cages;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PET_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PET_TYPE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EMPTY;
     }
 }
