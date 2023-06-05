@@ -162,11 +162,11 @@
             // cb_Select
             // 
             cb_Select.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            cb_Select.Font = new System.Drawing.Font("Mouldy Cheese", 12.7499981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cb_Select.Font = new System.Drawing.Font("Mouldy Cheese", 11.9999981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Select.FormattingEnabled = true;
             cb_Select.Location = new System.Drawing.Point(453, 153);
             cb_Select.Name = "cb_Select";
-            cb_Select.Size = new System.Drawing.Size(163, 25);
+            cb_Select.Size = new System.Drawing.Size(163, 24);
             cb_Select.TabIndex = 5;
             cb_Select.SelectedIndexChanged += cb_Select_SelectedIndexChanged;
             // 
@@ -197,11 +197,11 @@
             // cb_Qty
             // 
             cb_Qty.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            cb_Qty.Font = new System.Drawing.Font("Mouldy Cheese", 12.7499981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cb_Qty.Font = new System.Drawing.Font("Mouldy Cheese", 11.9999981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Qty.FormattingEnabled = true;
             cb_Qty.Location = new System.Drawing.Point(753, 153);
             cb_Qty.Name = "cb_Qty";
-            cb_Qty.Size = new System.Drawing.Size(163, 25);
+            cb_Qty.Size = new System.Drawing.Size(163, 24);
             cb_Qty.TabIndex = 8;
             // 
             // bt_Cash
