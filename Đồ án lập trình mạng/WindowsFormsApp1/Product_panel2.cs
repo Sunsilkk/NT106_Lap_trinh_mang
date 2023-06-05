@@ -54,6 +54,12 @@ namespace WindowsFormsApp1
 
             productsList = new BindingList<Products>(product);
             dgv_product.DataSource = productsList;
+
+            dgv_product.Columns["Created_at"].Visible = false;
+            dgv_product.Columns["BaseUrl"].Visible = false;
+            dgv_product.Columns["TableName"].Visible = false;
+            dgv_product.Columns["PrimaryKey"].Visible = false;
+            dgv_product.Columns["RequestClientOptions"].Visible = false;
         }
 
         private void txt_search_TextChanged(object sender, EventArgs e)
