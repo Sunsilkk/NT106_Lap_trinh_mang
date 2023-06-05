@@ -99,14 +99,14 @@ namespace WindowsFormsApp1
 
                 string columnValue = selectedRow.Cells["name"].Value.ToString();
                 await supabase.From<Products>().Where(x => x.Name == columnValue).Delete();
-                MessageBox.Show("Xoa khach hang thanh cong");
+                MessageBox.Show("Xoa sản phẩm thanh cong");
                 dgv_product.Rows.Clear();
                 Product_panel2_Load(sender, e);
 
             }
-            catch
+            catch(Exception ex) 
             {
-                MessageBox.Show("loi");
+                MessageBox.Show("loi\r\n"+ ex.Message);
             }
         }
         private void btn_Add_Click(object sender, EventArgs e)
