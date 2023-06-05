@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
 
 
         [Column("stock")]
-        public long Stock { get; set; }
+        public int Stock { get; set; }
 
         [Column("price")]
         public long Price { get; set; }

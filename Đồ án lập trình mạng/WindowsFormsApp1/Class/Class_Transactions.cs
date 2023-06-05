@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.Class
         public Guid ProductId { get; set; }
 
         [Column("quantity")]
-        public long Quantity { get; set; }
+        public int Quantity { get; set; }
 
         [Column("total")]
         public long Total { get; set; }

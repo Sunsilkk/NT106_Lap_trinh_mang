@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
                     Type_id = txt_product_type_id.Text,
                     Pet_type_id = txt_pet_type_id.Text,
                     Name = txt_name.Text,
-                    Stock = long.Parse(txt_stock.Text),
+                    Stock = Int32.Parse(txt_stock.Text),
                     Price = long.Parse(txt_price.Text),
                     Created_at = createdAt
                 };

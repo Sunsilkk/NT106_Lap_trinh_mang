@@ -16,16 +16,16 @@ namespace WindowsFormsApp1
         public Supabase.Client SupabaseClient { get; set; }
 
 
-        
+
         private async void bt_add_Click(object sender, EventArgs e)
         {
-          await Insert_Customers();
+            await Insert_Customers();
             txt_address.Clear();
             txt_name.Clear();
             txt_phone.Clear();
         }
 
-        async Task  Insert_Customers()
+        async Task Insert_Customers()
         {
             var createdAt = DateTimeOffset.UtcNow;
             try
@@ -39,11 +39,11 @@ namespace WindowsFormsApp1
                 };
 
                 var result = await SupabaseClient.From<Customers>().Insert(model);
-                MessageBox.Show("Them khach hang thanh cong!" );
+                MessageBox.Show("Them khach hang thanh cong!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Them khach hang khong thanh cong!"+ ex.Message);
+                MessageBox.Show("Them khach hang khong thanh cong!" + ex.Message);
             }
 
         }
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
         private void Delete_Click(object sender, EventArgs e)
         {
             txt_name.Text = string.Empty;
-            txt_address.Text = string.Empty;    
+            txt_address.Text = string.Empty;
             txt_phone.Text = string.Empty;
         }
 
@@ -72,15 +72,15 @@ namespace WindowsFormsApp1
                 if (!char.IsLetter(c) && c != ' ')
                 {
                     MessageBox.Show("Vui long nhap dung dinh dang!");
-                    
+
                 }
             }
         }
 
         private void Customers_Registration_Form_Load(object sender, EventArgs e)
         {
-            
+
         }
-     
+
     }
 }
