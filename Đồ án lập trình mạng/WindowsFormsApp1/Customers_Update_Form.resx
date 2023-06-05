@@ -60,19 +60,4 @@
   <metadata name="Created_At.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Created_At.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="kryptonColorButton1.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAAHdElNRQfYAQcDKQTTY8BAAAAA80lEQVQ4T52RoQqFMBSG
-        B4Ig+AJWweQLmHwBk0kQTGbBZDIZTCZBEASD1WoSbLLXOpcz2HBuF+5u+ML5d863HUYopV9Z1xVc14Xr
-        ukB3jmhDTpqmQAiBuq7NBXir7/tM4Hke3PetlSgBp2kaqKoK4jhmkr7vzQRhGMJxHDCOIxNgretTAmRZ
-        FoiiSAwEQcAk8zwrEqngJEkCXdeJ5rZtmQDXefYhUoGc5wm2bbOBN5Zlwb7vkkQaRvDL8jxXbiqKgkmy
-        LPsuGIYBHMeBaZoUwbZt4hXP9UQD35NTlqVoep8hmEmCf9GGJmhDE7ShCdrwdyj5AC1uMqjjWGs2AAAA
-        AElFTkSuQmCC
-</value>
-  </data>
 </root>

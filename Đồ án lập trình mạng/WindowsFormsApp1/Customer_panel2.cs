@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pet_Management;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace WindowsFormsApp1
         Supabase.Client supabase;
 
         Customers_Registration_Form customers_Registration_Form = new Customers_Registration_Form();
+        Customers_Update_Form customers_Update_Form = new Customers_Update_Form();  
         private void InitializeSupabase()
         {
             var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
@@ -35,6 +37,7 @@ namespace WindowsFormsApp1
 
             supabase = new Supabase.Client(url, key, options);
             customers_Registration_Form.SupabaseClient = supabase;
+            customers_Update_Form.SupabaseClient = supabase;
         }
         private async Task<List<Customers>> GetCustomers()
         {
@@ -76,16 +79,16 @@ namespace WindowsFormsApp1
 
                 DataGridViewRow selectedRow = dgv_customer.Rows[selectedRowIndex];
 
-                string columnValue = selectedRow.Cells["name"].Value.ToString();
+                string columnValue = selectedRow.Cells["Name_T"].Value.ToString();
                 await supabase.From<Customers>().Where(x => x.Name == columnValue).Delete();
                 MessageBox.Show("Xoa khach hang thanh cong");
                 dgv_customer.Rows.Clear();
                 Customer_panel2_Load(sender, e);
 
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("loi");
+                MessageBox.Show("loi\r\n" + ex.Message);
             }
         }
 
@@ -123,6 +126,12 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void bt_update_Click(object sender, EventArgs e)
+        {
+            customers_Update_Form.ShowDialog();
+            dgv_customer.Rows.Clear();
+            Customer_panel2_Load(sender, e);
+        }
     }
 }
 
