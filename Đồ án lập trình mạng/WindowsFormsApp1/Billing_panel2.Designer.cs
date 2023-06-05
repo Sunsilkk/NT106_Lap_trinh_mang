@@ -30,186 +30,211 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bt_Add_Product = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lb_total = new System.Windows.Forms.Label();
-            this.dgv_Billing = new System.Windows.Forms.DataGridView();
-            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cb_Select = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cb_Qty = new System.Windows.Forms.ComboBox();
-            this.bt_Cash = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Billing)).BeginInit();
-            this.SuspendLayout();
+            bt_Add_Product = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            lb_total = new System.Windows.Forms.Label();
+            dgv_Billing = new System.Windows.Forms.DataGridView();
+            NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dgv_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            cb_Select = new System.Windows.Forms.ComboBox();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            cb_Qty = new System.Windows.Forms.ComboBox();
+            bt_Cash = new System.Windows.Forms.Button();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            label5 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)dgv_Billing).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // bt_Add_Product
             // 
-            this.bt_Add_Product.Location = new System.Drawing.Point(26, 26);
-            this.bt_Add_Product.Name = "bt_Add_Product";
-            this.bt_Add_Product.Size = new System.Drawing.Size(41, 31);
-            this.bt_Add_Product.TabIndex = 0;
-            this.bt_Add_Product.Text = "(+)";
-            this.bt_Add_Product.UseVisualStyleBackColor = true;
-            this.bt_Add_Product.Click += new System.EventHandler(this.bt_Add_Product_Click);
+            bt_Add_Product.Location = new System.Drawing.Point(38, 78);
+            bt_Add_Product.Name = "bt_Add_Product";
+            bt_Add_Product.Size = new System.Drawing.Size(67, 31);
+            bt_Add_Product.TabIndex = 0;
+            bt_Add_Product.Text = "(+)";
+            bt_Add_Product.UseVisualStyleBackColor = true;
+            bt_Add_Product.Click += bt_Add_Product_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Add Product";
+            label1.Location = new System.Drawing.Point(136, 86);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Add Product";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(773, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Total: ";
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label2.Location = new System.Drawing.Point(1016, 86);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(63, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Total: ";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_total
             // 
-            this.lb_total.AutoSize = true;
-            this.lb_total.Location = new System.Drawing.Point(843, 26);
-            this.lb_total.Name = "lb_total";
-            this.lb_total.Size = new System.Drawing.Size(33, 20);
-            this.lb_total.TabIndex = 3;
-            this.lb_total.Text = "null";
+            lb_total.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lb_total.Location = new System.Drawing.Point(1071, 86);
+            lb_total.Name = "lb_total";
+            lb_total.Size = new System.Drawing.Size(128, 15);
+            lb_total.TabIndex = 3;
+            lb_total.Text = "null";
             // 
             // dgv_Billing
             // 
-            this.dgv_Billing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Billing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NO,
-            this.dgv_Name,
-            this.Type,
-            this.Category,
-            this.Qty,
-            this.Price});
-            this.dgv_Billing.Location = new System.Drawing.Point(0, 63);
-            this.dgv_Billing.Name = "dgv_Billing";
-            this.dgv_Billing.RowHeadersWidth = 62;
-            this.dgv_Billing.RowTemplate.Height = 28;
-            this.dgv_Billing.Size = new System.Drawing.Size(971, 452);
-            this.dgv_Billing.TabIndex = 4;
+            dgv_Billing.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            dgv_Billing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Billing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Billing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { NO, dgv_Name, Type, Category, Qty, Price });
+            dgv_Billing.Location = new System.Drawing.Point(0, 137);
+            dgv_Billing.Name = "dgv_Billing";
+            dgv_Billing.RowHeadersWidth = 62;
+            dgv_Billing.RowTemplate.Height = 28;
+            dgv_Billing.Size = new System.Drawing.Size(1266, 567);
+            dgv_Billing.TabIndex = 4;
+            dgv_Billing.CellContentClick += dgv_Billing_CellContentClick;
             // 
             // NO
             // 
-            this.NO.HeaderText = "NO";
-            this.NO.MinimumWidth = 8;
-            this.NO.Name = "NO";
-            this.NO.Width = 150;
+            NO.HeaderText = "NO";
+            NO.MinimumWidth = 8;
+            NO.Name = "NO";
             // 
             // dgv_Name
             // 
-            this.dgv_Name.HeaderText = "Name";
-            this.dgv_Name.MinimumWidth = 8;
-            this.dgv_Name.Name = "dgv_Name";
-            this.dgv_Name.Width = 150;
+            dgv_Name.HeaderText = "Name";
+            dgv_Name.MinimumWidth = 8;
+            dgv_Name.Name = "dgv_Name";
             // 
             // Type
             // 
-            this.Type.HeaderText = "Type";
-            this.Type.MinimumWidth = 8;
-            this.Type.Name = "Type";
-            this.Type.Width = 150;
+            Type.HeaderText = "Type";
+            Type.MinimumWidth = 8;
+            Type.Name = "Type";
             // 
             // Category
             // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 8;
-            this.Category.Name = "Category";
-            this.Category.Width = 150;
+            Category.HeaderText = "Category";
+            Category.MinimumWidth = 8;
+            Category.Name = "Category";
             // 
             // Qty
             // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.MinimumWidth = 8;
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 150;
+            Qty.HeaderText = "Qty";
+            Qty.MinimumWidth = 8;
+            Qty.Name = "Qty";
             // 
             // Price
             // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 8;
-            this.Price.Name = "Price";
-            this.Price.Width = 150;
+            Price.HeaderText = "Price";
+            Price.MinimumWidth = 8;
+            Price.Name = "Price";
             // 
             // cb_Select
             // 
-            this.cb_Select.FormattingEnabled = true;
-            this.cb_Select.Location = new System.Drawing.Point(330, 26);
-            this.cb_Select.Name = "cb_Select";
-            this.cb_Select.Size = new System.Drawing.Size(121, 28);
-            this.cb_Select.TabIndex = 5;
-            this.cb_Select.SelectedIndexChanged += new System.EventHandler(this.cb_Select_SelectedIndexChanged);
+            cb_Select.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            cb_Select.FormattingEnabled = true;
+            cb_Select.Location = new System.Drawing.Point(365, 83);
+            cb_Select.Name = "cb_Select";
+            cb_Select.Size = new System.Drawing.Size(163, 23);
+            cb_Select.TabIndex = 5;
+            cb_Select.SelectedIndexChanged += cb_Select_SelectedIndexChanged;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(211, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Select Product";
+            label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label3.Location = new System.Drawing.Point(266, 86);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(93, 15);
+            label3.TabIndex = 6;
+            label3.Text = "Select Product";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(482, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Quantity";
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label4.Location = new System.Drawing.Point(611, 86);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(93, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Quantity";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cb_Qty
             // 
-            this.cb_Qty.FormattingEnabled = true;
-            this.cb_Qty.Location = new System.Drawing.Point(557, 26);
-            this.cb_Qty.Name = "cb_Qty";
-            this.cb_Qty.Size = new System.Drawing.Size(121, 28);
-            this.cb_Qty.TabIndex = 8;
+            cb_Qty.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            cb_Qty.FormattingEnabled = true;
+            cb_Qty.Location = new System.Drawing.Point(715, 83);
+            cb_Qty.Name = "cb_Qty";
+            cb_Qty.Size = new System.Drawing.Size(163, 23);
+            cb_Qty.TabIndex = 8;
             // 
             // bt_Cash
             // 
-            this.bt_Cash.Location = new System.Drawing.Point(403, 548);
-            this.bt_Cash.Name = "bt_Cash";
-            this.bt_Cash.Size = new System.Drawing.Size(192, 48);
-            this.bt_Cash.TabIndex = 9;
-            this.bt_Cash.Text = "Cash";
-            this.bt_Cash.UseVisualStyleBackColor = true;
-            this.bt_Cash.Click += new System.EventHandler(this.bt_Cash_Click);
+            bt_Cash.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            bt_Cash.Location = new System.Drawing.Point(403, 737);
+            bt_Cash.Name = "bt_Cash";
+            bt_Cash.Size = new System.Drawing.Size(487, 48);
+            bt_Cash.TabIndex = 9;
+            bt_Cash.Text = "Cash";
+            bt_Cash.UseVisualStyleBackColor = true;
+            bt_Cash.Click += bt_Cash_Click;
             // 
-            // Billing
+            // tableLayoutPanel1
             // 
-            this.ClientSize = new System.Drawing.Size(969, 608);
-            this.Controls.Add(this.bt_Cash);
-            this.Controls.Add(this.cb_Qty);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cb_Select);
-            this.Controls.Add(this.dgv_Billing);
-            this.Controls.Add(this.lb_total);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bt_Add_Product);
-            this.Name = "Billing";
-            this.Text = "Billing";
-            this.Load += new System.EventHandler(this.Billing_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Billing)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(label5, 0, 0);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(1264, 50);
+            tableLayoutPanel1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(3, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(1258, 50);
+            label5.TabIndex = 13;
+            label5.Text = "Billing";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Billing_panel2
+            // 
+            Controls.Add(tableLayoutPanel1);
+            Controls.Add(bt_Cash);
+            Controls.Add(cb_Qty);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(cb_Select);
+            Controls.Add(dgv_Billing);
+            Controls.Add(lb_total);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(bt_Add_Product);
+            Name = "Billing_panel2";
+            Size = new System.Drawing.Size(1264, 797);
+            Load += Billing_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_Billing).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -230,5 +255,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label5;
     }
 }

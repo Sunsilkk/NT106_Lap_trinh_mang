@@ -198,6 +198,13 @@ namespace WindowsFormsApp1
             graphic.DrawImage(originalImage, 0, 0, new_width, new_height);
             return new_image;
         }
+
+        private void dgv_Billing_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 
     public partial class QRCodeForm : Form
