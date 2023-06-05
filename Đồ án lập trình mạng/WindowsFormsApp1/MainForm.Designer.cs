@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             // 
             tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            tabControl1.ItemSize = new System.Drawing.Size(90, 150);
+            tabControl1.ItemSize = new System.Drawing.Size(90, 130);
             tabControl1.Location = new System.Drawing.Point(0, 0);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
@@ -64,6 +64,7 @@ namespace WindowsFormsApp1
             ClientSize = new System.Drawing.Size(1496, 788);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             Name = "MainForm";
             Text = "Form1";

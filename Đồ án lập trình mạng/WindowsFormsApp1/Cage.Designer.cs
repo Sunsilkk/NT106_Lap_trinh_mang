@@ -28,12 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Cage";
+            metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
+            SuspendLayout();
+            // 
+            // metroProgressBar1
+            // 
+            metroProgressBar1.Location = new System.Drawing.Point(113, 96);
+            metroProgressBar1.Name = "metroProgressBar1";
+            metroProgressBar1.Size = new System.Drawing.Size(551, 65);
+            metroProgressBar1.TabIndex = 0;
+            metroProgressBar1.Click += metroProgressBar1_Click;
+            // 
+            // Cage
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(metroProgressBar1);
+            Name = "Cage";
+            Size = new System.Drawing.Size(800, 450);
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
     }
 }
