@@ -17,8 +17,8 @@ namespace WindowsFormsApp1
     public partial class Billing_panel2 : UserControl
     {
         private Supabase.Client supabase;
-        private List<products> productList;
-        private products currentProduct = new products();
+        private List<Products> productList;
+        private Products currentProduct = new Products();
         private List<Transactions> transactions;
         private Billing billing;
 
@@ -48,9 +48,9 @@ namespace WindowsFormsApp1
             supabase = new Supabase.Client(url, key, options);
         }
 
-        private async Task<List<products>> GetProducts()
+        private async Task<List<Products>> GetProducts()
         {
-            var result = await supabase.From<products>().Get();
+            var result = await supabase.From<Products>().Get();
             var product = result.Models;
             return product;
         }

@@ -14,9 +14,9 @@ namespace WindowsFormsApp1
         }
         public Supabase.Client SupabaseClient { get; set; }
 
-        private  void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private async void bt_add_Click(object sender, EventArgs e)
@@ -33,17 +33,17 @@ namespace WindowsFormsApp1
             var createdAt = DateTimeOffset.UtcNow;
             try
             {
-                var model = new products
+                var model = new Products
                 {
                     Type_id = txt_product_type_id.Text,
                     Pet_type_id = txt_pet_type_id.Text,
                     Name = txt_name.Text,
-                    Stock = long.Parse(txt_stock.Text), 
+                    Stock = long.Parse(txt_stock.Text),
                     Price = long.Parse(txt_price.Text),
                     Created_at = createdAt
                 };
 
-                var result = await SupabaseClient.From<products>().Insert(model);               
+                var result = await SupabaseClient.From<Products>().Insert(model);
                 MessageBox.Show("Them khach hang thanh cong!");
 
             }
@@ -51,29 +51,28 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Them khach hang khong thanh cong!" + ex.Message);
             }
-
         }
-        
-      
+
+
         async Task load_product_type()
         {
 
             var response = await SupabaseClient.From<product_types>().Get();
-            
+
             var type = response.Models;
-            
+
             dgv_type.ColumnCount = 2;
             dgv_type.Columns[0].Name = "Id";
             dgv_type.Columns[1].Name = "Name";
-            
+
             foreach (var ty in type)
             {
                 dgv_type.Rows.Add(ty.Id, ty.Type);
             }
-           
+
             dgv_type.Dock = DockStyle.Fill;
             panel3.Controls.Add(dgv_type);
-            
+
         }
         async Task load_pet_type()
         {
@@ -88,17 +87,9 @@ namespace WindowsFormsApp1
             }
             dgv_pet_type.Dock = DockStyle.Fill;
             panel4.Controls.Add(dgv_pet_type);
-           
-        }
-        string select_type()
-        {
-            int selectedRowIndex = dgv_pet_type.SelectedCells[0].RowIndex;
 
-            DataGridViewRow selectedRow = dgv_pet_type.Rows[selectedRowIndex];
-
-            string columnValue = selectedRow.Cells["id"].Value.ToString();
-           return columnValue;
         }
+
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -111,29 +102,11 @@ namespace WindowsFormsApp1
 
         private async void Products_Registration_Form_Load(object sender, EventArgs e)
         {
+            dgv_pet_type.Rows.Clear();
+            dgv_type.Rows.Clear();
             await load_pet_type();
             await load_product_type();
-          
-        }
-        
-        private void dgv_pet_type_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int selectedRowIndex = dgv_pet_type.SelectedCells[0].RowIndex;
 
-            DataGridViewRow selectedRow = dgv_pet_type.Rows[selectedRowIndex];
-
-            string columnValue = selectedRow.Cells["id"].Value.ToString();
-            txt_pet_type_id.Text= columnValue;
-        }
-
-        private void dgv_type_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int selectedRowIndex = dgv_type.SelectedCells[0].RowIndex;
-
-            DataGridViewRow selectedRow = dgv_type.Rows[selectedRowIndex];
-
-            string columnValue = selectedRow.Cells["id"].Value.ToString();
-            txt_product_type_id.Text = columnValue;
         }
 
         private void txt_stock_TextChanged(object sender, EventArgs e)
@@ -148,6 +121,32 @@ namespace WindowsFormsApp1
         private void txt_price_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_pet_type_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRowIndex = dgv_pet_type.SelectedCells[0].RowIndex;
+
+            DataGridViewRow selectedRow = dgv_pet_type.Rows[selectedRowIndex];
+            if (!selectedRow.IsNewRow)
+            {
+                string columnValue = selectedRow.Cells["id"].Value.ToString();
+                txt_pet_type_id.Text = columnValue;
+            }
+            
+        }
+
+        private void dgv_type_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRowIndex = dgv_type.SelectedCells[0].RowIndex;
+
+            DataGridViewRow selectedRow = dgv_type.Rows[selectedRowIndex];
+            if(!selectedRow.IsNewRow)
+            {
+                string columnValue = selectedRow.Cells["id"].Value.ToString();
+                txt_product_type_id.Text = columnValue;
+            }
+           
         }
     }
 }

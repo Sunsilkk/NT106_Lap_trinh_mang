@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp1
 {
     [Table("products")]
-    class products : BaseModel
+    class Products : BaseModel
     {
         [PrimaryKey("id")]
         public Guid Id { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pet_Management;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace WindowsFormsApp1
             InitializeSupabase();
         }
         Products_Registration_Form products_Registration_Form = new Products_Registration_Form();
+        Products_Update_Form products_Update_Form = new Products_Update_Form();
         Supabase.Client supabase;
 
 
@@ -33,10 +35,11 @@ namespace WindowsFormsApp1
 
             supabase = new Supabase.Client(url, key, options);
             products_Registration_Form.SupabaseClient = supabase;
+            products_Update_Form.SupabaseClient = supabase;
         }
-        private async Task<List<products>> GetProducts()
+        private async Task<List<Products>> GetProducts()
         {
-            var result = await supabase.From<products>().Get();
+            var result = await supabase.From<Products>().Get();
             var product = result.Models;
             return product;
         }
@@ -52,18 +55,6 @@ namespace WindowsFormsApp1
 
             }
         }
-
-
-
-
-
-        private void btn_Add_Click(object sender, EventArgs e)
-        {
-            products_Registration_Form.ShowDialog();
-        }
-
-       
-
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             string keyword = txt_search.Text;
@@ -107,7 +98,7 @@ namespace WindowsFormsApp1
                 DataGridViewRow selectedRow = dgv_product.Rows[selectedRowIndex];
 
                 string columnValue = selectedRow.Cells["name"].Value.ToString();
-                await supabase.From<products>().Where(x => x.Name == columnValue).Delete();
+                await supabase.From<Products>().Where(x => x.Name == columnValue).Delete();
                 MessageBox.Show("Xoa khach hang thanh cong");
                 dgv_product.Rows.Clear();
                 Product_panel2_Load(sender, e);
@@ -117,6 +108,19 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("loi");
             }
+        }
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            products_Registration_Form.ShowDialog();
+            dgv_product.Rows.Clear();
+            Product_panel2_Load(sender, e);
+        }
+
+        private void bt_update_Click(object sender, EventArgs e)
+        {
+            products_Update_Form.ShowDialog();
+            dgv_product.Rows.Clear();
+            Product_panel2_Load(sender, e);
         }
     }
 }

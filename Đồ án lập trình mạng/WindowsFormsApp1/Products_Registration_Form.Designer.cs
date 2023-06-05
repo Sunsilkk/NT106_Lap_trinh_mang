@@ -28,271 +28,284 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Delete = new System.Windows.Forms.Button();
-            this.bt_add = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_product_type_id = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Product_id = new System.Windows.Forms.Label();
-            this.txt_pet_type_id = new System.Windows.Forms.TextBox();
-            this.txt_price = new System.Windows.Forms.TextBox();
-            this.txt_stock = new System.Windows.Forms.TextBox();
-            this.txt_name = new System.Windows.Forms.TextBox();
-            this.lb_phone = new System.Windows.Forms.Label();
-            this.lb_address = new System.Windows.Forms.Label();
-            this.lb_name = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dgv_pet_type = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dgv_type = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pet_type)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_type)).BeginInit();
-            this.SuspendLayout();
+            Delete = new System.Windows.Forms.Button();
+            bt_add = new System.Windows.Forms.Button();
+            panel2 = new System.Windows.Forms.Panel();
+            txt_product_type_id = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            Product_id = new System.Windows.Forms.Label();
+            txt_pet_type_id = new System.Windows.Forms.TextBox();
+            txt_price = new System.Windows.Forms.TextBox();
+            txt_stock = new System.Windows.Forms.TextBox();
+            txt_name = new System.Windows.Forms.TextBox();
+            lb_phone = new System.Windows.Forms.Label();
+            lb_address = new System.Windows.Forms.Label();
+            lb_name = new System.Windows.Forms.Label();
+            panel1 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            panel3 = new System.Windows.Forms.Panel();
+            dgv_pet_type = new System.Windows.Forms.DataGridView();
+            panel4 = new System.Windows.Forms.Panel();
+            dgv_type = new System.Windows.Forms.DataGridView();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_pet_type).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_type).BeginInit();
+            SuspendLayout();
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(528, 361);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(108, 36);
-            this.Delete.TabIndex = 7;
-            this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            Delete.Location = new System.Drawing.Point(528, 451);
+            Delete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            Delete.Name = "Delete";
+            Delete.Size = new System.Drawing.Size(108, 45);
+            Delete.TabIndex = 7;
+            Delete.Text = "Delete";
+            Delete.UseVisualStyleBackColor = true;
+            Delete.Click += Delete_Click;
             // 
             // bt_add
             // 
-            this.bt_add.Location = new System.Drawing.Point(324, 361);
-            this.bt_add.Name = "bt_add";
-            this.bt_add.Size = new System.Drawing.Size(108, 36);
-            this.bt_add.TabIndex = 6;
-            this.bt_add.Text = "Add";
-            this.bt_add.UseVisualStyleBackColor = true;
-            this.bt_add.Click += new System.EventHandler(this.bt_add_Click);
+            bt_add.Location = new System.Drawing.Point(324, 451);
+            bt_add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            bt_add.Name = "bt_add";
+            bt_add.Size = new System.Drawing.Size(108, 45);
+            bt_add.TabIndex = 6;
+            bt_add.Text = "Add";
+            bt_add.UseVisualStyleBackColor = true;
+            bt_add.Click += bt_add_Click;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txt_product_type_id);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.Product_id);
-            this.panel2.Controls.Add(this.txt_pet_type_id);
-            this.panel2.Controls.Add(this.txt_price);
-            this.panel2.Controls.Add(this.txt_stock);
-            this.panel2.Controls.Add(this.txt_name);
-            this.panel2.Controls.Add(this.lb_phone);
-            this.panel2.Controls.Add(this.lb_address);
-            this.panel2.Controls.Add(this.lb_name);
-            this.panel2.Location = new System.Drawing.Point(27, 84);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(432, 246);
-            this.panel2.TabIndex = 5;
+            panel2.Controls.Add(txt_product_type_id);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(Product_id);
+            panel2.Controls.Add(txt_pet_type_id);
+            panel2.Controls.Add(txt_price);
+            panel2.Controls.Add(txt_stock);
+            panel2.Controls.Add(txt_name);
+            panel2.Controls.Add(lb_phone);
+            panel2.Controls.Add(lb_address);
+            panel2.Controls.Add(lb_name);
+            panel2.Location = new System.Drawing.Point(27, 105);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(432, 308);
+            panel2.TabIndex = 5;
             // 
             // txt_product_type_id
             // 
-            this.txt_product_type_id.Enabled = false;
-            this.txt_product_type_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_product_type_id.Location = new System.Drawing.Point(187, 148);
-            this.txt_product_type_id.Name = "txt_product_type_id";
-            this.txt_product_type_id.Size = new System.Drawing.Size(176, 30);
-            this.txt_product_type_id.TabIndex = 10;
+            txt_product_type_id.Enabled = false;
+            txt_product_type_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_product_type_id.Location = new System.Drawing.Point(187, 185);
+            txt_product_type_id.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_product_type_id.Name = "txt_product_type_id";
+            txt_product_type_id.Size = new System.Drawing.Size(176, 30);
+            txt_product_type_id.TabIndex = 10;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 205);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Pet Type Id:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(15, 256);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(118, 25);
+            label2.TabIndex = 9;
+            label2.Text = "Pet Type Id:";
             // 
             // Product_id
             // 
-            this.Product_id.AutoSize = true;
-            this.Product_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Product_id.Location = new System.Drawing.Point(15, 151);
-            this.Product_id.Name = "Product_id";
-            this.Product_id.Size = new System.Drawing.Size(166, 25);
-            this.Product_id.TabIndex = 8;
-            this.Product_id.Text = "Product Types Id:";
+            Product_id.AutoSize = true;
+            Product_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Product_id.Location = new System.Drawing.Point(15, 189);
+            Product_id.Name = "Product_id";
+            Product_id.Size = new System.Drawing.Size(166, 25);
+            Product_id.TabIndex = 8;
+            Product_id.Text = "Product Types Id:";
             // 
             // txt_pet_type_id
             // 
-            this.txt_pet_type_id.Enabled = false;
-            this.txt_pet_type_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pet_type_id.Location = new System.Drawing.Point(153, 202);
-            this.txt_pet_type_id.Name = "txt_pet_type_id";
-            this.txt_pet_type_id.Size = new System.Drawing.Size(210, 30);
-            this.txt_pet_type_id.TabIndex = 7;
+            txt_pet_type_id.Enabled = false;
+            txt_pet_type_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_pet_type_id.Location = new System.Drawing.Point(153, 252);
+            txt_pet_type_id.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_pet_type_id.Name = "txt_pet_type_id";
+            txt_pet_type_id.Size = new System.Drawing.Size(210, 30);
+            txt_pet_type_id.TabIndex = 7;
             // 
             // txt_price
             // 
-            this.txt_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_price.Location = new System.Drawing.Point(308, 102);
-            this.txt_price.Name = "txt_price";
-            this.txt_price.Size = new System.Drawing.Size(55, 30);
-            this.txt_price.TabIndex = 5;
-            this.txt_price.TextChanged += new System.EventHandler(this.txt_price_TextChanged);
+            txt_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_price.Location = new System.Drawing.Point(308, 128);
+            txt_price.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_price.Name = "txt_price";
+            txt_price.Size = new System.Drawing.Size(55, 30);
+            txt_price.TabIndex = 5;
+            txt_price.TextChanged += txt_price_TextChanged;
             // 
             // txt_stock
             // 
-            this.txt_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_stock.Location = new System.Drawing.Point(117, 102);
-            this.txt_stock.Name = "txt_stock";
-            this.txt_stock.Size = new System.Drawing.Size(53, 30);
-            this.txt_stock.TabIndex = 4;
-            this.txt_stock.TextChanged += new System.EventHandler(this.txt_stock_TextChanged);
+            txt_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_stock.Location = new System.Drawing.Point(117, 128);
+            txt_stock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_stock.Name = "txt_stock";
+            txt_stock.Size = new System.Drawing.Size(53, 30);
+            txt_stock.TabIndex = 4;
+            txt_stock.TextChanged += txt_stock_TextChanged;
             // 
             // txt_name
             // 
-            this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_name.Location = new System.Drawing.Point(117, 44);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(246, 30);
-            this.txt_name.TabIndex = 3;
+            txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_name.Location = new System.Drawing.Point(117, 55);
+            txt_name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_name.Name = "txt_name";
+            txt_name.Size = new System.Drawing.Size(246, 30);
+            txt_name.TabIndex = 3;
             // 
             // lb_phone
             // 
-            this.lb_phone.AutoSize = true;
-            this.lb_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_phone.Location = new System.Drawing.Point(240, 102);
-            this.lb_phone.Name = "lb_phone";
-            this.lb_phone.Size = new System.Drawing.Size(62, 25);
-            this.lb_phone.TabIndex = 2;
-            this.lb_phone.Text = "Price:";
+            lb_phone.AutoSize = true;
+            lb_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lb_phone.Location = new System.Drawing.Point(240, 128);
+            lb_phone.Name = "lb_phone";
+            lb_phone.Size = new System.Drawing.Size(62, 25);
+            lb_phone.TabIndex = 2;
+            lb_phone.Text = "Price:";
             // 
             // lb_address
             // 
-            this.lb_address.AutoSize = true;
-            this.lb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_address.Location = new System.Drawing.Point(15, 102);
-            this.lb_address.Name = "lb_address";
-            this.lb_address.Size = new System.Drawing.Size(49, 25);
-            this.lb_address.TabIndex = 1;
-            this.lb_address.Text = "Qty:";
+            lb_address.AutoSize = true;
+            lb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lb_address.Location = new System.Drawing.Point(15, 128);
+            lb_address.Name = "lb_address";
+            lb_address.Size = new System.Drawing.Size(49, 25);
+            lb_address.TabIndex = 1;
+            lb_address.Text = "Qty:";
             // 
             // lb_name
             // 
-            this.lb_name.AutoSize = true;
-            this.lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_name.Location = new System.Drawing.Point(15, 44);
-            this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(70, 25);
-            this.lb_name.TabIndex = 0;
-            this.lb_name.Text = "Name:";
+            lb_name.AutoSize = true;
+            lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lb_name.Location = new System.Drawing.Point(15, 55);
+            lb_name.Name = "lb_name";
+            lb_name.Size = new System.Drawing.Size(70, 25);
+            lb_name.TabIndex = 0;
+            lb_name.Text = "Name:";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 61);
-            this.panel1.TabIndex = 4;
+            panel1.Controls.Add(label1);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1028, 76);
+            panel1.TabIndex = 4;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(187, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(356, 42);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Product Registration";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(187, 11);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(356, 42);
+            label1.TabIndex = 6;
+            label1.Text = "Product Registration";
+            label1.Click += label1_Click;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dgv_pet_type);
-            this.panel3.Location = new System.Drawing.Point(491, 105);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(246, 225);
-            this.panel3.TabIndex = 6;
+            panel3.Controls.Add(dgv_pet_type);
+            panel3.Location = new System.Drawing.Point(491, 131);
+            panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(246, 281);
+            panel3.TabIndex = 6;
             // 
             // dgv_pet_type
             // 
-            this.dgv_pet_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_pet_type.Location = new System.Drawing.Point(0, 1);
-            this.dgv_pet_type.Name = "dgv_pet_type";
-            this.dgv_pet_type.RowHeadersWidth = 51;
-            this.dgv_pet_type.RowTemplate.Height = 24;
-            this.dgv_pet_type.Size = new System.Drawing.Size(246, 225);
-            this.dgv_pet_type.TabIndex = 0;
-            this.dgv_pet_type.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pet_type_CellClick);
+            dgv_pet_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_pet_type.Location = new System.Drawing.Point(0, 1);
+            dgv_pet_type.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dgv_pet_type.Name = "dgv_pet_type";
+            dgv_pet_type.RowHeadersWidth = 51;
+            dgv_pet_type.RowTemplate.Height = 24;
+            dgv_pet_type.Size = new System.Drawing.Size(246, 281);
+            dgv_pet_type.TabIndex = 0;
+            dgv_pet_type.CellClick += dgv_pet_type_CellClick;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dgv_type);
-            this.panel4.Location = new System.Drawing.Point(770, 106);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(246, 225);
-            this.panel4.TabIndex = 7;
+            panel4.Controls.Add(dgv_type);
+            panel4.Location = new System.Drawing.Point(770, 132);
+            panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(246, 281);
+            panel4.TabIndex = 7;
             // 
             // dgv_type
             // 
-            this.dgv_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_type.Location = new System.Drawing.Point(0, -1);
-            this.dgv_type.Name = "dgv_type";
-            this.dgv_type.RowHeadersWidth = 51;
-            this.dgv_type.RowTemplate.Height = 24;
-            this.dgv_type.Size = new System.Drawing.Size(246, 226);
-            this.dgv_type.TabIndex = 1;
-            this.dgv_type.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_type_CellClick);
+            dgv_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_type.Location = new System.Drawing.Point(0, -1);
+            dgv_type.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dgv_type.Name = "dgv_type";
+            dgv_type.RowHeadersWidth = 51;
+            dgv_type.RowTemplate.Height = 24;
+            dgv_type.Size = new System.Drawing.Size(246, 282);
+            dgv_type.TabIndex = 1;
+            dgv_type.CellClick += dgv_type_CellClick;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(486, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Pet Type:";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(486, 96);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(97, 25);
+            label3.TabIndex = 8;
+            label3.Text = "Pet Type:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(765, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Product Type:";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(765, 96);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(135, 25);
+            label4.TabIndex = 9;
+            label4.Text = "Product Type:";
             // 
             // Products_Registration_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 425);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.Delete);
-            this.Controls.Add(this.bt_add);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Name = "Products_Registration_Form";
-            this.Text = "Products";
-            this.Load += new System.EventHandler(this.Products_Registration_Form_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pet_type)).EndInit();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_type)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1028, 531);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(Delete);
+            Controls.Add(bt_add);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            Name = "Products_Registration_Form";
+            Text = "Products";
+            Load += Products_Registration_Form_Load;
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgv_pet_type).EndInit();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgv_type).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
