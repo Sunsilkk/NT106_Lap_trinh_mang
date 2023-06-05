@@ -226,7 +226,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pet_type_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn  Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;

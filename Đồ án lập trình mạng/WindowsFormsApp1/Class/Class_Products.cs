@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         public string? Pet_type_id { get; set; }
 
         [Column("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
 
         [Column("stock")]

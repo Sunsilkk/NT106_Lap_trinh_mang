@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Postgrest.Attributes;
+﻿using Postgrest.Attributes;
 using Postgrest.Models;
 using System;
 using System.Collections.Generic;
@@ -17,10 +16,10 @@ namespace WindowsFormsApp1.Class
         [PrimaryKey("id", true)]
         public int Id { get; set; }
 
-        [Column("pet_id", nullValueHandling: NullValueHandling.Ignore)]
+        [Column("pet_id")]
         public Guid Pet_id { get; set; }
 
-        [Column("pet_type_id", nullValueHandling: NullValueHandling.Ignore)]
+        [Column("pet_type_id")]
         public Guid Pet_type_id { get; set; }
 
 

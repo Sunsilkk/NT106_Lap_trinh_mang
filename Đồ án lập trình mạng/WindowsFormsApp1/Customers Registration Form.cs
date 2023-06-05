@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
                 {
                     Name = txt_name.Text,
                     Address = txt_address.Text,
-                    Phone = (int)Convert.ToInt64(txt_phone.Text),
+                    Phone = Int32.Parse(txt_phone.Text),
                     Created_at = createdAt
                 };
 
@@ -64,17 +64,23 @@ namespace WindowsFormsApp1
                 txt_phone.Clear();
             }
         }
-        private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void txt_name_TextChanged(object sender, EventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            foreach (char c in txt_name.Text)
             {
-                MessageBox.Show("Ten khong hop le!");
-                e.Handled = true;
+                if (!char.IsLetter(c) && c != ' ')
+                {
+                    MessageBox.Show("Vui long nhap dung dinh dang!");
+
+                }
             }
         }
+
         private void Customers_Registration_Form_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }
