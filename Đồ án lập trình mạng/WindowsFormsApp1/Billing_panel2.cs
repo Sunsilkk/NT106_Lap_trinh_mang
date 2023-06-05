@@ -211,15 +211,8 @@ namespace WindowsFormsApp1
 
         }
 
-        private void kryptonColorButton1_SelectedColorChanged(object sender, Krypton.Toolkit.ColorEventArgs e)
-        {
+     
 
-        }
-
-        private void kryptonHeader1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void label5_Click(object sender, EventArgs e)
         {

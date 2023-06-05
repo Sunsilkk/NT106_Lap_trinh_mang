@@ -18,10 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Krypton.Toolkit" Version="70.22.11.312" />
-    <PackageReference Include="MetroFramework" Version="1.2.0.3" />
     <PackageReference Include="supabase-csharp" Version="0.11.0" />
-    <PackageReference Include="WpfColorFontDialog" Version="1.0.8" />
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
     <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.12" />
   </ItemGroup>

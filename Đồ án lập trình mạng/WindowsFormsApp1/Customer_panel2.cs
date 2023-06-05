@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         private void InitializeSupabase()
         {
             var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
+            var key = "c";
 
             var options = new Supabase.SupabaseOptions
             {
