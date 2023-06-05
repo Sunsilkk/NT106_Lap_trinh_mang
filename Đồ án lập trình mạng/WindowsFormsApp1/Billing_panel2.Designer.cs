@@ -48,6 +48,7 @@
             cb_Qty = new System.Windows.Forms.ComboBox();
             bt_Cash = new System.Windows.Forms.Button();
             label5 = new System.Windows.Forms.Label();
+            bt_Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgv_Billing).BeginInit();
             SuspendLayout();
             // 
@@ -228,9 +229,20 @@
             label5.Text = "Billing";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bt_Clear
+            // 
+            bt_Clear.Location = new System.Drawing.Point(1032, 56);
+            bt_Clear.Name = "bt_Clear";
+            bt_Clear.Size = new System.Drawing.Size(94, 29);
+            bt_Clear.TabIndex = 14;
+            bt_Clear.Text = "Clear";
+            bt_Clear.UseVisualStyleBackColor = true;
+            bt_Clear.Click += bt_Clear_Click;
+            // 
             // Billing_panel2
             // 
             BackColor = System.Drawing.Color.FromArgb(246, 241, 233);
+            Controls.Add(bt_Clear);
             Controls.Add(label5);
             Controls.Add(bt_Cash);
             Controls.Add(cb_Qty);
@@ -269,5 +281,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.Button bt_Clear;
     }
 }

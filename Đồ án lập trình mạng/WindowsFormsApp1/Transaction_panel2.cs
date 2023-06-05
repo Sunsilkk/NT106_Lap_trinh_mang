@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Class;
@@ -9,6 +10,8 @@ namespace WindowsFormsApp1
     public partial class Transaction_panel2 : UserControl
     {
         Supabase.Client supabase;
+        private List<Products> productList;
+        //private Products currentProduct = new Products();
         public Transaction_panel2()
         {
             InitializeComponent();
@@ -39,18 +42,27 @@ namespace WindowsFormsApp1
         {
             await LoadData();
         }
-
+        private async Task<List<Products>> GetProducts()
+        {
+            var result = await supabase.From<Products>().Get();
+            var product = result.Models;
+            return product;
+        }
         private async Task LoadData()
         {
+            productList = await GetProducts();
             var transactions = await GetTransactions();
             try
             {
                 foreach (var transaction in transactions)
                 {
-                    dgv_transaction.Rows.Add(transaction.Id, transaction.ProductId, transaction.Quantity, transaction.Total);
+
+                    var existingProduct = productList.FirstOrDefault(t => t.Id == transaction.ProductId);
+                    if (existingProduct != null)
+                        dgv_transaction.Rows.Add(transaction.Id, existingProduct.Name, transaction.Quantity, transaction.Total);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         private void bt_Search_Click(object sender, EventArgs e)
         {

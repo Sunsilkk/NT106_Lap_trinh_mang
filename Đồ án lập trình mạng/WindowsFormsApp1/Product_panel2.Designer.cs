@@ -32,15 +32,15 @@
             btn_Add = new System.Windows.Forms.Button();
             bt_delete = new System.Windows.Forms.Button();
             dgv_product = new System.Windows.Forms.DataGridView();
+            search = new System.Windows.Forms.Label();
+            bt_update = new System.Windows.Forms.Button();
             ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Type_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Pet_type_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Pet_type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Name_pro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            search = new System.Windows.Forms.Label();
-            bt_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgv_product).BeginInit();
             SuspendLayout();
             // 
@@ -81,62 +81,13 @@
             // 
             dgv_product.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Type_Id, Pet_type_id, Name, Stock, Price, Created_At });
+            dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Type_Name, Pet_type_Name, Name_pro, Stock, Price, Created_At });
             dgv_product.Location = new System.Drawing.Point(45, 163);
             dgv_product.Name = "dgv_product";
             dgv_product.RowHeadersWidth = 62;
             dgv_product.RowTemplate.Height = 28;
             dgv_product.Size = new System.Drawing.Size(989, 401);
             dgv_product.TabIndex = 9;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.Width = 150;
-            // 
-            // Type_Id
-            // 
-            Type_Id.HeaderText = "Type Id";
-            Type_Id.MinimumWidth = 8;
-            Type_Id.Name = "Type_Id";
-            Type_Id.Width = 200;
-            // 
-            // Pet_type_id
-            // 
-            Pet_type_id.HeaderText = "Pet type id";
-            Pet_type_id.MinimumWidth = 8;
-            Pet_type_id.Name = "Pet_type_id";
-            Pet_type_id.Width = 200;
-            // 
-            // Name
-            // 
-            Name.HeaderText = "Name";
-            Name.MinimumWidth = 8;
-            Name.Name = "Name";
-            Name.Width = 200;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "Stock";
-            Stock.MinimumWidth = 6;
-            Stock.Name = "Stock";
-            Stock.Width = 125;
-            // 
-            // Price
-            // 
-            Price.HeaderText = "Price";
-            Price.MinimumWidth = 6;
-            Price.Name = "Price";
-            Price.Width = 125;
-            // 
-            // Created_At
-            // 
-            Created_At.HeaderText = "Created At";
-            Created_At.MinimumWidth = 6;
-            Created_At.Name = "Created_At";
-            Created_At.Width = 125;
             // 
             // search
             // 
@@ -160,6 +111,48 @@
             bt_update.UseVisualStyleBackColor = false;
             bt_update.Click += bt_update_Click;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            // 
+            // Type_Name
+            // 
+            Type_Name.HeaderText = "Product Type Name";
+            Type_Name.MinimumWidth = 8;
+            Type_Name.Name = "Type_Name";
+            // 
+            // Pet_type_Name
+            // 
+            Pet_type_Name.HeaderText = "Pet type Name";
+            Pet_type_Name.MinimumWidth = 8;
+            Pet_type_Name.Name = "Pet_type_Name";
+            // 
+            // Name_pro
+            // 
+            Name_pro.HeaderText = "Name";
+            Name_pro.MinimumWidth = 8;
+            Name_pro.Name = "Name_pro";
+            // 
+            // Stock
+            // 
+            Stock.HeaderText = "Stock";
+            Stock.MinimumWidth = 6;
+            Stock.Name = "Stock";
+            // 
+            // Price
+            // 
+            Price.HeaderText = "Price";
+            Price.MinimumWidth = 6;
+            Price.Name = "Price";
+            // 
+            // Created_At
+            // 
+            Created_At.HeaderText = "Created At";
+            Created_At.MinimumWidth = 6;
+            Created_At.Name = "Created_At";
+            // 
             // Product_panel2
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -171,7 +164,7 @@
             Controls.Add(txt_search);
             Controls.Add(btn_Add);
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-           
+            Name = "Product_panel2";
             Size = new System.Drawing.Size(1046, 591);
             Load += Product_panel2_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_product).EndInit();
@@ -184,14 +177,14 @@
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button bt_delete;
         private System.Windows.Forms.DataGridView dgv_product;
+        private System.Windows.Forms.Label search;
+        private System.Windows.Forms.Button bt_update;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pet_type_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pet_type_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_pro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
-        private System.Windows.Forms.Label search;
-        private System.Windows.Forms.Button bt_update;
     }
 }

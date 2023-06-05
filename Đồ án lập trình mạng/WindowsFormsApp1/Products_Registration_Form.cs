@@ -133,7 +133,7 @@ namespace WindowsFormsApp1
                 string columnValue = selectedRow.Cells["id"].Value.ToString();
                 txt_pet_type_id.Text = columnValue;
             }
-            
+
         }
 
         private void dgv_type_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -141,12 +141,12 @@ namespace WindowsFormsApp1
             int selectedRowIndex = dgv_type.SelectedCells[0].RowIndex;
 
             DataGridViewRow selectedRow = dgv_type.Rows[selectedRowIndex];
-            if(!selectedRow.IsNewRow)
+            if (!selectedRow.IsNewRow)
             {
                 string columnValue = selectedRow.Cells["id"].Value.ToString();
                 txt_product_type_id.Text = columnValue;
             }
-           
+
         }
     }
 }

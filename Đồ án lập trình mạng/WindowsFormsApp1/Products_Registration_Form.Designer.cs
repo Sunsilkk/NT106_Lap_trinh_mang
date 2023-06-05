@@ -263,7 +263,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(486, 96);
+            label3.Location = new System.Drawing.Point(770, 96);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(97, 25);
             label3.TabIndex = 8;
@@ -273,7 +273,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(765, 96);
+            label4.Location = new System.Drawing.Point(491, 96);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(135, 25);
             label4.TabIndex = 9;

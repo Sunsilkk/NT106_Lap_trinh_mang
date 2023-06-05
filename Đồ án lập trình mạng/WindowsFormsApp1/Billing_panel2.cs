@@ -277,6 +277,13 @@ namespace WindowsFormsApp1
             return new_image;
         }
 
+        private void bt_Clear_Click(object sender, EventArgs e)
+        {
+            lb_total.Text = "0";
+            dgv_Billing.Rows.Clear();
+            transactions.Clear();
+            billing = null;
+        }
     }
 
     public partial class QRCodeForm : Form

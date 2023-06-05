@@ -1,6 +1,7 @@
 ﻿using Pet_Management;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,20 @@ namespace WindowsFormsApp1
         Products_Registration_Form products_Registration_Form = new Products_Registration_Form();
         Products_Update_Form products_Update_Form = new Products_Update_Form();
         Supabase.Client supabase;
-
+        private List<product_types> productList;
+        private List<pet_types> pet_typeList;
+        private async Task<List<product_types>> GetProducts_type()
+        {
+            var result = await supabase.From<product_types>().Get();
+            var product_type = result.Models;
+            return product_type;
+        }
+        private async Task<List<pet_types>> Getpet_type()
+        {
+            var result = await supabase.From<pet_types>().Get();
+            var pet_type = result.Models;
+            return pet_type;
+        }
 
         private async void Product_panel2_Load(object sender, EventArgs e)
         {
@@ -47,11 +61,16 @@ namespace WindowsFormsApp1
         async Task loaddata()
         {
             var product = await GetProducts();
+            productList = await GetProducts_type();
+            pet_typeList = await Getpet_type();
 
 
             foreach (var pro in product)
             {
-                dgv_product.Rows.Add(pro.Id, pro.Type_id, pro.Pet_type_id, pro.Name, pro.Stock, pro.Price, pro.Created_at);
+                var existingProducttype = productList.FirstOrDefault(t => t.Id.ToString() == pro.Type_id.ToString());
+                var existingPettype = pet_typeList.FirstOrDefault(t => t.Id.ToString() == pro.Pet_type_id.ToString());
+                if (existingProducttype != null && existingPettype != null)
+                    dgv_product.Rows.Add(pro.Id, existingProducttype.Type, existingPettype.Type, pro.Name, pro.Stock, pro.Price, pro.Created_at);
 
             }
         }
