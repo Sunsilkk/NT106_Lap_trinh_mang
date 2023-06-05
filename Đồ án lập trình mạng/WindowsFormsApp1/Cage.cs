@@ -1,16 +1,9 @@
 ﻿using WindowsFormsApp1.Class;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1;
-using WindowsFormsApp1.Class;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace Pet_Management
 {
@@ -45,21 +38,19 @@ namespace Pet_Management
         {
 
             var cages = await Getcage();
-            dgv_Cages.Rows.Add(cages);
+            // dgv_Cages.Rows.Add(cages);
             try
             {
                 foreach (var cage in cages)
                 {
-                    MessageBox.Show("hffjv", "hffkjvkd");
                     dgv_Cages.Rows.Add(cage.Id, cage.Pet_id, cage.Pet_type_id, cage.empty);
                 }
             }
             catch (Exception ex) { }
         }
-        private void Cage_Load(object sender, EventArgs e)
+        private async void Cage_Load(object sender, EventArgs e)
         {
-            LoadData();
-
+            await LoadData();
         }
 
         private void metroProgressBar1_Click(object sender, EventArgs e)

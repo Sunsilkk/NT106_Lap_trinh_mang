@@ -3,26 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.ComponentModel;
+using System.Linq;
 
 namespace WindowsFormsApp1
 {
     public partial class Product_panel2 : UserControl
     {
+        private Products_Registration_Form products_Registration_Form = new Products_Registration_Form();
+        private Products_Update_Form products_Update_Form = new Products_Update_Form();
+        private Supabase.Client supabase;
+        private BindingList<Products> productsList;
+
         public Product_panel2()
         {
             InitializeComponent();
             InitializeSupabase();
         }
-        Products_Registration_Form products_Registration_Form = new Products_Registration_Form();
-        Products_Update_Form products_Update_Form = new Products_Update_Form();
-        Supabase.Client supabase;
 
-
-        private async void Product_panel2_Load(object sender, EventArgs e)
+        private void Product_panel2_Load(object sender, EventArgs e)
         {
-            await loaddata();
+            LoadDataAsync();
         }
+
         private void InitializeSupabase()
         {
             var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
@@ -37,56 +40,30 @@ namespace WindowsFormsApp1
             products_Registration_Form.SupabaseClient = supabase;
             products_Update_Form.SupabaseClient = supabase;
         }
-        private async Task<List<Products>> GetProducts()
+
+        private async Task<List<Products>> GetProductsAsync()
         {
             var result = await supabase.From<Products>().Get();
             var product = result.Models;
             return product;
         }
 
-        async Task loaddata()
+        private async void LoadDataAsync()
         {
-            var product = await GetProducts();
+            var product = await GetProductsAsync();
 
-
-            foreach (var pro in product)
-            {
-                dgv_product.Rows.Add(pro.Id, pro.Type_id, pro.Pet_type_id, pro.Name, pro.Stock, pro.Price, pro.Created_at);
-
-            }
+            productsList = new BindingList<Products>(product);
+            dgv_product.DataSource = productsList;
         }
+
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             string keyword = txt_search.Text;
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                foreach (DataGridViewRow row in dgv_product.Rows)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        try
-                        {
-                            if (cell.Value != null && cell.Value.ToString().Contains(keyword))
-                            {
-                                row.Visible = true;
-                                break;
-                            }
-                            else
-                            {
-                                row.Visible = false;
-                            }
-                        }
-                        catch { }
-                    }
-                }
-            }
-            else
-            {
-                foreach (DataGridViewRow row in dgv_product.Rows)
-                {
-                    row.Visible = true;
-                }
-            }
+            var filteredProducts = string.IsNullOrEmpty(keyword)
+                ? productsList
+                : new BindingList<Products>(productsList.Where(p => p.Name.Contains(keyword)).ToList());
+
+            dgv_product.DataSource = filteredProducts;
         }
 
         private async void bt_delete_Click(object sender, EventArgs e)
@@ -100,27 +77,24 @@ namespace WindowsFormsApp1
                 string columnValue = selectedRow.Cells["name"].Value.ToString();
                 await supabase.From<Products>().Where(x => x.Name == columnValue).Delete();
                 MessageBox.Show("Xoa khach hang thanh cong");
-                dgv_product.Rows.Clear();
-                Product_panel2_Load(sender, e);
-
+                LoadDataAsync();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("loi");
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
+
         private void btn_Add_Click(object sender, EventArgs e)
         {
             products_Registration_Form.ShowDialog();
-            dgv_product.Rows.Clear();
-            Product_panel2_Load(sender, e);
+            LoadDataAsync();
         }
 
         private void bt_update_Click(object sender, EventArgs e)
         {
             products_Update_Form.ShowDialog();
-            dgv_product.Rows.Clear();
-            Product_panel2_Load(sender, e);
+            LoadDataAsync();
         }
     }
 }

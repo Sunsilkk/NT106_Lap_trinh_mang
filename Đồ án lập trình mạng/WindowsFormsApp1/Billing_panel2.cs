@@ -1,4 +1,5 @@
 ﻿using Postgrest;
+using Supabase.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -34,6 +35,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             InitializeSupabase();
         }
+        public Supabase.Client SupabaseClient { get; set; }
         private void InitializeSupabase()
         {
             var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
@@ -53,27 +55,7 @@ namespace WindowsFormsApp1
             var product = result.Models;
             return product;
         }
-        private void dgv_Billing_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                if (dgv_Billing.Columns[e.ColumnIndex] is DataGridViewColumn && e.RowIndex < dgv_Billing.Rows.Count - 1)
-                {
-                    var result = MessageBox.Show("Xóa sản phẩm đã chọn?", "Thông báo", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        var selectedRow = dgv_Billing.Rows[e.RowIndex];
-                        var transactionToRemove = transactions.FirstOrDefault(t => t.ProductId == currentProduct.Id);
-                        if (transactionToRemove != null)
-                        {
-                            transactions.Remove(transactionToRemove);
-                            dgv_Billing.Rows.RemoveAt(e.RowIndex);
-                            UpdateTotal();
-                        }
-                    }
-                }
-            }
-        }
+
         private async void bt_Add_Product_Click(object sender, EventArgs e)
         {
             try
@@ -81,57 +63,47 @@ namespace WindowsFormsApp1
                 if (cb_Qty.SelectedItem == null) return;
                 if (cb_Select.SelectedItem == null) return;
 
-                var qty = int.Parse(cb_Qty.SelectedItem.ToString());
-                var existingTransaction = transactions.FirstOrDefault(t => t.ProductId == currentProduct.Id);
+                var order = dgv_Billing.RowCount;
 
-                if (existingTransaction != null)
+                var typeNameResult = await supabase
+                    .From<product_types>()
+                    .Select("type")
+                    .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
+                    .Get();
+
+                var petTypeNameResult = await supabase
+                    .From<pet_types>()
+                    .Select("type")
+                    .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
+                    .Get();
+
+                var typeName = typeNameResult.Model.Type;
+                var petTypeName = petTypeNameResult.Model.Type;
+
+                dgv_Billing.Rows.Add(order, currentProduct.Name, typeName, petTypeName, cb_Qty.SelectedItem, currentProduct.Price);
+
+                var qty = long.Parse(cb_Qty.SelectedItem.ToString());
+
+                var currentTransaction = new Transactions
                 {
-                    existingTransaction.Quantity += qty;
-                    if (existingTransaction.Quantity > currentProduct.Stock)
-                    {
-                        existingTransaction.Quantity -= qty;
-                        MessageBox.Show("Số lượng sản phẩm đã chọn vượt quá số lượng hiện có", "Thông báo", MessageBoxButtons.OK);
-                        return;
-                    }
-                    existingTransaction.Total = currentProduct.Price * existingTransaction.Quantity;
-                    UpdateRowQty(existingTransaction);
+                    Id = billing.Id,
+                    ProductId = currentProduct.Id,
+                    Quantity = qty,
+                    Total = currentProduct.Price * qty,
+                    CreatedAt = DateTime.Now,
+                };
+                var update = await SupabaseClient
+                        .From<Products>()
+                        .Where(x => x.Id != null)
+                        .Single();
+                if (update != null) update.Stock-=qty;
+                billing.Total += currentTransaction.Total;
 
-                }
-                else
-                {
-                    var order = dgv_Billing.RowCount;
-                    var typeNameResult = await supabase
-                        .From<product_types>()
-                        .Select("type")
-                        .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
-                        .Get();
+                lb_total.Text = billing.Total.ToString();
 
-                    var petTypeNameResult = await supabase
-                        .From<pet_types>()
-                        .Select("type")
-                        .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
-                        .Get();
-
-                    var typeName = typeNameResult.Model.Type;
-                    var petTypeName = petTypeNameResult.Model.Type;
-
-                    dgv_Billing.Rows.Add(order, currentProduct.Name, typeName, petTypeName, qty, currentProduct.Price);
-
-                    var currentTransaction = new Transactions
-                    {
-                        Id = billing.Id,
-                        ProductId = currentProduct.Id,
-                        Quantity = qty,
-                        Total = currentProduct.Price * qty,
-                        CreatedAt = DateTime.Now,
-                    };
-
-                    transactions.Add(currentTransaction);
-                }
-
-                UpdateTotal();
-
+                transactions.Add(currentTransaction);
                 cb_Qty.SelectedIndex = -1;
+
             }
             catch (Exception ex)
             {
@@ -139,31 +111,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void UpdateRowQty(Transactions transaction)
-        {
-            foreach (DataGridViewRow row in dgv_Billing.Rows)
-            {
-                var productId = row.Cells["dgv_Name"].Value.ToString();
-                if (productId == cb_Select.SelectedItem)
-                {
-                    row.Cells["Qty"].Value = transaction.Quantity;
-                    break;
-                }
-            }
-        }
-        private void UpdateTotal()
-        {
-            decimal total = 0;
-            foreach (var transaction in transactions)
-            {
-                total += transaction.Total;
-            }
-            lb_total.Text = total.ToString();
-        }
-
         private async Task LoadData()
         {
-
             productList = await GetProducts();
             foreach (var product in productList)
             {
@@ -206,32 +155,12 @@ namespace WindowsFormsApp1
             billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
+            await supabase.From<Billing>().Insert(billing);
 
+            await supabase.From<Transactions>().Insert(transactions);
 
             using var qrCodeForm = new QRCodeForm(qrBitmap);
-            var dialogResult = qrCodeForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                if (qrCodeForm.IsOKClicked)
-                {
-                    try
-                    {
-                        await supabase.From<Billing>().Insert(billing);
-                        await supabase.From<Transactions>().Insert(transactions);
-                        foreach (var transaction in transactions)
-                        {
-                            var update = await supabase
-                            .From<Products>()
-                            .Where(x => x.Id == transaction.ProductId)
-                            .Single();
-                            update.Stock -= transaction.Quantity;
-                            await update.Update<Products>();
-                        }
-                        dgv_Billing.Rows.Clear();
-                    }
-                    catch (Exception ex) { }
-                }
-            }
+            qrCodeForm.ShowDialog();
         }
 
         private Bitmap GenerateQRBitmap()
@@ -277,14 +206,24 @@ namespace WindowsFormsApp1
             return new_image;
         }
 
+        private void dgv_Billing_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+     
+
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public partial class QRCodeForm : Form
     {
         private PictureBox pictureBox;
-        private Button buttonOK;
-        private Button buttonCancel;
-        public bool IsOKClicked { get; private set; }
+
         public QRCodeForm(Image qrCodeImage)
         {
             InitializeComponent();
@@ -294,44 +233,17 @@ namespace WindowsFormsApp1
             pictureBox.Size = new Size(qrCodeImage.Width, qrCodeImage.Height);
             pictureBox.Image = qrCodeImage;
             Controls.Add(pictureBox);
-
-            buttonOK = new Button();
-            buttonOK.Text = "OK";
-            buttonOK.Location = new Point(50, qrCodeImage.Height + 10);
-            buttonOK.Click += ButtonOK_Click;
-            Controls.Add(buttonOK);
-
-            buttonCancel = new Button();
-            buttonCancel.Text = "Cancel";
-            buttonCancel.Location = new Point(150, qrCodeImage.Height + 10);
-            buttonCancel.Click += ButtonCancel_Click;
-            Controls.Add(buttonCancel);
         }
 
         private void InitializeComponent()
         {
-
             this.SuspendLayout();
             // 
             // QRCodeForm
             // 
-            this.ClientSize = new System.Drawing.Size(264, 300);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "QRCodeForm";
             this.ResumeLayout(false);
-        }
-
-        private void ButtonOK_Click(object sender, EventArgs e)
-        {
-            IsOKClicked = true;
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void ButtonCancel_Click(object sender, EventArgs e)
-        {
-            IsOKClicked = false;
-            DialogResult = DialogResult.Cancel;
-            Close();
         }
     }
 }
