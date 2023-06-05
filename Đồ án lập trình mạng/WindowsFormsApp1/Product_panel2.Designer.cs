@@ -79,6 +79,7 @@
             // 
             // dgv_product
             // 
+            dgv_product.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Type_Id, Pet_type_id, Name, Stock, Price, Created_At });
             dgv_product.Location = new System.Drawing.Point(45, 163);
