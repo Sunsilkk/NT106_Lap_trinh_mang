@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
                 {
                     Name = txt_name.Text,
                     Address = txt_address.Text,
-                    Phone = Int32.Parse(txt_phone.Text),
+                    Phone = (int)Convert.ToInt64(txt_phone.Text),
                     Created_at = createdAt
                 };
 

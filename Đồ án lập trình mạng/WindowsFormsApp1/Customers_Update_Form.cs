@@ -80,7 +80,7 @@ namespace Pet_Management
                         .Single();
                     update.Name = txt_name.Text;
                     update.Address = txt_address.Text;
-                    update.Phone = Int32.Parse(txt_phone.Text);
+                    update.Phone = (int)Convert.ToInt64(txt_phone.Text);
                     await update.Update<Customers>();
                     dgv_customer.Rows.Clear();
                     Customers_Update_Form_Load(sender, e);
