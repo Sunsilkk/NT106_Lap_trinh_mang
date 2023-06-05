@@ -3,17 +3,13 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-// thanks to Mavamaarten~ for coding this
-
 namespace Pet_Management
 {
     internal class DotNetBarTabControl : TabControl
     {
         public DotNetBarTabControl()
         {
-            SetStyle(
-                ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint |
-                ControlStyles.DoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             SizeMode = TabSizeMode.Fixed;
             ItemSize = new Size(44, 136);
             Alignment = TabAlignment.Left;
@@ -22,120 +18,118 @@ namespace Pet_Management
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap b = new Bitmap(Width, Height);
-            Graphics g = Graphics.FromImage(b);
-            if (!DesignMode)
-                SelectedTab.BackColor = SystemColors.Control;
-            g.Clear(SystemColors.Control);
-            g.FillRectangle(new SolidBrush(Color.FromArgb(246, 248, 252)),
-                new Rectangle(0, 0, ItemSize.Height + 4, Height));
-            g.DrawLine(new Pen(Color.FromArgb(170, 187, 204)), new Point(ItemSize.Height + 3, 0),
-                new Point(ItemSize.Height + 3, 999));
-            g.DrawLine(new Pen(Color.FromArgb(170, 187, 204)), new Point(0, Size.Height - 1),
-                new Point(Width + 3, Size.Height - 1));
-            for (int i = 0; i <= TabCount - 1; i++)
+            using (Bitmap b = new Bitmap(Width, Height))
             {
-                if (i == SelectedIndex)
+                using (Graphics g = Graphics.FromImage(b))
                 {
-                    Rectangle x2 = new Rectangle(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2),
-                        new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
-                    ColorBlend myBlend = new ColorBlend();
-                    myBlend.Colors = new Color[] { Color.FromArgb(232, 232, 240), Color.FromArgb(232, 232, 240), Color.FromArgb(232, 232, 240) };
-                    myBlend.Positions = new float[] { 0f, 0.5f, 1f };
-                    LinearGradientBrush lgBrush = new LinearGradientBrush(x2, Color.Black, Color.Black, 90f);
-                    lgBrush.InterpolationColors = myBlend;
-                    g.FillRectangle(lgBrush, x2);
-                    g.DrawRectangle(new Pen(Color.FromArgb(170, 187, 204)), x2);
+                    if (!DesignMode)
+                        SelectedTab.BackColor = SystemColors.Control;
 
-                    g.SmoothingMode = SmoothingMode.HighQuality;
-                    Point[] p =
-                    {
-                        new Point(ItemSize.Height - 3, GetTabRect(i).Location.Y + 20),
-                        new Point(ItemSize.Height + 4, GetTabRect(i).Location.Y + 14),
-                        new Point(ItemSize.Height + 4, GetTabRect(i).Location.Y + 27)
-                    };
-                    g.FillPolygon(SystemBrushes.Control, p);
-                    g.DrawPolygon(new Pen(Color.FromArgb(170, 187, 204)), p);
+                    g.Clear(SystemColors.Control);
+                    g.FillRectangle(new SolidBrush(Color.FromArgb(246, 248, 252)), new Rectangle(0, 0, ItemSize.Height + 4, Height));
+                    g.DrawLine(new Pen(Color.FromArgb(170, 187, 204)), new Point(ItemSize.Height + 3, 0), new Point(ItemSize.Height + 3, 999));
+                    g.DrawLine(new Pen(Color.FromArgb(170, 187, 204)), new Point(0, Size.Height - 1), new Point(Width + 3, Size.Height - 1));
 
-                    if (ImageList != null)
+                    for (int i = 0; i < TabCount; i++)
                     {
-                        try
+                        Rectangle tabRect = GetTabRect(i);
+
+                        if (i == SelectedIndex)
                         {
-                            g.DrawImage(ImageList.Images[TabPages[i].ImageIndex],
-                                new Point(x2.Location.X + 8, x2.Location.Y + 6));
-                            g.DrawString("  " + TabPages[i].Text, Font, Brushes.Black, x2, new StringFormat
+                            Rectangle tabBackgroundRect = new Rectangle(tabRect.Location.X - 2, tabRect.Location.Y - 2, tabRect.Width + 3, tabRect.Height - 1);
+
+                            ColorBlend myBlend = new ColorBlend();
+                            myBlend.Colors = new Color[] { Color.FromArgb(232, 232, 240), Color.FromArgb(232, 232, 240), Color.FromArgb(232, 232, 240) };
+                            myBlend.Positions = new float[] { 0f, 0.5f, 1f };
+                            LinearGradientBrush lgBrush = new LinearGradientBrush(tabBackgroundRect, Color.Black, Color.Black, 90f);
+                            lgBrush.InterpolationColors = myBlend;
+
+                            g.FillRectangle(lgBrush, tabBackgroundRect);
+                            g.DrawRectangle(new Pen(Color.FromArgb(170, 187, 204)), tabBackgroundRect);
+
+                            g.SmoothingMode = SmoothingMode.HighQuality;
+                            Point[] arrowPoints =
                             {
-                                LineAlignment = StringAlignment.Center,
-                                Alignment = StringAlignment.Center
-                            });
-                        }
-                        catch (Exception)
-                        {
-                            g.DrawString(TabPages[i].Text, new Font(Font.FontFamily, Font.Size, FontStyle.Bold),
-                                Brushes.Black, x2, new StringFormat
+                                new Point(ItemSize.Height - 3, tabRect.Location.Y + 20),
+                                new Point(ItemSize.Height + 4, tabRect.Location.Y + 14),
+                                new Point(ItemSize.Height + 4, tabRect.Location.Y + 27)
+                            };
+                            g.FillPolygon(SystemBrushes.Control, arrowPoints);
+                            g.DrawPolygon(new Pen(Color.FromArgb(170, 187, 204)), arrowPoints);
+
+                            if (ImageList != null && TabPages[i].ImageIndex >= 0 && TabPages[i].ImageIndex < ImageList.Images.Count)
+                            {
+                                try
+                                {
+                                    g.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(tabBackgroundRect.Location.X + 8, tabBackgroundRect.Location.Y + 6));
+                                    g.DrawString("  " + TabPages[i].Text, Font, Brushes.Black, tabBackgroundRect, new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Center,
+                                        Alignment = StringAlignment.Center
+                                    });
+                                }
+                                catch (Exception)
+                                {
+                                    g.DrawString(TabPages[i].Text, new Font(Font.FontFamily, Font.Size, FontStyle.Bold), Brushes.Black, tabBackgroundRect, new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Center,
+                                        Alignment = StringAlignment.Center
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                g.DrawString(TabPages[i].Text, new Font(Font.FontFamily, Font.Size, FontStyle.Bold), Brushes.Black, tabBackgroundRect, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Center
                                 });
+                            }
+
+                            g.DrawLine(new Pen(Color.FromArgb(200, 200, 250)), new Point(tabBackgroundRect.Location.X - 1, tabBackgroundRect.Location.Y - 1), new Point(tabBackgroundRect.Location.X, tabBackgroundRect.Location.Y));
+                            g.DrawLine(new Pen(Color.FromArgb(200, 200, 250)), new Point(tabBackgroundRect.Location.X - 1, tabBackgroundRect.Bottom - 1), new Point(tabBackgroundRect.Location.X, tabBackgroundRect.Bottom));
                         }
-                    }
-                    else
-                    {
-                        g.DrawString(TabPages[i].Text, new Font(Font.FontFamily, Font.Size, FontStyle.Bold),
-                            Brushes.Black, x2, new StringFormat
+                        else
+                        {
+                            Rectangle tabBackgroundRect = new Rectangle(tabRect.Location.X - 2, tabRect.Location.Y - 2, tabRect.Width + 3, tabRect.Height - 1);
+
+                            g.FillRectangle(new SolidBrush(Color.FromArgb(246, 248, 252)), tabBackgroundRect);
+                            g.DrawLine(new Pen(Color.FromArgb(170, 187, 204)), new Point(tabBackgroundRect.Right, tabBackgroundRect.Top), new Point(tabBackgroundRect.Right, tabBackgroundRect.Bottom));
+
+                            if (ImageList != null && TabPages[i].ImageIndex >= 0 && TabPages[i].ImageIndex < ImageList.Images.Count)
                             {
-                                LineAlignment = StringAlignment.Center,
-                                Alignment = StringAlignment.Center
-                            });
+                                try
+                                {
+                                    g.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(tabBackgroundRect.Location.X + 8, tabBackgroundRect.Location.Y + 6));
+                                    g.DrawString("  " + TabPages[i].Text, Font, Brushes.DimGray, tabBackgroundRect, new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Center,
+                                        Alignment = StringAlignment.Center
+                                    });
+                                }
+                                catch (Exception)
+                                {
+                                    g.DrawString(TabPages[i].Text, Font, Brushes.DimGray, tabBackgroundRect, new StringFormat
+                                    {
+                                        LineAlignment = StringAlignment.Center,
+                                        Alignment = StringAlignment.Center
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                g.DrawString(TabPages[i].Text, Font, Brushes.DimGray, tabBackgroundRect, new StringFormat
+                                {
+                                    LineAlignment = StringAlignment.Center,
+                                    Alignment = StringAlignment.Center
+                                });
+                            }
+                        }
                     }
 
-                    g.DrawLine(new Pen(Color.FromArgb(200, 200, 250)), new Point(x2.Location.X - 1, x2.Location.Y - 1),
-                        new Point(x2.Location.X, x2.Location.Y));
-                    g.DrawLine(new Pen(Color.FromArgb(200, 200, 250)), new Point(x2.Location.X - 1, x2.Bottom - 1),
-                        new Point(x2.Location.X, x2.Bottom));
-                }
-                else
-                {
-                    Rectangle x2 = new Rectangle(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2),
-                        new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
-                    g.FillRectangle(new SolidBrush(Color.FromArgb(246, 248, 252)), x2);
-                    g.DrawLine(new Pen(Color.FromArgb(170, 187, 204)), new Point(x2.Right, x2.Top),
-                        new Point(x2.Right, x2.Bottom));
-                    if (ImageList != null)
-                    {
-                        try
-                        {
-                            g.DrawImage(ImageList.Images[TabPages[i].ImageIndex],
-                                new Point(x2.Location.X + 8, x2.Location.Y + 6));
-                            g.DrawString("  " + TabPages[i].Text, Font, Brushes.DimGray, x2, new StringFormat
-                            {
-                                LineAlignment = StringAlignment.Center,
-                                Alignment = StringAlignment.Center
-                            });
-                        }
-                        catch (Exception)
-                        {
-                            g.DrawString(TabPages[i].Text, Font, Brushes.DimGray, x2, new StringFormat
-                            {
-                                LineAlignment = StringAlignment.Center,
-                                Alignment = StringAlignment.Center
-                            });
-                        }
-                    }
-                    else
-                    {
-                        g.DrawString(TabPages[i].Text, Font, Brushes.DimGray, x2, new StringFormat
-                        {
-                            LineAlignment = StringAlignment.Center,
-                            Alignment = StringAlignment.Center
-                        });
-                    }
+                    e.Graphics.DrawImage(b, new Point(0, 0));
                 }
             }
-
-            e.Graphics.DrawImage(b, new Point(0, 0));
-            g.Dispose();
-            b.Dispose();
         }
     }
 }

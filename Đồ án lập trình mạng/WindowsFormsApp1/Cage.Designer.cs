@@ -38,13 +38,15 @@
             // 
             // dgv_Cages
             // 
+            dgv_Cages.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             dgv_Cages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Cages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, PET_ID, PET_TYPE_ID, EMPTY });
-            dgv_Cages.Location = new System.Drawing.Point(15, 39);
+            dgv_Cages.Location = new System.Drawing.Point(14, 23);
+            dgv_Cages.Margin = new System.Windows.Forms.Padding(2);
             dgv_Cages.Name = "dgv_Cages";
             dgv_Cages.RowHeadersWidth = 62;
             dgv_Cages.RowTemplate.Height = 33;
-            dgv_Cages.Size = new System.Drawing.Size(760, 408);
+            dgv_Cages.Size = new System.Drawing.Size(1023, 627);
             dgv_Cages.TabIndex = 0;
             // 
             // ID
@@ -77,11 +79,13 @@
             // 
             // Cage
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(dgv_Cages);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "Cage";
-            Size = new System.Drawing.Size(800, 450);
+            Size = new System.Drawing.Size(1051, 652);
+            Load += Cage_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_Cages).EndInit();
             ResumeLayout(false);
         }
