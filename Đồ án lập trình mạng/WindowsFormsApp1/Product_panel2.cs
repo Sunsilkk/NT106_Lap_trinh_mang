@@ -113,7 +113,7 @@ namespace WindowsFormsApp1
             try
             {
                 int selectedRowIndex = dgv_product.SelectedCells[0].RowIndex;
-                 
+
                 DataGridViewRow selectedRow = dgv_product.Rows[selectedRowIndex];
 
                 string columnValue = selectedRow.Cells["name"].Value.ToString();
@@ -140,6 +140,11 @@ namespace WindowsFormsApp1
             products_Update_Form.ShowDialog();
             dgv_product.Rows.Clear();
             Product_panel2_Load(sender, e);
+        }
+
+        private void dgv_product_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
         }
     }
 }
