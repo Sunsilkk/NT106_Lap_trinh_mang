@@ -48,16 +48,16 @@
             lb_address = new System.Windows.Forms.Label();
             lb_name = new System.Windows.Forms.Label();
             dgv_pet_type = new System.Windows.Forms.DataGridView();
+            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            NAME_t = new System.Windows.Forms.DataGridViewTextBoxColumn();
             dgv_type = new System.Windows.Forms.DataGridView();
+            PET_TYPE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            PET_T_N = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             panel3 = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
             label1 = new System.Windows.Forms.Label();
-            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            NAME_t = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            PET_TYPE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            PET_T_N = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_pet_type).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv_type).BeginInit();
@@ -67,24 +67,28 @@
             // 
             // Delete
             // 
+            Delete.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Delete.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             Delete.Location = new System.Drawing.Point(753, 679);
             Delete.Name = "Delete";
             Delete.Size = new System.Drawing.Size(96, 43);
             Delete.TabIndex = 7;
             Delete.Text = "Delete";
-            Delete.UseVisualStyleBackColor = true;
+            Delete.UseVisualStyleBackColor = false;
             Delete.Click += Delete_Click;
             // 
             // bt_add
             // 
+            bt_add.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            bt_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_add.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             bt_add.Location = new System.Drawing.Point(597, 679);
             bt_add.Name = "bt_add";
             bt_add.Size = new System.Drawing.Size(96, 43);
             bt_add.TabIndex = 6;
             bt_add.Text = "Add";
-            bt_add.UseVisualStyleBackColor = true;
+            bt_add.UseVisualStyleBackColor = false;
             bt_add.Click += bt_add_Click;
             // 
             // panel2
@@ -110,7 +114,7 @@
             txt_product_type_id.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_product_type_id.Location = new System.Drawing.Point(335, 147);
             txt_product_type_id.Name = "txt_product_type_id";
-            txt_product_type_id.Size = new System.Drawing.Size(202, 34);
+            txt_product_type_id.Size = new System.Drawing.Size(327, 34);
             txt_product_type_id.TabIndex = 10;
             // 
             // label2
@@ -139,7 +143,7 @@
             txt_pet_type_id.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_pet_type_id.Location = new System.Drawing.Point(335, 205);
             txt_pet_type_id.Name = "txt_pet_type_id";
-            txt_pet_type_id.Size = new System.Drawing.Size(202, 34);
+            txt_pet_type_id.Size = new System.Drawing.Size(327, 34);
             txt_pet_type_id.TabIndex = 7;
             // 
             // txt_price
@@ -229,6 +233,28 @@
             dgv_pet_type.TabIndex = 0;
             dgv_pet_type.CellClick += dgv_pet_type_CellClick;
             // 
+            // ID
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            ID.DefaultCellStyle = dataGridViewCellStyle2;
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // NAME_t
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            NAME_t.DefaultCellStyle = dataGridViewCellStyle3;
+            NAME_t.HeaderText = "NAME";
+            NAME_t.Name = "NAME_t";
+            // 
             // dgv_type
             // 
             dgv_type.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -244,6 +270,28 @@
             dgv_type.Size = new System.Drawing.Size(452, 257);
             dgv_type.TabIndex = 1;
             dgv_type.CellClick += dgv_type_CellClick;
+            // 
+            // PET_TYPE_ID
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            PET_TYPE_ID.DefaultCellStyle = dataGridViewCellStyle5;
+            PET_TYPE_ID.HeaderText = "ID";
+            PET_TYPE_ID.Name = "PET_TYPE_ID";
+            // 
+            // PET_T_N
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            PET_T_N.DefaultCellStyle = dataGridViewCellStyle6;
+            PET_T_N.HeaderText = "NAME";
+            PET_T_N.Name = "PET_T_N";
             // 
             // label3
             // 
@@ -292,50 +340,6 @@
             label1.Text = "Product Registration";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
-            // 
-            // ID
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            ID.DefaultCellStyle = dataGridViewCellStyle2;
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // NAME_t
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            NAME_t.DefaultCellStyle = dataGridViewCellStyle3;
-            NAME_t.HeaderText = "NAME";
-            NAME_t.Name = "NAME_t";
-            // 
-            // PET_TYPE_ID
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            PET_TYPE_ID.DefaultCellStyle = dataGridViewCellStyle5;
-            PET_TYPE_ID.HeaderText = "ID";
-            PET_TYPE_ID.Name = "PET_TYPE_ID";
-            // 
-            // PET_T_N
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            PET_T_N.DefaultCellStyle = dataGridViewCellStyle6;
-            PET_T_N.HeaderText = "NAME";
-            PET_T_N.Name = "PET_T_N";
             // 
             // Products_Registration_Form
             // 

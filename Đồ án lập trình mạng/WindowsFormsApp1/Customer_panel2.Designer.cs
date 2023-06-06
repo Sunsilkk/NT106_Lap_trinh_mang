@@ -43,12 +43,12 @@
             txt_search = new System.Windows.Forms.TextBox();
             btn_Add = new System.Windows.Forms.Button();
             dgv_customer = new System.Windows.Forms.DataGridView();
-            label1 = new System.Windows.Forms.Label();
             ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Name_T = new System.Windows.Forms.DataGridViewTextBoxColumn();
             address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
             SuspendLayout();
             // 
@@ -162,17 +162,6 @@
             dgv_customer.Size = new System.Drawing.Size(1139, 449);
             dgv_customer.TabIndex = 2;
             // 
-            // label1
-            // 
-            label1.Dock = System.Windows.Forms.DockStyle.Top;
-            label1.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(1139, 146);
-            label1.TabIndex = 14;
-            label1.Text = "Customer";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ID
             // 
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
@@ -232,6 +221,17 @@
             Created_At.HeaderText = "Created At";
             Created_At.MinimumWidth = 6;
             Created_At.Name = "Created_At";
+            // 
+            // label1
+            // 
+            label1.Dock = System.Windows.Forms.DockStyle.Top;
+            label1.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(1139, 140);
+            label1.TabIndex = 14;
+            label1.Text = "Customer";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Customer_panel2
             // 

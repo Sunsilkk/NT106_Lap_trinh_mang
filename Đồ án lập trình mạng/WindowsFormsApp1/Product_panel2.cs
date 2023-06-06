@@ -76,26 +76,32 @@ namespace WindowsFormsApp1
         }
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            string keyword = txt_search.Text;
+            string keyword = txt_search.Text.ToLower();
+
             if (!string.IsNullOrEmpty(keyword))
             {
                 foreach (DataGridViewRow row in dgv_product.Rows)
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
+                    if (!row.IsNewRow) // Chỉ xử lý những dòng không phải là dòng mới
                     {
-                        try
+                        bool rowVisible = false;
+
+                        foreach (DataGridViewCell cell in row.Cells)
                         {
-                            if (cell.Value != null && cell.Value.ToString().Contains(keyword))
+                            try
                             {
-                                row.Visible = true;
-                                break;
+                                string cellValue = cell.Value?.ToString().ToLower();
+
+                                if (!string.IsNullOrEmpty(cellValue) && cellValue.Contains(keyword))
+                                {
+                                    rowVisible = true;
+                                    break;
+                                }
                             }
-                            else
-                            {
-                                row.Visible = false;
-                            }
+                            catch { }
                         }
-                        catch { }
+
+                        row.Visible = rowVisible;
                     }
                 }
             }
@@ -103,10 +109,15 @@ namespace WindowsFormsApp1
             {
                 foreach (DataGridViewRow row in dgv_product.Rows)
                 {
-                    row.Visible = true;
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = true;
+                    }
                 }
             }
         }
+
+
 
         private async void bt_delete_Click(object sender, EventArgs e)
         {
@@ -123,7 +134,7 @@ namespace WindowsFormsApp1
                 Product_panel2_Load(sender, e);
 
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("loi" + ex.Message);
             }

@@ -111,6 +111,7 @@
             // 
             dgv_Billing.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             dgv_Billing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Billing.BackgroundColor = System.Drawing.Color.FromArgb(249, 224, 187);
             dgv_Billing.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -278,7 +279,7 @@
             label5.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label5.Location = new System.Drawing.Point(0, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(1264, 133);
+            label5.Size = new System.Drawing.Size(1264, 140);
             label5.TabIndex = 13;
             label5.Text = "Billing";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
