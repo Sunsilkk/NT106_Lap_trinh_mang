@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
             if (tabControl1.SelectedIndex == 0)
             {
                 homeTab = new Home();
-                homeTab.Home_Load(sender, e);
+                //homeTab.Home_Load(sender, e);
             }
 
         }

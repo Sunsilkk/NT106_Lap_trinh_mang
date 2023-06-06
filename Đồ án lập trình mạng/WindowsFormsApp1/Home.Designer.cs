@@ -62,17 +62,17 @@
             // 
             // tb_Total
             // 
-            tb_Total.Location = new System.Drawing.Point(551, 153);
+            tb_Total.Location = new System.Drawing.Point(464, 177);
             tb_Total.Name = "tb_Total";
-            tb_Total.Size = new System.Drawing.Size(174, 27);
+            tb_Total.Size = new System.Drawing.Size(174, 23);
             tb_Total.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(551, 117);
+            label1.Location = new System.Drawing.Point(464, 141);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(78, 20);
+            label1.Size = new System.Drawing.Size(63, 15);
             label1.TabIndex = 2;
             label1.Text = "Doanh thu";
             // 
