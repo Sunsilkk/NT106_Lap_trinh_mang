@@ -148,6 +148,7 @@
             tb_age.Name = "tb_age";
             tb_age.Size = new System.Drawing.Size(125, 27);
             tb_age.TabIndex = 7;
+            tb_age.KeyPress += tb_age_KeyPress;
             // 
             // label4
             // 

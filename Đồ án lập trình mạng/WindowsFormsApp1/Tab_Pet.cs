@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Transactions;
 
 namespace Pet_Management
 {
@@ -91,11 +92,31 @@ namespace Pet_Management
             LoadData();
         }
 
-        private void bt_Add_Click(object sender, EventArgs e)
+        private async void bt_Add_Click(object sender, EventArgs e)
         {
             if (tb_name.Text != null && tb_age.Text != null && cb_Cus.SelectedItem != null && cb_type.SelectedItem != null)
-            { 
+            {
+                var petlist = Pet_TypesList.FirstOrDefault(t => t.Type == cb_type.SelectedItem);
+                var cuslist = CusList.FirstOrDefault(t => t.Name == cb_Cus.SelectedItem);
+                Pet newPet = new Pet
+                {
+                    Id = Guid.NewGuid(),
+                    Custommer_id = cuslist.Id,
+                    Type_id = petlist.Id,
+                    Age = Int32.Parse(tb_age.Text),
+                    Created_at = DateTimeOffset.Now,
+                    Name_Pet = tb_name.Text,
+                };
+                await supabase.From<Pet>().Insert(newPet);
+                LoadData();
+            }
+        }
 
+        private void tb_age_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
