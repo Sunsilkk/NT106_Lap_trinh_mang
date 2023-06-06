@@ -7,6 +7,10 @@ using WindowsFormsApp1;
 using System.Linq;
 using System.Transactions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Data.Common;
+using Postgrest.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.ComponentModel;
 
 namespace Pet_Management
 {
@@ -80,10 +84,13 @@ namespace Pet_Management
                     cb_PetName.Items.Add(pet.Name_Pet);
                 }
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);    
-            }
+            catch (Exception ex) { }
+            SortDataGridViewByID();
 
+        }
+        private void SortDataGridViewByID()
+        {
+            dgv_Cages.Sort(dgv_Cages.Columns["ID"], ListSortDirection.Ascending);
         }
         private async void Cage_Load(object sender, EventArgs e)
         {
@@ -100,9 +107,6 @@ namespace Pet_Management
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dgv_Cages.Rows[e.RowIndex];
-
-                // Lấy dữ liệu từ các ô của dòng
-
                 string cageId = selectedRow.Cells["ID"].Value.ToString();
                 string petName = selectedRow.Cells["PET_ID"].Value.ToString();
                 string petType = selectedRow.Cells["PET_TYPE_ID"].Value.ToString();
@@ -120,7 +124,6 @@ namespace Pet_Management
 
             }
         }
-
         private async void bt_Update_Click(object sender, EventArgs e)
         {
             if (dgv_Cages.CurrentRow != null)
@@ -138,10 +141,20 @@ namespace Pet_Management
                     selectedRow.Cells["PET_TYPE_ID"].Value = null;
                     selectedRow.Cells["EMPTY"].Value = false;
                 }
+                try
+                {
+                    var cageId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    var update = await supabase.From<Cages>().Where(x => x.Id == cageId).Single();
 
+                    update.empty = checkEmpty.Checked;
+                    var existingPet = PetList.FirstOrDefault(t => t.Name_Pet.ToString() == selectedRow.Cells["PET_ID"].Value);
+                    update.Pet_id = null; update.Pet_type_id = null;
+                    if (existingPet != null) { update.Pet_id = existingPet.Id; update.Pet_type_id = existingPet.Type_id; }
+                    await update.Update<Cages>();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
-
         private void cb_PetName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -154,7 +167,7 @@ namespace Pet_Management
             }
             else
             {
-                tb_petType.Text = string.Empty; // Xóa nội dung pet type nếu không tìm thấy pet name tương ứng
+                tb_petType.Text = string.Empty; 
             }
         }
     }
