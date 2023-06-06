@@ -55,7 +55,7 @@
             // bt_Add_Product
             // 
             bt_Add_Product.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_Add_Product.Location = new System.Drawing.Point(39, 154);
+            bt_Add_Product.Location = new System.Drawing.Point(48, 146);
             bt_Add_Product.Name = "bt_Add_Product";
             bt_Add_Product.RightToLeft = System.Windows.Forms.RightToLeft.No;
             bt_Add_Product.Size = new System.Drawing.Size(80, 37);
@@ -68,7 +68,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(125, 165);
+            label1.Location = new System.Drawing.Point(134, 155);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(123, 19);
             label1.TabIndex = 1;
@@ -80,7 +80,7 @@
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            label2.Location = new System.Drawing.Point(1053, 172);
+            label2.Location = new System.Drawing.Point(1063, 159);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(59, 19);
             label2.TabIndex = 2;
@@ -92,7 +92,7 @@
             lb_total.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lb_total.AutoSize = true;
             lb_total.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lb_total.Location = new System.Drawing.Point(1118, 172);
+            lb_total.Location = new System.Drawing.Point(1128, 159);
             lb_total.Name = "lb_total";
             lb_total.Size = new System.Drawing.Size(39, 19);
             lb_total.TabIndex = 3;
@@ -105,11 +105,11 @@
             dgv_Billing.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dgv_Billing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Billing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { NO, dgv_Name, Type, Category, Qty, Price });
-            dgv_Billing.Location = new System.Drawing.Point(0, 268);
+            dgv_Billing.Location = new System.Drawing.Point(0, 214);
             dgv_Billing.Name = "dgv_Billing";
             dgv_Billing.RowHeadersWidth = 62;
             dgv_Billing.RowTemplate.Height = 28;
-            dgv_Billing.Size = new System.Drawing.Size(1266, 436);
+            dgv_Billing.Size = new System.Drawing.Size(1266, 490);
             dgv_Billing.TabIndex = 4;
             dgv_Billing.CellDoubleClick += dgv_Billing_CellDoubleClick;
             // 
@@ -165,7 +165,7 @@
             cb_Select.Anchor = System.Windows.Forms.AnchorStyles.Top;
             cb_Select.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.9999981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Select.FormattingEnabled = true;
-            cb_Select.Location = new System.Drawing.Point(443, 166);
+            cb_Select.Location = new System.Drawing.Point(453, 153);
             cb_Select.Name = "cb_Select";
             cb_Select.Size = new System.Drawing.Size(163, 28);
             cb_Select.TabIndex = 5;
@@ -176,7 +176,7 @@
             label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(295, 170);
+            label3.Location = new System.Drawing.Point(305, 157);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(142, 19);
             label3.TabIndex = 6;
@@ -188,7 +188,7 @@
             label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(650, 170);
+            label4.Location = new System.Drawing.Point(660, 157);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(87, 19);
             label4.TabIndex = 7;
@@ -200,7 +200,7 @@
             cb_Qty.Anchor = System.Windows.Forms.AnchorStyles.Top;
             cb_Qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.9999981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Qty.FormattingEnabled = true;
-            cb_Qty.Location = new System.Drawing.Point(743, 166);
+            cb_Qty.Location = new System.Drawing.Point(753, 153);
             cb_Qty.Name = "cb_Qty";
             cb_Qty.Size = new System.Drawing.Size(163, 28);
             cb_Qty.TabIndex = 8;
@@ -231,13 +231,10 @@
             // 
             // bt_Clear
             // 
-            bt_Clear.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            bt_Clear.AutoSize = true;
             bt_Clear.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_Clear.ForeColor = System.Drawing.Color.Black;
-            bt_Clear.Location = new System.Drawing.Point(39, 197);
+            bt_Clear.Location = new System.Drawing.Point(1032, 56);
             bt_Clear.Name = "bt_Clear";
-            bt_Clear.Size = new System.Drawing.Size(80, 37);
+            bt_Clear.Size = new System.Drawing.Size(94, 29);
             bt_Clear.TabIndex = 14;
             bt_Clear.Text = "Clear";
             bt_Clear.UseVisualStyleBackColor = true;

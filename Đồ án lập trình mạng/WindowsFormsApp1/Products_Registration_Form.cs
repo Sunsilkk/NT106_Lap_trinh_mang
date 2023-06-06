@@ -148,5 +148,14 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                MessageBox.Show("Ten khong hop le!");
+                e.Handled = true;
+            }
+        }
     }
 }

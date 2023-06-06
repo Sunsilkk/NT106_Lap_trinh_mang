@@ -65,22 +65,20 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void txt_name_TextChanged(object sender, EventArgs e)
-        {
-            foreach (char c in txt_name.Text)
-            {
-                if (!char.IsLetter(c) && c != ' ')
-                {
-                    MessageBox.Show("Vui long nhap dung dinh dang!");
-
-                }
-            }
-        }
+       
 
         private void Customers_Registration_Form_Load(object sender, EventArgs e)
         {
 
         }
 
+        private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                MessageBox.Show("Ten khong hop le!");
+                e.Handled = true;
+            }
+        }
     }
 }
