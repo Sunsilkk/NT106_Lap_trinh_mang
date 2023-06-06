@@ -3,13 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using WindowsFormsApp1;
+using System.Linq;
+using System.Transactions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Pet_Management
 {
     public partial class Cage : UserControl
     {
         Supabase.Client supabase;
+        private List<Pet> PetList;
+        private List<pet_types> Pet_TypesList;
+        private List<Cages> CagesList;
         public Cage()
         {
             InitializeComponent();
@@ -34,19 +40,48 @@ namespace Pet_Management
             var cages = result.Models;
             return cages;
         }
+        private async Task<List<Pet>> GetPet()
+        {
+            var result = await supabase.From<Pet>().Get();
+            var Pet_p = result.Models;
+            return Pet_p;
+        }
+        private async Task<List<pet_types>> GetPetTypeList()
+        {
+            var result = await supabase.From<pet_types>().Get();
+            var Pet_t = result.Models;
+            return Pet_t;
+        }
         private async Task LoadData()
         {
 
-            var cages = await Getcage();
-            // dgv_Cages.Rows.Add(cages);
+            CagesList = await Getcage();
+            PetList = await GetPet();
+            Pet_TypesList = await GetPetTypeList();
             try
             {
-                foreach (var cage in cages)
+                foreach (var cage in CagesList)
                 {
-                    dgv_Cages.Rows.Add(cage.Id, cage.Pet_id, cage.Pet_type_id, cage.empty);
+                    var existingPet = PetList.FirstOrDefault(t => t.Id == cage.Pet_id);
+                    var existingPetList = Pet_TypesList.FirstOrDefault(t => t.Id == cage.Pet_type_id);
+                    string name_pet = string.Empty, name_pet_type = string.Empty;
+                    if (existingPet != null) name_pet = existingPet.Name_Pet.ToString();
+                    if (existingPetList != null) name_pet_type = existingPetList.Type;
+
+                    dgv_Cages.Rows.Add(cage.Id, name_pet, name_pet_type, cage.empty);
                 }
             }
             catch (Exception ex) { }
+            try
+            {
+                cb_PetName.Items.Clear();
+                foreach (var pet in PetList)
+                {
+                    cb_PetName.Items.Add(pet.Name_Pet);
+                }
+            }
+            catch (Exception ex) { }
+
         }
         private async void Cage_Load(object sender, EventArgs e)
         {
@@ -56,6 +91,69 @@ namespace Pet_Management
         private void metroProgressBar1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_Cages_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgv_Cages.Rows[e.RowIndex];
+
+                // Lấy dữ liệu từ các ô của dòng
+
+                string cageId = selectedRow.Cells["ID"].Value.ToString();
+                string petName = selectedRow.Cells["PET_ID"].Value.ToString();
+                string petType = selectedRow.Cells["PET_TYPE_ID"].Value.ToString();
+                bool isEmpty = (bool)selectedRow.Cells["EMPTY"].Value;
+
+                tb_petType.Text = petType;
+                checkEmpty.Checked = isEmpty;
+                int petNameIndex = cb_PetName.FindStringExact(petName);
+                if (petNameIndex > 0)
+                {
+                    cb_PetName.SelectedIndex = petNameIndex;
+                }
+
+
+
+            }
+        }
+
+        private async void bt_Update_Click(object sender, EventArgs e)
+        {
+            if (dgv_Cages.CurrentRow != null)
+            {
+                DataGridViewRow selectedRow = dgv_Cages.CurrentRow;
+                if (checkEmpty.Checked)
+                {
+                    selectedRow.Cells["PET_ID"].Value = cb_PetName.SelectedItem;
+                    selectedRow.Cells["PET_TYPE_ID"].Value = tb_petType.Text;
+                    selectedRow.Cells["EMPTY"].Value = true;
+                }
+                else
+                {
+                    selectedRow.Cells["PET_ID"].Value = null;
+                    selectedRow.Cells["PET_TYPE_ID"].Value = null;
+                    selectedRow.Cells["EMPTY"].Value = false;
+                }
+
+            }
+        }
+
+        private void cb_PetName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string selectedPetName = cb_PetName.SelectedItem.ToString();
+            var pet = PetList.FirstOrDefault(p => p.Name_Pet == selectedPetName);
+            var pettype = Pet_TypesList.FirstOrDefault(t => t.Id == pet.Type_id);
+            if (pettype != null)
+            {
+                tb_petType.Text = pettype.Type;
+            }
+            else
+            {
+                tb_petType.Text = string.Empty; // Xóa nội dung pet type nếu không tìm thấy pet name tương ứng
+            }
         }
     }
 }
