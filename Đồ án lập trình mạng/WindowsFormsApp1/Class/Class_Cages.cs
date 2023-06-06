@@ -14,11 +14,10 @@ namespace WindowsFormsApp1.Class
         public int Id { get; set; }
 
         [Column("pet_id", nullValueHandling: NullValueHandling.Ignore)]
-        public Guid Pet_id { get; set; }
+        public Guid? Pet_id { get; set; }
 
         [Column("pet_type_id", nullValueHandling: NullValueHandling.Ignore)]
-        public Guid Pet_type_id { get; set; }
-
+        public Guid? Pet_type_id { get; set; }
 
         [Column("Empty")]
         public bool empty { get; set; }
