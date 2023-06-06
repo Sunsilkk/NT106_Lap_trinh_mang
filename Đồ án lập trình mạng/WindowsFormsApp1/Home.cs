@@ -60,26 +60,25 @@ namespace Pet_Management
             var cages = result.Models;
             return cages;
         }
-        //private async Task<List<Transactions>> GetTrans()
-        //{
-        //    var result = await supabase.From<Transactions>().Get();
-        //    var trans = result.Models;
-        //    return trans;
-        //}
+        private async Task<List<Transactions>> GetTrans()
+        {
+            var result = await supabase.From<Transactions>().Get();
+            var trans = result.Models;
+            return trans;
+        }
 
         private async Task LoadData()
         {
             Pet_TypesList = await GetPetTypeList();
             CagesList = await Getcage();
             petList = await List_pet();
-            var Trans= await GetTrans();
-             total = 0;
+           var Trans= await GetTrans();
+            long  total = 0;
             try
             {
                 foreach (var cage in CagesList)
                     if (cage.empty)
                     {
-                        MessageBox.Show(cage.Id.ToString());
                         var existing = petList.FirstOrDefault(t => t.Item1 == cage.Pet_type_id.ToString());
                         if (existing != default)
                         {
@@ -87,10 +86,11 @@ namespace Pet_Management
                             petList[petList.IndexOf(existing)] = updatedTuple;
                         }
                     }
-                foreach (var item in Trans) 
+                foreach (var item in Trans)
                 {
                     total += item.Total;
                 }
+                tb_Total.Text= total.ToString();
             }
             catch (Exception ex) { }
         }
