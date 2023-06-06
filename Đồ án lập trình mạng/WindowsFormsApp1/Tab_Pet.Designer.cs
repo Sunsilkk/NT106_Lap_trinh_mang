@@ -56,6 +56,7 @@
             dgv_PET.RowTemplate.Height = 29;
             dgv_PET.Size = new System.Drawing.Size(794, 292);
             dgv_PET.TabIndex = 0;
+            dgv_PET.CellDoubleClick += dgv_PET_CellDoubleClick;
             // 
             // ID
             // 
@@ -141,6 +142,7 @@
             tb_name.Name = "tb_name";
             tb_name.Size = new System.Drawing.Size(125, 27);
             tb_name.TabIndex = 6;
+            tb_name.KeyPress += tb_name_KeyPress;
             // 
             // tb_age
             // 

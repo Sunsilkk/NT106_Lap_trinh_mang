@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Transactions;
-
 namespace Pet_Management
 {
     public partial class Tab_Pet : UserControl
@@ -117,6 +115,35 @@ namespace Pet_Management
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void tb_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private async void dgv_PET_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dgv_PET.Rows[e.RowIndex];
+                    string petId = selectedRow.Cells["ID"].Value.ToString();
+
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.OK)
+                    {
+                        await supabase.From<Pet>().Where(x => x.Id.ToString() == petId).Delete();
+                        await LoadData();
+                    }
+                }
+                catch (Exception ex){ MessageBox.Show(ex.Message); }
             }
         }
     }
