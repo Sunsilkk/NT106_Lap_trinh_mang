@@ -203,7 +203,7 @@ namespace WindowsFormsApp1
         {
             var qrBitmap = GenerateQRBitmap();
 
-            billing.CustomerId = Guid.Parse("904ad093-36d7-4fce-ac7c-1f1b8e515dee");
+            billing.CustomerId = Guid.Parse("58e1feea-fd2e-4bb4-943a-a37a9407c164");
             billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
