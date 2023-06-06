@@ -34,12 +34,14 @@ namespace WindowsFormsApp1
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 0)
+            if (tabControl1.SelectedIndex == 0 )
             {
-                homeTab = new Home();
-                //homeTab.Home_Load(sender, e);
-            }
 
+            }
+            if (tabControl1.SelectedIndex == 5)
+            {
+
+            }
         }
     }
 }

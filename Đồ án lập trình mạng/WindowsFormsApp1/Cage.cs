@@ -58,7 +58,7 @@ namespace Pet_Management
         }
         private async Task LoadData()
         {
-
+            dgv_Cages.Rows.Clear();
             CagesList = await Getcage();
             PetList = await GetPet();
             Pet_TypesList = await GetPetTypeList();
@@ -119,9 +119,6 @@ namespace Pet_Management
                 {
                     cb_PetName.SelectedIndex = petNameIndex;
                 }
-
-
-
             }
         }
         private async void bt_Update_Click(object sender, EventArgs e)
@@ -153,6 +150,7 @@ namespace Pet_Management
                     await update.Update<Cages>();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
+                LoadData();
             }
         }
         private void cb_PetName_SelectedIndexChanged(object sender, EventArgs e)

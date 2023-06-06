@@ -94,7 +94,7 @@ namespace Pet_Management
             }
             catch (Exception ex) { }
         }
-        private async void Home_Load(object sender, EventArgs e)
+        public async void Home_Load(object sender, EventArgs e)
         {
             chart_pet.Size = new System.Drawing.Size(600, 600);
             await LoadData();
