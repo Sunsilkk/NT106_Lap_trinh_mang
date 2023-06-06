@@ -31,6 +31,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             bt_Add_Product = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -54,21 +60,24 @@
             // 
             // bt_Add_Product
             // 
+            bt_Add_Product.AutoSize = true;
+            bt_Add_Product.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            bt_Add_Product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_Add_Product.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_Add_Product.Location = new System.Drawing.Point(48, 146);
+            bt_Add_Product.Location = new System.Drawing.Point(62, 147);
             bt_Add_Product.Name = "bt_Add_Product";
             bt_Add_Product.RightToLeft = System.Windows.Forms.RightToLeft.No;
             bt_Add_Product.Size = new System.Drawing.Size(80, 37);
             bt_Add_Product.TabIndex = 0;
             bt_Add_Product.Text = "(+)";
-            bt_Add_Product.UseVisualStyleBackColor = true;
+            bt_Add_Product.UseVisualStyleBackColor = false;
             bt_Add_Product.Click += bt_Add_Product_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(134, 155);
+            label1.Location = new System.Drawing.Point(210, 185);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(123, 19);
             label1.TabIndex = 1;
@@ -80,7 +89,7 @@
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            label2.Location = new System.Drawing.Point(1063, 159);
+            label2.Location = new System.Drawing.Point(1061, 185);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(59, 19);
             label2.TabIndex = 2;
@@ -92,7 +101,7 @@
             lb_total.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lb_total.AutoSize = true;
             lb_total.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lb_total.Location = new System.Drawing.Point(1128, 159);
+            lb_total.Location = new System.Drawing.Point(1126, 185);
             lb_total.Name = "lb_total";
             lb_total.Size = new System.Drawing.Size(39, 19);
             lb_total.TabIndex = 3;
@@ -103,23 +112,34 @@
             dgv_Billing.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             dgv_Billing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Billing.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgv_Billing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Billing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Billing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { NO, dgv_Name, Type, Category, Qty, Price });
-            dgv_Billing.Location = new System.Drawing.Point(0, 214);
+            dgv_Billing.Location = new System.Drawing.Point(0, 244);
             dgv_Billing.Name = "dgv_Billing";
             dgv_Billing.RowHeadersWidth = 62;
             dgv_Billing.RowTemplate.Height = 28;
-            dgv_Billing.Size = new System.Drawing.Size(1266, 490);
+            dgv_Billing.Size = new System.Drawing.Size(1266, 460);
             dgv_Billing.TabIndex = 4;
+            dgv_Billing.CellContentClick += dgv_Billing_CellContentClick;
             dgv_Billing.CellDoubleClick += dgv_Billing_CellDoubleClick;
             // 
             // NO
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7499981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            NO.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            NO.DefaultCellStyle = dataGridViewCellStyle2;
             NO.HeaderText = "NO";
             NO.MinimumWidth = 8;
             NO.Name = "NO";
@@ -127,6 +147,12 @@
             // 
             // dgv_Name
             // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dgv_Name.DefaultCellStyle = dataGridViewCellStyle3;
             dgv_Name.HeaderText = "Name";
             dgv_Name.MinimumWidth = 8;
             dgv_Name.Name = "dgv_Name";
@@ -134,6 +160,12 @@
             // 
             // Type
             // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            Type.DefaultCellStyle = dataGridViewCellStyle4;
             Type.HeaderText = "Type";
             Type.MinimumWidth = 8;
             Type.Name = "Type";
@@ -141,6 +173,12 @@
             // 
             // Category
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            Category.DefaultCellStyle = dataGridViewCellStyle5;
             Category.HeaderText = "Category";
             Category.MinimumWidth = 8;
             Category.Name = "Category";
@@ -148,6 +186,12 @@
             // 
             // Qty
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            Qty.DefaultCellStyle = dataGridViewCellStyle6;
             Qty.HeaderText = "Qty";
             Qty.MinimumWidth = 8;
             Qty.Name = "Qty";
@@ -155,6 +199,12 @@
             // 
             // Price
             // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            Price.DefaultCellStyle = dataGridViewCellStyle7;
             Price.HeaderText = "Price";
             Price.MinimumWidth = 8;
             Price.Name = "Price";
@@ -163,11 +213,11 @@
             // cb_Select
             // 
             cb_Select.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            cb_Select.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.9999981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cb_Select.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Select.FormattingEnabled = true;
-            cb_Select.Location = new System.Drawing.Point(453, 153);
+            cb_Select.Location = new System.Drawing.Point(529, 176);
             cb_Select.Name = "cb_Select";
-            cb_Select.Size = new System.Drawing.Size(163, 28);
+            cb_Select.Size = new System.Drawing.Size(163, 35);
             cb_Select.TabIndex = 5;
             cb_Select.SelectedIndexChanged += cb_Select_SelectedIndexChanged;
             // 
@@ -176,7 +226,7 @@
             label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(305, 157);
+            label3.Location = new System.Drawing.Point(381, 185);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(142, 19);
             label3.TabIndex = 6;
@@ -188,7 +238,7 @@
             label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(660, 157);
+            label4.Location = new System.Drawing.Point(736, 185);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(87, 19);
             label4.TabIndex = 7;
@@ -198,23 +248,27 @@
             // cb_Qty
             // 
             cb_Qty.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            cb_Qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.9999981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cb_Qty.BackColor = System.Drawing.Color.White;
+            cb_Qty.CausesValidation = false;
+            cb_Qty.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Qty.FormattingEnabled = true;
-            cb_Qty.Location = new System.Drawing.Point(753, 153);
+            cb_Qty.Location = new System.Drawing.Point(829, 176);
             cb_Qty.Name = "cb_Qty";
-            cb_Qty.Size = new System.Drawing.Size(163, 28);
+            cb_Qty.Size = new System.Drawing.Size(163, 35);
             cb_Qty.TabIndex = 8;
             // 
             // bt_Cash
             // 
             bt_Cash.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            bt_Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_Cash.Location = new System.Drawing.Point(507, 710);
+            bt_Cash.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            bt_Cash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            bt_Cash.Font = new System.Drawing.Font("Mouldy Cheese", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            bt_Cash.Location = new System.Drawing.Point(507, 722);
             bt_Cash.Name = "bt_Cash";
             bt_Cash.Size = new System.Drawing.Size(251, 62);
             bt_Cash.TabIndex = 9;
             bt_Cash.Text = "Cash";
-            bt_Cash.UseVisualStyleBackColor = true;
+            bt_Cash.UseVisualStyleBackColor = false;
             bt_Cash.Click += bt_Cash_Click;
             // 
             // label5
@@ -231,13 +285,16 @@
             // 
             // bt_Clear
             // 
+            bt_Clear.AutoSize = true;
+            bt_Clear.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            bt_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_Clear.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_Clear.Location = new System.Drawing.Point(1032, 56);
+            bt_Clear.Location = new System.Drawing.Point(62, 190);
             bt_Clear.Name = "bt_Clear";
-            bt_Clear.Size = new System.Drawing.Size(94, 29);
+            bt_Clear.Size = new System.Drawing.Size(80, 35);
             bt_Clear.TabIndex = 14;
             bt_Clear.Text = "Clear";
-            bt_Clear.UseVisualStyleBackColor = true;
+            bt_Clear.UseVisualStyleBackColor = false;
             bt_Clear.Click += bt_Clear_Click;
             // 
             // Billing_panel2
@@ -277,12 +334,12 @@
         private System.Windows.Forms.Button bt_Cash;
         public System.Windows.Forms.Label lb_total;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button bt_Clear;
         private System.Windows.Forms.DataGridViewTextBoxColumn NO;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgv_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.Button bt_Clear;
     }
 }
