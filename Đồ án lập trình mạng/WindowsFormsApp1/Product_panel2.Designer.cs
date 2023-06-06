@@ -32,8 +32,6 @@
             btn_Add = new System.Windows.Forms.Button();
             bt_delete = new System.Windows.Forms.Button();
             dgv_product = new System.Windows.Forms.DataGridView();
-            search = new System.Windows.Forms.Label();
-            bt_update = new System.Windows.Forms.Button();
             ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Pet_type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +39,8 @@
             Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            search = new System.Windows.Forms.Label();
+            bt_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgv_product).BeginInit();
             SuspendLayout();
             // 
@@ -82,34 +82,12 @@
             dgv_product.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Type_Name, Pet_type_Name, Name_pro, Stock, Price, Created_At });
-            dgv_product.Location = new System.Drawing.Point(45, 163);
+            dgv_product.Location = new System.Drawing.Point(0, 168);
             dgv_product.Name = "dgv_product";
             dgv_product.RowHeadersWidth = 62;
             dgv_product.RowTemplate.Height = 28;
             dgv_product.Size = new System.Drawing.Size(989, 401);
             dgv_product.TabIndex = 9;
-            // 
-            // search
-            // 
-            search.AutoSize = true;
-            search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            search.Location = new System.Drawing.Point(599, 80);
-            search.Name = "search";
-            search.Size = new System.Drawing.Size(74, 28);
-            search.TabIndex = 10;
-            search.Text = "Search:";
-            // 
-            // bt_update
-            // 
-            bt_update.BackColor = System.Drawing.Color.WhiteSmoke;
-            bt_update.Location = new System.Drawing.Point(118, 81);
-            bt_update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            bt_update.Name = "bt_update";
-            bt_update.Size = new System.Drawing.Size(67, 38);
-            bt_update.TabIndex = 12;
-            bt_update.Text = "Update";
-            bt_update.UseVisualStyleBackColor = false;
-            bt_update.Click += bt_update_Click;
             // 
             // ID
             // 
@@ -152,6 +130,28 @@
             Created_At.HeaderText = "Created At";
             Created_At.MinimumWidth = 6;
             Created_At.Name = "Created_At";
+            // 
+            // search
+            // 
+            search.AutoSize = true;
+            search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            search.Location = new System.Drawing.Point(599, 80);
+            search.Name = "search";
+            search.Size = new System.Drawing.Size(74, 28);
+            search.TabIndex = 10;
+            search.Text = "Search:";
+            // 
+            // bt_update
+            // 
+            bt_update.BackColor = System.Drawing.Color.WhiteSmoke;
+            bt_update.Location = new System.Drawing.Point(118, 81);
+            bt_update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            bt_update.Name = "bt_update";
+            bt_update.Size = new System.Drawing.Size(67, 38);
+            bt_update.TabIndex = 12;
+            bt_update.Text = "Update";
+            bt_update.UseVisualStyleBackColor = false;
+            bt_update.Click += bt_update_Click;
             // 
             // Product_panel2
             // 
