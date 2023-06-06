@@ -230,7 +230,7 @@ namespace WindowsFormsApp1
                         }
                         dgv_Billing.Rows.Clear();
                     }
-                    catch (Exception ex) { }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
             }
         }
