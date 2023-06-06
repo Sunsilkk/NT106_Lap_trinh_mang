@@ -60,12 +60,20 @@ namespace Pet_Management
             var cages = result.Models;
             return cages;
         }
+        //private async Task<List<Transactions>> GetTrans()
+        //{
+        //    var result = await supabase.From<Transactions>().Get();
+        //    var trans = result.Models;
+        //    return trans;
+        //}
 
         private async Task LoadData()
         {
             Pet_TypesList = await GetPetTypeList();
             CagesList = await Getcage();
             petList = await List_pet();
+            var Trans= await GetTrans();
+             total = 0;
             try
             {
                 foreach (var cage in CagesList)
@@ -79,6 +87,10 @@ namespace Pet_Management
                             petList[petList.IndexOf(existing)] = updatedTuple;
                         }
                     }
+                foreach (var item in Trans) 
+                {
+                    total += item.Total;
+                }
             }
             catch (Exception ex) { }
         }

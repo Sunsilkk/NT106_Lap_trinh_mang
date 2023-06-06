@@ -33,6 +33,8 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             chart_pet = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            tb_Total = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)chart_pet).BeginInit();
             SuspendLayout();
             // 
@@ -57,20 +59,41 @@
             title1.Text = "Chart Pet";
             chart_pet.Titles.Add(title1);
             // 
+            // tb_Total
+            // 
+            tb_Total.Location = new System.Drawing.Point(551, 153);
+            tb_Total.Name = "tb_Total";
+            tb_Total.Size = new System.Drawing.Size(174, 27);
+            tb_Total.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(551, 117);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(78, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Doanh thu";
+            // 
             // Home
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(label1);
+            Controls.Add(tb_Total);
             Controls.Add(chart_pet);
             Name = "Home";
             Size = new System.Drawing.Size(800, 450);
             Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)chart_pet).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_pet;
+        private System.Windows.Forms.TextBox tb_Total;
+        private System.Windows.Forms.Label label1;
     }
 }
