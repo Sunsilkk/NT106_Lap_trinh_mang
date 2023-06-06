@@ -113,12 +113,12 @@ namespace WindowsFormsApp1
             try
             {
                 int selectedRowIndex = dgv_product.SelectedCells[0].RowIndex;
-
+                 
                 DataGridViewRow selectedRow = dgv_product.Rows[selectedRowIndex];
 
                 string columnValue = selectedRow.Cells["name"].Value.ToString();
                 await supabase.From<Products>().Where(x => x.Name == columnValue).Delete();
-                MessageBox.Show("Xoa khach hang thanh cong");
+                MessageBox.Show("Xoá sản phẩm thành công");
                 dgv_product.Rows.Clear();
                 Product_panel2_Load(sender, e);
 
