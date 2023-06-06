@@ -219,8 +219,7 @@
             Controls.Add(lb_name);
             Controls.Add(label1);
             Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            Name = "Products_Update_Form";
-            Text = "Products_Update_Form";
+            
             Load += Products_Update_Form_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_product).EndInit();
             ResumeLayout(false);

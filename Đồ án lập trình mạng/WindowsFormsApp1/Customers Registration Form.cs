@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
             }
         }
 
-       
+
 
         private void Customers_Registration_Form_Load(object sender, EventArgs e)
         {
