@@ -58,7 +58,7 @@
             bt_update.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
             bt_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_update.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_update.Location = new System.Drawing.Point(152, 129);
+            bt_update.Location = new System.Drawing.Point(149, 127);
             bt_update.Name = "bt_update";
             bt_update.Size = new System.Drawing.Size(94, 37);
             bt_update.TabIndex = 13;
@@ -71,7 +71,7 @@
             search.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             search.AutoSize = true;
             search.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            search.Location = new System.Drawing.Point(841, 141);
+            search.Location = new System.Drawing.Point(842, 139);
             search.Name = "search";
             search.Size = new System.Drawing.Size(74, 19);
             search.TabIndex = 7;
@@ -83,7 +83,7 @@
             bt_delete.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
             bt_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_delete.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_delete.Location = new System.Drawing.Point(252, 129);
+            bt_delete.Location = new System.Drawing.Point(249, 127);
             bt_delete.Name = "bt_delete";
             bt_delete.Size = new System.Drawing.Size(99, 37);
             bt_delete.TabIndex = 6;
@@ -95,7 +95,7 @@
             // 
             txt_search.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             txt_search.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_search.Location = new System.Drawing.Point(921, 138);
+            txt_search.Location = new System.Drawing.Point(922, 136);
             txt_search.Name = "txt_search";
             txt_search.Size = new System.Drawing.Size(182, 28);
             txt_search.TabIndex = 4;
@@ -107,7 +107,7 @@
             btn_Add.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
             btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_Add.Font = new System.Drawing.Font("Mouldy Cheese", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btn_Add.Location = new System.Drawing.Point(61, 129);
+            btn_Add.Location = new System.Drawing.Point(58, 127);
             btn_Add.Name = "btn_Add";
             btn_Add.Size = new System.Drawing.Size(85, 37);
             btn_Add.TabIndex = 3;
@@ -146,7 +146,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgv_customer.DefaultCellStyle = dataGridViewCellStyle8;
             dgv_customer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            dgv_customer.Location = new System.Drawing.Point(0, 189);
+            dgv_customer.Location = new System.Drawing.Point(0, 188);
             dgv_customer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgv_customer.Name = "dgv_customer";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -159,7 +159,7 @@
             dgv_customer.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgv_customer.RowHeadersWidth = 62;
             dgv_customer.RowTemplate.Height = 28;
-            dgv_customer.Size = new System.Drawing.Size(1139, 449);
+            dgv_customer.Size = new System.Drawing.Size(1143, 498);
             dgv_customer.TabIndex = 2;
             // 
             // ID
@@ -228,7 +228,7 @@
             label1.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(1139, 140);
+            label1.Size = new System.Drawing.Size(1143, 140);
             label1.TabIndex = 14;
             label1.Text = "Customer";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,7 +246,7 @@
             Controls.Add(txt_search);
             Controls.Add(label1);
             Name = "Customer_panel2";
-            Size = new System.Drawing.Size(1139, 638);
+            Size = new System.Drawing.Size(1143, 686);
             Load += Customer_panel2_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_customer).EndInit();
             ResumeLayout(false);

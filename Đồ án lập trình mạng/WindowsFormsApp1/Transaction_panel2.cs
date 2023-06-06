@@ -71,26 +71,24 @@ namespace WindowsFormsApp1
 
         private void tb_Search_TextChanged(object sender, EventArgs e)
         {
-            string keyword = tb_Search.Text;
+            string keyword = tb_Search.Text.ToLower();
             if (!string.IsNullOrEmpty(keyword))
             {
                 foreach (DataGridViewRow row in dgv_transaction.Rows)
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
+                    if (!row.IsNewRow) // Kiểm tra xem dòng có phải là dòng mới chưa được xác nhận hay không
                     {
-                        try
+                        bool found = false;
+                        foreach (DataGridViewCell cell in row.Cells)
                         {
-                            if (cell.Value != null && cell.Value.ToString().Contains(keyword))
+                            if (cell.Value != null && cell.Value.ToString().ToLower().Contains(keyword))
                             {
-                                row.Visible = true;
+                                found = true;
                                 break;
                             }
-                            else
-                            {
-                                row.Visible = false;
-                            }
                         }
-                        catch { }
+
+                        row.Visible = found;
                     }
                 }
             }

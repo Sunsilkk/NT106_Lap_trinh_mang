@@ -165,7 +165,7 @@ namespace Pet_Management
             }
             else
             {
-                tb_petType.Text = string.Empty; 
+                tb_petType.Text = string.Empty;
             }
         }
     }
