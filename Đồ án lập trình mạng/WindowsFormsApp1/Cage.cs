@@ -80,7 +80,9 @@ namespace Pet_Management
                     cb_PetName.Items.Add(pet.Name_Pet);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);    
+            }
 
         }
         private async void Cage_Load(object sender, EventArgs e)

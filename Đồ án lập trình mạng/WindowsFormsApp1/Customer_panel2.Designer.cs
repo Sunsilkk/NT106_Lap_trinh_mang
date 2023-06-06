@@ -43,12 +43,12 @@
             txt_search = new System.Windows.Forms.TextBox();
             btn_Add = new System.Windows.Forms.Button();
             dgv_customer = new System.Windows.Forms.DataGridView();
+            label1 = new System.Windows.Forms.Label();
             ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Name_T = new System.Windows.Forms.DataGridViewTextBoxColumn();
             address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
             SuspendLayout();
             // 
@@ -137,7 +137,6 @@
             dgv_customer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgv_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_customer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Name_T, address, Phone, Created_At });
-            dgv_customer.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -150,7 +149,6 @@
             dgv_customer.Location = new System.Drawing.Point(0, 189);
             dgv_customer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgv_customer.Name = "dgv_customer";
-            dgv_customer.ReadOnly = true;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -164,6 +162,17 @@
             dgv_customer.Size = new System.Drawing.Size(1139, 449);
             dgv_customer.TabIndex = 2;
             // 
+            // label1
+            // 
+            label1.Dock = System.Windows.Forms.DockStyle.Top;
+            label1.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(1139, 146);
+            label1.TabIndex = 14;
+            label1.Text = "Customer";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ID
             // 
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
@@ -175,7 +184,6 @@
             ID.HeaderText = "ID";
             ID.MinimumWidth = 8;
             ID.Name = "ID";
-            ID.ReadOnly = true;
             // 
             // Name_T
             // 
@@ -188,7 +196,6 @@
             Name_T.HeaderText = "Name";
             Name_T.MinimumWidth = 8;
             Name_T.Name = "Name_T";
-            Name_T.ReadOnly = true;
             // 
             // address
             // 
@@ -201,7 +208,6 @@
             address.HeaderText = "Address";
             address.MinimumWidth = 8;
             address.Name = "address";
-            address.ReadOnly = true;
             // 
             // Phone
             // 
@@ -214,7 +220,6 @@
             Phone.HeaderText = "Phone";
             Phone.MinimumWidth = 8;
             Phone.Name = "Phone";
-            Phone.ReadOnly = true;
             // 
             // Created_At
             // 
@@ -227,18 +232,6 @@
             Created_At.HeaderText = "Created At";
             Created_At.MinimumWidth = 6;
             Created_At.Name = "Created_At";
-            Created_At.ReadOnly = true;
-            // 
-            // label1
-            // 
-            label1.Dock = System.Windows.Forms.DockStyle.Top;
-            label1.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(1139, 146);
-            label1.TabIndex = 14;
-            label1.Text = "Customer";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Customer_panel2
             // 
