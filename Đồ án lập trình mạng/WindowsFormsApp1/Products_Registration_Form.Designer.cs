@@ -167,6 +167,7 @@
             txt_name.Name = "txt_name";
             txt_name.Size = new System.Drawing.Size(306, 35);
             txt_name.TabIndex = 3;
+            txt_name.KeyPress += txt_name_KeyPress;
             // 
             // lb_phone
             // 

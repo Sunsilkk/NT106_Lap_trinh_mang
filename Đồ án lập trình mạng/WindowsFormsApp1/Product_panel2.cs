@@ -116,16 +116,16 @@ namespace WindowsFormsApp1
 
                 DataGridViewRow selectedRow = dgv_product.Rows[selectedRowIndex];
 
-                string columnValue = selectedRow.Cells["name"].Value.ToString();
+                string columnValue = selectedRow.Cells["Name_pro"].Value.ToString();
                 await supabase.From<Products>().Where(x => x.Name == columnValue).Delete();
-                MessageBox.Show("Xoa khach hang thanh cong");
+                MessageBox.Show("Xoá sản phẩm thành công");
                 dgv_product.Rows.Clear();
                 Product_panel2_Load(sender, e);
 
             }
-            catch
+            catch(Exception ex) 
             {
-                MessageBox.Show("loi");
+                MessageBox.Show("loi" + ex.Message);
             }
         }
         private void btn_Add_Click(object sender, EventArgs e)

@@ -242,7 +242,7 @@
             // 
             // Billing_panel2
             // 
-            BackColor = System.Drawing.Color.FromArgb(246, 241, 233);
+            BackColor = System.Drawing.Color.FromArgb(249, 224, 187);
             Controls.Add(bt_Clear);
             Controls.Add(label5);
             Controls.Add(bt_Cash);
