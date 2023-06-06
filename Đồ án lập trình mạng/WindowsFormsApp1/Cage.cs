@@ -114,11 +114,7 @@ namespace Pet_Management
 
                 tb_petType.Text = petType;
                 checkEmpty.Checked = isEmpty;
-                int petNameIndex = cb_PetName.FindStringExact(petName);
-                if (petNameIndex > 0)
-                {
-                    cb_PetName.SelectedIndex = petNameIndex;
-                }
+                cb_PetName.SelectedItem = petName;
             }
         }
         private async void bt_Update_Click(object sender, EventArgs e)
