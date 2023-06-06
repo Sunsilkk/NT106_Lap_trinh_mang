@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel2 = new System.Windows.Forms.Panel();
+            bt_update = new System.Windows.Forms.Button();
             search = new System.Windows.Forms.Label();
             bt_delete = new System.Windows.Forms.Button();
             txt_search = new System.Windows.Forms.TextBox();
@@ -45,31 +46,46 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(bt_update);
             panel2.Controls.Add(search);
             panel2.Controls.Add(bt_delete);
             panel2.Controls.Add(txt_search);
             panel2.Controls.Add(btn_Add);
-            panel2.Location = new System.Drawing.Point(66, 108);
+            panel2.Location = new System.Drawing.Point(75, 144);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(735, 81);
+            panel2.Size = new System.Drawing.Size(840, 108);
             panel2.TabIndex = 1;
+            // 
+            // bt_update
+            // 
+            bt_update.BackColor = System.Drawing.Color.WhiteSmoke;
+            bt_update.Location = new System.Drawing.Point(89, 34);
+            bt_update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            bt_update.Name = "bt_update";
+            bt_update.Size = new System.Drawing.Size(67, 38);
+            bt_update.TabIndex = 13;
+            bt_update.Text = "Update";
+            bt_update.UseVisualStyleBackColor = false;
+            bt_update.Click += bt_update_Click;
             // 
             // search
             // 
             search.AutoSize = true;
             search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            search.Location = new System.Drawing.Point(273, 27);
+            search.Location = new System.Drawing.Point(312, 36);
             search.Name = "search";
-            search.Size = new System.Drawing.Size(60, 21);
+            search.Size = new System.Drawing.Size(74, 28);
             search.TabIndex = 7;
             search.Text = "Search:";
             // 
             // bt_delete
             // 
             bt_delete.BackColor = System.Drawing.Color.WhiteSmoke;
-            bt_delete.Location = new System.Drawing.Point(63, 19);
+            bt_delete.Location = new System.Drawing.Point(162, 34);
+            bt_delete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             bt_delete.Name = "bt_delete";
-            bt_delete.Size = new System.Drawing.Size(53, 38);
+            bt_delete.Size = new System.Drawing.Size(61, 38);
             bt_delete.TabIndex = 6;
             bt_delete.Text = "Delete";
             bt_delete.UseVisualStyleBackColor = false;
@@ -77,18 +93,20 @@
             // 
             // txt_search
             // 
-            txt_search.Location = new System.Drawing.Point(352, 27);
+            txt_search.Location = new System.Drawing.Point(402, 36);
+            txt_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txt_search.Name = "txt_search";
-            txt_search.Size = new System.Drawing.Size(189, 23);
+            txt_search.Size = new System.Drawing.Size(215, 27);
             txt_search.TabIndex = 4;
             txt_search.TextChanged += txt_search_TextChanged;
             // 
             // btn_Add
             // 
             btn_Add.BackColor = System.Drawing.Color.WhiteSmoke;
-            btn_Add.Location = new System.Drawing.Point(10, 19);
+            btn_Add.Location = new System.Drawing.Point(16, 34);
+            btn_Add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btn_Add.Name = "btn_Add";
-            btn_Add.Size = new System.Drawing.Size(47, 38);
+            btn_Add.Size = new System.Drawing.Size(67, 38);
             btn_Add.TabIndex = 3;
             btn_Add.Text = "ADD";
             btn_Add.UseVisualStyleBackColor = false;
@@ -99,12 +117,11 @@
             dgv_customer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_customer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Name_T, address, Phone, Created_At });
-            dgv_customer.Location = new System.Drawing.Point(0, 225);
-            dgv_customer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            dgv_customer.Location = new System.Drawing.Point(0, 300);
             dgv_customer.Name = "dgv_customer";
             dgv_customer.RowHeadersWidth = 62;
             dgv_customer.RowTemplate.Height = 28;
-            dgv_customer.Size = new System.Drawing.Size(1139, 413);
+            dgv_customer.Size = new System.Drawing.Size(1302, 551);
             dgv_customer.TabIndex = 2;
             // 
             // ID
@@ -139,12 +156,13 @@
             // 
             // Customer_panel2
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(dgv_customer);
             Controls.Add(panel2);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "Customer_panel2";
-            Size = new System.Drawing.Size(1139, 638);
+            Size = new System.Drawing.Size(1302, 851);
             Load += Customer_panel2_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -164,5 +182,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
+        private System.Windows.Forms.Button bt_update;
     }
 }
