@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System;
-using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1;
 using WindowsFormsApp1.Class;
 
@@ -24,6 +18,11 @@ namespace Pet_Management
         {
             InitializeComponent();
             InitializeSupabase();
+        }
+
+        public interface IReloadable
+        {
+            void ReloadData();
         }
 
         private void InitializeSupabase()
@@ -70,8 +69,7 @@ namespace Pet_Management
             {
                 foreach (var cage in CagesList)
                     if (cage.empty)
-                    {
-                        MessageBox.Show(cage.Id.ToString());
+                    {                       
                         var existing = petList.FirstOrDefault(t => t.Item1 == cage.Pet_type_id.ToString());
                         if (existing != default)
                         {

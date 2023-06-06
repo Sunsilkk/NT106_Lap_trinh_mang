@@ -32,11 +32,6 @@ namespace WindowsFormsApp1
             tabControl1.TabPages.Add(tab);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

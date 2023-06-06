@@ -42,7 +42,8 @@
             chart_pet.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chart_pet.Legends.Add(legend1);
-            chart_pet.Location = new System.Drawing.Point(24, 34);
+            chart_pet.Location = new System.Drawing.Point(14, 28);
+            chart_pet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             chart_pet.Name = "chart_pet";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -50,7 +51,7 @@
             series1.MarkerSize = 10;
             series1.Name = "Series1";
             chart_pet.Series.Add(series1);
-            chart_pet.Size = new System.Drawing.Size(489, 352);
+            chart_pet.Size = new System.Drawing.Size(428, 264);
             chart_pet.TabIndex = 0;
             chart_pet.Text = "chart_pet";
             title1.Name = "Title1";
@@ -59,11 +60,12 @@
             // 
             // Home
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(chart_pet);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "Home";
-            Size = new System.Drawing.Size(800, 450);
+            Size = new System.Drawing.Size(700, 338);
             Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)chart_pet).EndInit();
             ResumeLayout(false);
