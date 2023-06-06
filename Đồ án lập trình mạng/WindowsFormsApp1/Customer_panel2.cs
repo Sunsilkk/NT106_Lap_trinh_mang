@@ -96,26 +96,35 @@ namespace WindowsFormsApp1
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            string keyword = txt_search.Text;
+            string keyword = txt_search.Text.ToLower(); // Chuyển đổi từ khóa tìm kiếm thành chữ thường
+
             if (!string.IsNullOrEmpty(keyword))
             {
                 foreach (DataGridViewRow row in dgv_customer.Rows)
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
+                    if (!row.IsNewRow) // Kiểm tra hàng có phải là hàng mới chưa được xác nhận không
                     {
-                        try
+                        bool found = false;
+
+                        foreach (DataGridViewCell cell in row.Cells)
                         {
-                            if (cell.Value != null && cell.Value.ToString().Contains(keyword))
+                            try
                             {
-                                row.Visible = true;
-                                break;
+                                if (cell.Value != null)
+                                {
+                                    string cellValue = cell.Value.ToString().ToLower(); // Chuyển đổi giá trị trong ô lưới thành chữ thường
+
+                                    if (cellValue.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                                    {
+                                        found = true;
+                                        break;
+                                    }
+                                }
                             }
-                            else
-                            {
-                                row.Visible = false;
-                            }
+                            catch { }
                         }
-                        catch { }
+
+                        row.Visible = found;
                     }
                 }
             }
@@ -123,10 +132,14 @@ namespace WindowsFormsApp1
             {
                 foreach (DataGridViewRow row in dgv_customer.Rows)
                 {
-                    row.Visible = true;
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = true;
+                    }
                 }
             }
         }
+
 
         private void bt_update_Click(object sender, EventArgs e)
         {

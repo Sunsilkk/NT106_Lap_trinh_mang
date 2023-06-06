@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
 
             InitializeComponent();
             InitializeSupabase();
+
         }
         private void InitializeSupabase()
         {
@@ -284,7 +285,14 @@ namespace WindowsFormsApp1
             transactions.Clear();
             billing = null;
         }
+
+        private void dgv_Billing_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
+
+
 
     public partial class QRCodeForm : Form
     {
