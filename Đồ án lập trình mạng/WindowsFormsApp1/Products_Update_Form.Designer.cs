@@ -52,9 +52,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(355, -36);
+            label1.Location = new System.Drawing.Point(444, -45);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(111, 36);
+            label1.Size = new System.Drawing.Size(133, 40);
             label1.TabIndex = 26;
             label1.Text = "Update";
             // 
@@ -62,11 +63,12 @@
             // 
             dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Type_Id, Pet_type_id, Name, Stock, Price, Created_At });
-            dgv_product.Location = new System.Drawing.Point(31, 195);
+            dgv_product.Location = new System.Drawing.Point(39, 244);
+            dgv_product.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             dgv_product.Name = "dgv_product";
             dgv_product.RowHeadersWidth = 62;
             dgv_product.RowTemplate.Height = 28;
-            dgv_product.Size = new System.Drawing.Size(830, 311);
+            dgv_product.Size = new System.Drawing.Size(1038, 389);
             dgv_product.TabIndex = 27;
             // 
             // ID
@@ -120,9 +122,10 @@
             // 
             // bt_update
             // 
-            bt_update.Location = new System.Drawing.Point(401, 133);
+            bt_update.Location = new System.Drawing.Point(501, 166);
+            bt_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             bt_update.Name = "bt_update";
-            bt_update.Size = new System.Drawing.Size(89, 35);
+            bt_update.Size = new System.Drawing.Size(111, 44);
             bt_update.TabIndex = 35;
             bt_update.Text = "Update";
             bt_update.UseVisualStyleBackColor = true;
@@ -131,48 +134,50 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(392, 20);
+            label2.Font = new System.Drawing.Font("Mouldy Cheese", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(490, 25);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(111, 36);
+            label2.Size = new System.Drawing.Size(153, 40);
             label2.TabIndex = 34;
             label2.Text = "Update";
             // 
             // txt_price
             // 
             txt_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_price.Location = new System.Drawing.Point(699, 96);
-            txt_price.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_price.Location = new System.Drawing.Point(874, 120);
+            txt_price.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txt_price.Name = "txt_price";
-            txt_price.Size = new System.Drawing.Size(109, 30);
+            txt_price.Size = new System.Drawing.Size(135, 35);
             txt_price.TabIndex = 33;
             // 
             // txt_stock
             // 
             txt_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_stock.Location = new System.Drawing.Point(509, 96);
-            txt_stock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_stock.Location = new System.Drawing.Point(636, 120);
+            txt_stock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txt_stock.Name = "txt_stock";
-            txt_stock.Size = new System.Drawing.Size(94, 30);
+            txt_stock.Size = new System.Drawing.Size(116, 35);
             txt_stock.TabIndex = 32;
             txt_stock.TextChanged += txt_stock_TextChanged;
             // 
             // txt_name
             // 
             txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_name.Location = new System.Drawing.Point(161, 96);
-            txt_name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txt_name.Location = new System.Drawing.Point(201, 120);
+            txt_name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txt_name.Name = "txt_name";
-            txt_name.Size = new System.Drawing.Size(246, 30);
+            txt_name.Size = new System.Drawing.Size(306, 35);
             txt_name.TabIndex = 31;
             // 
             // lb_phone
             // 
             lb_phone.AutoSize = true;
             lb_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lb_phone.Location = new System.Drawing.Point(631, 96);
+            lb_phone.Location = new System.Drawing.Point(789, 120);
+            lb_phone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lb_phone.Name = "lb_phone";
-            lb_phone.Size = new System.Drawing.Size(62, 25);
+            lb_phone.Size = new System.Drawing.Size(75, 29);
             lb_phone.TabIndex = 30;
             lb_phone.Text = "Price:";
             // 
@@ -180,9 +185,10 @@
             // 
             lb_address.AutoSize = true;
             lb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lb_address.Location = new System.Drawing.Point(454, 96);
+            lb_address.Location = new System.Drawing.Point(568, 120);
+            lb_address.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lb_address.Name = "lb_address";
-            lb_address.Size = new System.Drawing.Size(49, 25);
+            lb_address.Size = new System.Drawing.Size(55, 29);
             lb_address.TabIndex = 29;
             lb_address.Text = "Qty:";
             // 
@@ -190,17 +196,18 @@
             // 
             lb_name.AutoSize = true;
             lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lb_name.Location = new System.Drawing.Point(59, 96);
+            lb_name.Location = new System.Drawing.Point(74, 120);
+            lb_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lb_name.Name = "lb_name";
-            lb_name.Size = new System.Drawing.Size(70, 25);
+            lb_name.Size = new System.Drawing.Size(84, 29);
             lb_name.TabIndex = 28;
             lb_name.Text = "Name:";
             // 
             // Products_Update_Form
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(897, 518);
+            ClientSize = new System.Drawing.Size(1121, 648);
             Controls.Add(dgv_product);
             Controls.Add(bt_update);
             Controls.Add(label2);
@@ -211,7 +218,8 @@
             Controls.Add(lb_address);
             Controls.Add(lb_name);
             Controls.Add(label1);
-            
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "Products_Update_Form";
             Text = "Products_Update_Form";
             Load += Products_Update_Form_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_product).EndInit();
