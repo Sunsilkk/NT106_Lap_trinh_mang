@@ -90,7 +90,7 @@ namespace Pet_Management
                 {
                     total += item.Total;
                 }
-                tb_Total.Text = total.ToString();
+                l_total.Text = total.ToString();
             }
             catch (Exception ex) { }
         }
