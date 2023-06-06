@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.ComponentModel;
 namespace Pet_Management
 {
     public partial class Tab_Pet : UserControl
@@ -143,7 +144,7 @@ namespace Pet_Management
                         await LoadData();
                     }
                 }
-                catch (Exception ex){ MessageBox.Show(ex.Message); }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
     }
