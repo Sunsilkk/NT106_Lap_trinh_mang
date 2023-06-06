@@ -44,12 +44,12 @@ namespace WindowsFormsApp1
                 };
 
                 var result = await SupabaseClient.From<Products>().Insert(model);
-                MessageBox.Show("Them khach hang thanh cong!");
+                MessageBox.Show("Them san pham thanh cong!");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Them khach hang khong thanh cong!" + ex.Message);
+                MessageBox.Show("Them san pham khong thanh cong!" + ex.Message);
             }
         }
 
@@ -61,9 +61,6 @@ namespace WindowsFormsApp1
 
             var type = response.Models;
 
-            dgv_type.ColumnCount = 2;
-            dgv_type.Columns[0].Name = "Id";
-            dgv_type.Columns[1].Name = "Name";
 
             foreach (var ty in type)
             {
@@ -78,9 +75,7 @@ namespace WindowsFormsApp1
         {
             var response1 = await SupabaseClient.From<pet_types>().Get();
             var type1 = response1.Models;
-            dgv_pet_type.ColumnCount = 2;
-            dgv_pet_type.Columns[0].Name = "Id";
-            dgv_pet_type.Columns[1].Name = "Name";
+
             foreach (var pty in type1)
             {
                 dgv_pet_type.Rows.Add(pty.Id, pty.Type);
@@ -130,7 +125,7 @@ namespace WindowsFormsApp1
             DataGridViewRow selectedRow = dgv_pet_type.Rows[selectedRowIndex];
             if (!selectedRow.IsNewRow)
             {
-                string columnValue = selectedRow.Cells["id"].Value.ToString();
+                string columnValue = selectedRow.Cells["ID"].Value.ToString();
                 txt_pet_type_id.Text = columnValue;
             }
 
@@ -143,7 +138,7 @@ namespace WindowsFormsApp1
             DataGridViewRow selectedRow = dgv_type.Rows[selectedRowIndex];
             if (!selectedRow.IsNewRow)
             {
-                string columnValue = selectedRow.Cells["id"].Value.ToString();
+                string columnValue = selectedRow.Cells["PET_TYPE_ID"].Value.ToString();
                 txt_product_type_id.Text = columnValue;
             }
 

@@ -42,12 +42,16 @@
             lb_address = new System.Windows.Forms.Label();
             lb_name = new System.Windows.Forms.Label();
             dgv_pet_type = new System.Windows.Forms.DataGridView();
+            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            NAME_t = new System.Windows.Forms.DataGridViewTextBoxColumn();
             dgv_type = new System.Windows.Forms.DataGridView();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             panel3 = new System.Windows.Forms.Panel();
             panel4 = new System.Windows.Forms.Panel();
             label1 = new System.Windows.Forms.Label();
+            PET_TYPE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            PET_T_N = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_pet_type).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv_type).BeginInit();
@@ -191,7 +195,9 @@
             // 
             // dgv_pet_type
             // 
+            dgv_pet_type.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_pet_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_pet_type.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, NAME_t });
             dgv_pet_type.Location = new System.Drawing.Point(0, 0);
             dgv_pet_type.Name = "dgv_pet_type";
             dgv_pet_type.RowHeadersWidth = 51;
@@ -200,10 +206,22 @@
             dgv_pet_type.TabIndex = 0;
             dgv_pet_type.CellClick += dgv_pet_type_CellClick;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // NAME_t
+            // 
+            NAME_t.HeaderText = "NAME";
+            NAME_t.Name = "NAME_t";
+            // 
             // dgv_type
             // 
+            dgv_type.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgv_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_type.Location = new System.Drawing.Point(0, 0);
+            dgv_type.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { PET_TYPE_ID, PET_T_N });
+            dgv_type.Location = new System.Drawing.Point(3, 3);
             dgv_type.Name = "dgv_type";
             dgv_type.RowHeadersWidth = 51;
             dgv_type.RowTemplate.Height = 24;
@@ -259,11 +277,22 @@
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
+            // PET_TYPE_ID
+            // 
+            PET_TYPE_ID.HeaderText = "ID";
+            PET_TYPE_ID.Name = "PET_TYPE_ID";
+            // 
+            // PET_T_N
+            // 
+            PET_T_N.HeaderText = "NAME";
+            PET_T_N.Name = "PET_T_N";
+            // 
             // Products_Registration_Form
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1445, 851);
+            BackColor = System.Drawing.Color.FromArgb(249, 224, 187);
+            ClientSize = new System.Drawing.Size(1445, 761);
             Controls.Add(label1);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -307,5 +336,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME_t;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PET_TYPE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PET_T_N;
     }
 }
