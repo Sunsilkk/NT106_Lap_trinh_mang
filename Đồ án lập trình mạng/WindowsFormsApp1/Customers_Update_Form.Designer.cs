@@ -35,6 +35,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             dgv_customer = new System.Windows.Forms.DataGridView();
+            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Name_T = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
             bt_update = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             txt_phone = new System.Windows.Forms.TextBox();
@@ -44,11 +49,6 @@
             lb_address = new System.Windows.Forms.Label();
             lb_name = new System.Windows.Forms.Label();
             panel1 = new System.Windows.Forms.Panel();
-            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Name_T = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -75,6 +75,66 @@
             dgv_customer.RowTemplate.Height = 28;
             dgv_customer.Size = new System.Drawing.Size(1311, 317);
             dgv_customer.TabIndex = 37;
+            // 
+            // ID
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            ID.DefaultCellStyle = dataGridViewCellStyle2;
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            // 
+            // Name_T
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            Name_T.DefaultCellStyle = dataGridViewCellStyle3;
+            Name_T.HeaderText = "Name";
+            Name_T.MinimumWidth = 8;
+            Name_T.Name = "Name_T";
+            // 
+            // address
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            address.DefaultCellStyle = dataGridViewCellStyle4;
+            address.HeaderText = "Address";
+            address.MinimumWidth = 8;
+            address.Name = "address";
+            // 
+            // Phone
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            Phone.DefaultCellStyle = dataGridViewCellStyle5;
+            Phone.HeaderText = "Phone";
+            Phone.MinimumWidth = 8;
+            Phone.Name = "Phone";
+            // 
+            // Created_At
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            Created_At.DefaultCellStyle = dataGridViewCellStyle6;
+            Created_At.HeaderText = "Created At";
+            Created_At.MinimumWidth = 6;
+            Created_At.Name = "Created_At";
             // 
             // bt_update
             // 
@@ -165,70 +225,10 @@
             panel1.Controls.Add(lb_phone);
             panel1.Controls.Add(txt_phone);
             panel1.Controls.Add(txt_name);
-            panel1.Location = new System.Drawing.Point(112, 120);
+            panel1.Location = new System.Drawing.Point(137, 120);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(827, 237);
+            panel1.Size = new System.Drawing.Size(878, 237);
             panel1.TabIndex = 46;
-            // 
-            // ID
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            ID.DefaultCellStyle = dataGridViewCellStyle2;
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            // 
-            // Name_T
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            Name_T.DefaultCellStyle = dataGridViewCellStyle3;
-            Name_T.HeaderText = "Name";
-            Name_T.MinimumWidth = 8;
-            Name_T.Name = "Name_T";
-            // 
-            // address
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            address.DefaultCellStyle = dataGridViewCellStyle4;
-            address.HeaderText = "Address";
-            address.MinimumWidth = 8;
-            address.Name = "address";
-            // 
-            // Phone
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            Phone.DefaultCellStyle = dataGridViewCellStyle5;
-            Phone.HeaderText = "Phone";
-            Phone.MinimumWidth = 8;
-            Phone.Name = "Phone";
-            // 
-            // Created_At
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(255, 245, 184);
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(195, 129, 84);
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            Created_At.DefaultCellStyle = dataGridViewCellStyle6;
-            Created_At.HeaderText = "Created At";
-            Created_At.MinimumWidth = 6;
-            Created_At.Name = "Created_At";
             // 
             // Customers_Update_Form
             // 
