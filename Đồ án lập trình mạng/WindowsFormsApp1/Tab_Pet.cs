@@ -7,14 +7,96 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Class;
+using WindowsFormsApp1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pet_Management
 {
     public partial class Tab_Pet : UserControl
     {
+        Supabase.Client supabase;
+        private List<Pet> PetList;
+        private List<pet_types> Pet_TypesList;
+        private List<Customers> CusList;
         public Tab_Pet()
         {
             InitializeComponent();
+            InitializeSupabase();
+        }
+        private void InitializeSupabase()
+        {
+            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
+            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
+
+            var options = new Supabase.SupabaseOptions
+            {
+                AutoConnectRealtime = true
+            };
+
+            supabase = new Supabase.Client(url, key, options);
+
+        }
+        private async Task<List<Pet>> GetPet()
+        {
+            var result = await supabase.From<Pet>().Get();
+            var Pet_p = result.Models;
+            return Pet_p;
+        }
+        private async Task<List<pet_types>> GetPetTypeList()
+        {
+            var result = await supabase.From<pet_types>().Get();
+            var Pet_t = result.Models;
+            return Pet_t;
+        }
+        private async Task<List<Customers>> GetCus()
+        {
+            var result = await supabase.From<Customers>().Get();
+            var Cuss = result.Models;
+            return Cuss;
+        }
+        private async Task LoadData()
+        {
+            dgv_PET.Rows.Clear();
+
+            PetList = await GetPet();
+            Pet_TypesList = await GetPetTypeList();
+            CusList = await GetCus();
+            try
+            {
+                foreach (var cus in CusList)
+                { cb_Cus.Items.Add(cus.Name); }
+                foreach (var pet in Pet_TypesList)
+                {
+                    { cb_type.Items.Add(pet.Type); }
+
+                }
+                foreach (var pet in PetList)
+                {
+
+                    var type = Pet_TypesList.FirstOrDefault(t => t.Id == pet.Type_id);
+                    var cus_id = CusList.FirstOrDefault(t => t.Id == pet.Custommer_id);
+                    dgv_PET.Rows.Add(pet.Id, pet.Name_Pet, type.Type, cus_id.Name, pet.Age);
+                }
+            }
+
+
+
+            catch (Exception ex) { }
+
+
+        }
+        private void Tab_Pet_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void bt_Add_Click(object sender, EventArgs e)
+        {
+            if (tb_name.Text != null && tb_age.Text != null && cb_Cus.SelectedItem != null && cb_type.SelectedItem != null)
+            { 
+
+            }
         }
     }
 }
