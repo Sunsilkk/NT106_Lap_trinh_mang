@@ -57,27 +57,27 @@
             // 
             // txt_phone
             // 
-            txt_phone.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_phone.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_phone.Location = new System.Drawing.Point(246, 154);
             txt_phone.Name = "txt_phone";
-            txt_phone.Size = new System.Drawing.Size(308, 34);
+            txt_phone.Size = new System.Drawing.Size(308, 35);
             txt_phone.TabIndex = 5;
             txt_phone.TextChanged += txt_phone_TextChanged;
             // 
             // txt_address
             // 
-            txt_address.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_address.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_address.Location = new System.Drawing.Point(246, 88);
             txt_address.Name = "txt_address";
-            txt_address.Size = new System.Drawing.Size(308, 34);
+            txt_address.Size = new System.Drawing.Size(308, 35);
             txt_address.TabIndex = 4;
             // 
             // txt_name
             // 
-            txt_name.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_name.Font = new System.Drawing.Font("Qaz", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_name.Location = new System.Drawing.Point(246, 22);
             txt_name.Name = "txt_name";
-            txt_name.Size = new System.Drawing.Size(308, 34);
+            txt_name.Size = new System.Drawing.Size(308, 35);
             txt_name.TabIndex = 3;
             txt_name.KeyPress += txt_name_KeyPress;
             // 

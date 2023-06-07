@@ -68,7 +68,10 @@ namespace Pet_Management
             PetList = await GetPet();
             Pet_TypesList = await GetPetTypeList();
             CusList = await GetCus();
-
+            tb_age.Text = string.Empty;
+            tb_name.Text = string.Empty;
+            cb_Cus.Items.Clear();
+            cb_type.Items.Clear();
             try
             {
                 foreach (var cus in CusList)
@@ -144,11 +147,15 @@ namespace Pet_Management
                 int selectedRowIndex = dgv_PET.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgv_PET.Rows[selectedRowIndex];
                 string columnValue = selectedRow.Cells["NAME_P"].Value.ToString();
+                var result= MessageBox.Show("Ban co chac chan muon xoa", "Thong bao", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    await supabase.From<Pet>().Where(x => x.Name_Pet == columnValue).Delete();
+                    MessageBox.Show("Xoa thu cung thanh cong");
+                    await LoadData();
+                }
 
-                await supabase.From<Pet>().Where(x => x.Name_Pet == columnValue).Delete();
-                MessageBox.Show("Xoa khach hang thanh cong");
-
-                await LoadData();
+                
             }
             catch (Exception ex)
             {
@@ -156,6 +163,6 @@ namespace Pet_Management
             }
         }
 
-       
+
     }
 }
