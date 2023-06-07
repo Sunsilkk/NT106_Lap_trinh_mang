@@ -140,15 +140,34 @@ namespace Pet_Management
                     var update = await supabase.From<Cages>().Where(x => x.Id == cageId).Single();
 
                     update.empty = checkEmpty.Checked;
-                    var existingPet = PetList.FirstOrDefault(t => t.Name_Pet.ToString() == selectedRow.Cells["PET_ID"].Value);
-                    update.Pet_id = null; update.Pet_type_id = null;
-                    if (existingPet != null) { update.Pet_id = existingPet.Id; update.Pet_type_id = existingPet.Type_id; }
-                    await update.Update<Cages>();
+                    if (checkEmpty.Checked)
+                    {
+                        var existingPet = PetList.FirstOrDefault(t => t.Name_Pet.ToString() == selectedRow.Cells["PET_ID"].Value);
+                        if (existingPet != null)
+                        {
+                            update.Pet_id = existingPet.Id;
+                            update.Pet_type_id = existingPet.Type_id;
+                        }
+                    }
+                    else
+                    {
+                        update.Pet_id = null;
+                        update.Pet_type_id = null;
+                    }
+                    // Create a new instance of Cages with the fields you want to update
+                    var updatedCage = new Cages() { Id = update.Id, Pet_id = update.Pet_id, Pet_type_id = update.Pet_type_id, empty = update.empty };
+
+                    // Use the new instance in the Update method
+                    await supabase.From<Cages>().Update(updatedCage);
+
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
                 LoadData();
             }
         }
+
+
+
         private void cb_PetName_SelectedIndexChanged(object sender, EventArgs e)
         {
 

@@ -49,6 +49,8 @@
             lb_address = new System.Windows.Forms.Label();
             lb_name = new System.Windows.Forms.Label();
             panel1 = new System.Windows.Forms.Panel();
+            tb_Search = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -163,27 +165,27 @@
             // 
             // txt_phone
             // 
-            txt_phone.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_phone.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_phone.Location = new System.Drawing.Point(384, 181);
             txt_phone.Name = "txt_phone";
-            txt_phone.Size = new System.Drawing.Size(402, 34);
+            txt_phone.Size = new System.Drawing.Size(402, 29);
             txt_phone.TabIndex = 43;
             txt_phone.TextChanged += txt_phone_TextChanged;
             // 
             // txt_address
             // 
-            txt_address.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_address.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_address.Location = new System.Drawing.Point(384, 100);
             txt_address.Name = "txt_address";
-            txt_address.Size = new System.Drawing.Size(402, 34);
+            txt_address.Size = new System.Drawing.Size(402, 29);
             txt_address.TabIndex = 42;
             // 
             // txt_name
             // 
-            txt_name.Font = new System.Drawing.Font("Mouldy Cheese", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txt_name.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txt_name.Location = new System.Drawing.Point(384, 19);
             txt_name.Name = "txt_name";
-            txt_name.Size = new System.Drawing.Size(402, 34);
+            txt_name.Size = new System.Drawing.Size(402, 29);
             txt_name.TabIndex = 41;
             txt_name.KeyPress += txt_name_KeyPress;
             // 
@@ -230,12 +232,33 @@
             panel1.Size = new System.Drawing.Size(878, 237);
             panel1.TabIndex = 46;
             // 
+            // tb_Search
+            // 
+            tb_Search.Font = new System.Drawing.Font("Qaz", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            tb_Search.Location = new System.Drawing.Point(1058, 354);
+            tb_Search.Name = "tb_Search";
+            tb_Search.Size = new System.Drawing.Size(214, 29);
+            tb_Search.TabIndex = 47;
+            tb_Search.TextChanged += tb_Search_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Mouldy Cheese", 15.7499981F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(972, 357);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(78, 21);
+            label1.TabIndex = 48;
+            label1.Text = "Search";
+            // 
             // Customers_Update_Form
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(249, 224, 187);
             ClientSize = new System.Drawing.Size(1311, 743);
+            Controls.Add(label1);
+            Controls.Add(tb_Search);
             Controls.Add(bt_update);
             Controls.Add(dgv_customer);
             Controls.Add(panel1);
@@ -248,6 +271,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -267,5 +291,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
+        private System.Windows.Forms.TextBox tb_Search;
+        private System.Windows.Forms.Label label1;
     }
 }

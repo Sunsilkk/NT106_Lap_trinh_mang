@@ -11,6 +11,7 @@ using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.ComponentModel;
+
 namespace Pet_Management
 {
     public partial class Tab_Pet : UserControl
@@ -19,11 +20,13 @@ namespace Pet_Management
         private List<Pet> PetList;
         private List<pet_types> Pet_TypesList;
         private List<Customers> CusList;
+
         public Tab_Pet()
         {
             InitializeComponent();
             InitializeSupabase();
         }
+
         private void InitializeSupabase()
         {
             var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
@@ -35,26 +38,29 @@ namespace Pet_Management
             };
 
             supabase = new Supabase.Client(url, key, options);
-
         }
+
         private async Task<List<Pet>> GetPet()
         {
             var result = await supabase.From<Pet>().Get();
             var Pet_p = result.Models;
             return Pet_p;
         }
+
         private async Task<List<pet_types>> GetPetTypeList()
         {
             var result = await supabase.From<pet_types>().Get();
             var Pet_t = result.Models;
             return Pet_t;
         }
+
         private async Task<List<Customers>> GetCus()
         {
             var result = await supabase.From<Customers>().Get();
             var Cuss = result.Models;
             return Cuss;
         }
+
         private async Task LoadData()
         {
             dgv_PET.Rows.Clear();
@@ -62,30 +68,32 @@ namespace Pet_Management
             PetList = await GetPet();
             Pet_TypesList = await GetPetTypeList();
             CusList = await GetCus();
+
             try
             {
                 foreach (var cus in CusList)
-                { cb_Cus.Items.Add(cus.Name); }
+                {
+                    cb_Cus.Items.Add(cus.Name);
+                }
+
                 foreach (var pet in Pet_TypesList)
                 {
-                    { cb_type.Items.Add(pet.Type); }
-
+                    cb_type.Items.Add(pet.Type);
                 }
+
                 foreach (var pet in PetList)
                 {
-
                     var type = Pet_TypesList.FirstOrDefault(t => t.Id == pet.Type_id);
                     var cus_id = CusList.FirstOrDefault(t => t.Id == pet.Custommer_id);
                     dgv_PET.Rows.Add(pet.Id, pet.Name_Pet, type.Type, cus_id.Name, pet.Age);
                 }
             }
-
-
-
-            catch (Exception ex) { }
-
-
+            catch (Exception ex)
+            {
+                // Handle exception
+            }
         }
+
         private void Tab_Pet_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -97,6 +105,7 @@ namespace Pet_Management
             {
                 var petlist = Pet_TypesList.FirstOrDefault(t => t.Type == cb_type.SelectedItem);
                 var cuslist = CusList.FirstOrDefault(t => t.Name == cb_Cus.SelectedItem);
+
                 Pet newPet = new Pet
                 {
                     Id = Guid.NewGuid(),
@@ -106,6 +115,7 @@ namespace Pet_Management
                     Created_at = DateTimeOffset.Now,
                     Name_Pet = tb_name.Text,
                 };
+
                 await supabase.From<Pet>().Insert(newPet);
                 LoadData();
             }
@@ -140,11 +150,36 @@ namespace Pet_Management
 
                     if (result == DialogResult.OK)
                     {
-                        await supabase.From<Pet>().Where(x => x.Id.ToString() == petId).Delete();
+                        await supabase
+                            .From<Pet>()
+                            .Where(x => x.Custommer_id == Guid.Parse(petId))
+                            .Delete();
                         await LoadData();
                     }
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private async void btn_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedRowIndex = dgv_PET.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgv_PET.Rows[selectedRowIndex];
+                string columnValue = selectedRow.Cells["NAME_P"].Value.ToString();
+
+                await supabase.From<Pet>().Where(x => x.Name_Pet == columnValue).Delete();
+                MessageBox.Show("Xoa khach hang thanh cong");
+
+                await LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "loi");
             }
         }
     }

@@ -100,7 +100,50 @@ namespace Pet_Management
 
             }
         }
+        private void tb_Search_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = tb_Search.Text.ToLower();
 
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                foreach (DataGridViewRow row in dgv_customer.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        bool found = false;
 
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            try
+                            {
+                                if (cell.Value != null)
+                                {
+                                    string cellValue = cell.Value.ToString().ToLower();
+
+                                    if (cellValue.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                                    {
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            catch { }
+                        }
+
+                        row.Visible = found;
+                    }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgv_customer.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = true;
+                    }
+                }
+            }
+        }
     }
 }
