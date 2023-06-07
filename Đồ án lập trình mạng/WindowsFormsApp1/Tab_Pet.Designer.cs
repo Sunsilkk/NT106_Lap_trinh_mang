@@ -187,7 +187,7 @@
             btn_delete.TabIndex = 10;
             btn_delete.Text = "Add";
             btn_delete.UseVisualStyleBackColor = true;
-            btn_delete.Click += btn_delete_Click;
+          
             // 
             // Tab_Pet
             // 

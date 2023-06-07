@@ -139,33 +139,6 @@ namespace Pet_Management
 
         private async void dgv_PET_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                try
-                {
-                    DataGridViewRow selectedRow = dgv_PET.Rows[e.RowIndex];
-                    string petId = selectedRow.Cells["ID"].Value.ToString();
-
-                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.OK)
-                    {
-                        await supabase
-                            .From<Pet>()
-                            .Where(x => x.Custommer_id == Guid.Parse(petId))
-                            .Delete();
-                        await LoadData();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
-        private async void btn_delete_Click(object sender, EventArgs e)
-        {
             try
             {
                 int selectedRowIndex = dgv_PET.SelectedCells[0].RowIndex;
@@ -182,5 +155,7 @@ namespace Pet_Management
                 MessageBox.Show(ex.Message, "loi");
             }
         }
+
+       
     }
 }
