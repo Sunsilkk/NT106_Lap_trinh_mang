@@ -23,5 +23,8 @@ namespace WindowsFormsApp1.Class
 
         [Column("name")]
         public string Name_Pet { get; set; }
+
+        [Column("pet_image")]
+        public string Pet_image { get; set; }
     }
 }
