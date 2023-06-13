@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace WindowsFormsApp1
 {
     public partial class Customers_Registration_Form : Form
@@ -13,9 +12,11 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
         }
-        public Supabase.Client SupabaseClient { get; set; }
-
-
+        public Supabase.Client SupabaseClient
+        {
+            get;
+            set;
+        }
 
         private async void bt_add_Click(object sender, EventArgs e)
         {
@@ -65,8 +66,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
-
         private void Customers_Registration_Form_Load(object sender, EventArgs e)
         {
 
@@ -80,7 +79,6 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
         }
-
 
     }
 }

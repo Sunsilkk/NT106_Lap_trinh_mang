@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
@@ -17,7 +13,11 @@ namespace Pet_Management
         {
             InitializeComponent();
         }
-        public Supabase.Client SupabaseClient { get; set; }
+        public Supabase.Client SupabaseClient
+        {
+            get;
+            set;
+        }
         Guid idproduct;
         private async Task<List<Products>> GetProducts()
         {
@@ -29,7 +29,6 @@ namespace Pet_Management
         async Task loaddata()
         {
             var product = await GetProducts();
-
 
             foreach (var pro in product)
             {
@@ -56,9 +55,9 @@ namespace Pet_Management
                 try
                 {
                     var update = await SupabaseClient
-                        .From<Products>()
-                        .Where(x => x.Id == idproduct)
-                        .Single();
+                      .From<Products>()
+                      .Where(x => x.Id == idproduct)
+                      .Single();
                     update.Name = txt_name.Text;
                     update.Price = Int32.Parse(txt_price.Text);
                     update.Stock = Int32.Parse(txt_stock.Text);

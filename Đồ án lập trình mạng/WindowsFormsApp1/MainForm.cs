@@ -1,9 +1,5 @@
 ﻿using Pet_Management;
 using System;
-using System.Drawing.Text;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -34,15 +30,15 @@ namespace WindowsFormsApp1
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {         
-                var oldTabControls = tabControl1.TabPages[tabControl1.SelectedIndex].Controls;
-                var oldTab = oldTabControls[0];
-                var tabType = oldTab.GetType();
-                var newTab = (Control)Activator.CreateInstance(tabType);
-                if (newTab == null) return;
-                newTab.Dock = DockStyle.Fill;
-                oldTabControls.Clear();
-                oldTabControls.Add(newTab);           
+        {
+            var oldTabControls = tabControl1.TabPages[tabControl1.SelectedIndex].Controls;
+            var oldTab = oldTabControls[0];
+            var tabType = oldTab.GetType();
+            var newTab = (Control)Activator.CreateInstance(tabType);
+            if (newTab == null) return;
+            newTab.Dock = DockStyle.Fill;
+            oldTabControls.Clear();
+            oldTabControls.Add(newTab);
         }
     }
 }

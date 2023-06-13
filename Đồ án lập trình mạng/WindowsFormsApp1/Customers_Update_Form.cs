@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
@@ -17,7 +13,11 @@ namespace Pet_Management
         {
             InitializeComponent();
         }
-        public Supabase.Client SupabaseClient { get; set; }
+        public Supabase.Client SupabaseClient
+        {
+            get;
+            set;
+        }
         Guid idcustomer;
         private async Task<List<Customers>> GetCustomers()
         {
@@ -30,11 +30,9 @@ namespace Pet_Management
         {
             var cust = await GetCustomers();
 
-
             foreach (var cus in cust)
             {
                 dgv_customer.Rows.Add(cus.Id, cus.Name, cus.Address, cus.Phone, cus.Created_at);
-
 
             }
         }
@@ -75,9 +73,9 @@ namespace Pet_Management
                 try
                 {
                     var update = await SupabaseClient
-                        .From<Customers>()
-                        .Where(x => x.Id == idcustomer)
-                        .Single();
+                      .From<Customers>()
+                      .Where(x => x.Id == idcustomer)
+                      .Single();
                     update.Name = txt_name.Text;
                     update.Address = txt_address.Text;
                     update.Phone = (int)Convert.ToInt64(txt_phone.Text);

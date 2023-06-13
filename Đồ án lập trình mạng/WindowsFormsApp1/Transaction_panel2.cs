@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pet_Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,24 +12,15 @@ namespace WindowsFormsApp1
     {
         Supabase.Client supabase;
         private List<Products> productList;
-        //private Products currentProduct = new Products();
         public Transaction_panel2()
         {
             InitializeComponent();
             InitializeSupabase();
         }
 
-        private void InitializeSupabase()
+        private async void InitializeSupabase()
         {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
+            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Transactions>> GetTransactions()
@@ -62,7 +54,10 @@ namespace WindowsFormsApp1
                         dgv_transaction.Rows.Add(transaction.Id, existingProduct.Name, transaction.Quantity, transaction.Total);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void bt_Search_Click(object sender, EventArgs e)
         {
@@ -76,7 +71,7 @@ namespace WindowsFormsApp1
             {
                 foreach (DataGridViewRow row in dgv_transaction.Rows)
                 {
-                    if (!row.IsNewRow) // Kiểm tra xem dòng có phải là dòng mới chưa được xác nhận hay không
+                    if (!row.IsNewRow) 
                     {
                         bool found = false;
                         foreach (DataGridViewCell cell in row.Cells)
@@ -92,8 +87,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            else
-            {
+            else {
                 foreach (DataGridViewRow row in dgv_transaction.Rows)
                 {
                     row.Visible = true;

@@ -12,7 +12,11 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
         }
-        public Supabase.Client SupabaseClient { get; set; }
+        public Supabase.Client SupabaseClient
+        {
+            get;
+            set;
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -53,14 +57,12 @@ namespace WindowsFormsApp1
             }
         }
 
-
         async Task load_product_type()
         {
 
             var response = await SupabaseClient.From<product_types>().Get();
 
             var type = response.Models;
-
 
             foreach (var ty in type)
             {
@@ -84,7 +86,6 @@ namespace WindowsFormsApp1
             panel4.Controls.Add(dgv_pet_type);
 
         }
-
 
         private void Delete_Click(object sender, EventArgs e)
         {

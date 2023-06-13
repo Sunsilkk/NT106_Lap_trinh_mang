@@ -1,4 +1,5 @@
-﻿using Postgrest;
+﻿using Pet_Management;
+using Postgrest;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -35,17 +36,9 @@ namespace WindowsFormsApp1
             InitializeSupabase();
 
         }
-        private void InitializeSupabase()
+        private async void InitializeSupabase()
         {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
+            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Products>> GetProducts()
@@ -102,16 +95,16 @@ namespace WindowsFormsApp1
                 {
                     var order = dgv_Billing.RowCount;
                     var typeNameResult = await supabase
-                        .From<product_types>()
-                        .Select("type")
-                        .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
-                        .Get();
+                      .From<product_types>()
+                      .Select("type")
+                      .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
+                      .Get();
 
                     var petTypeNameResult = await supabase
-                        .From<pet_types>()
-                        .Select("type")
-                        .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
-                        .Get();
+                      .From<pet_types>()
+                      .Select("type")
+                      .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
+                      .Get();
 
                     var typeName = typeNameResult.Model.Type;
                     var petTypeName = petTypeNameResult.Model.Type;
@@ -207,9 +200,8 @@ namespace WindowsFormsApp1
             billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
-
-
-            using var qrCodeForm = new QRCodeForm(qrBitmap);
+            using
+            var qrCodeForm = new QRCodeForm(qrBitmap);
             var dialogResult = qrCodeForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
@@ -222,15 +214,18 @@ namespace WindowsFormsApp1
                         foreach (var transaction in transactions)
                         {
                             var update = await supabase
-                            .From<Products>()
-                            .Where(x => x.Id == transaction.ProductId)
-                            .Single();
+                              .From<Products>()
+                              .Where(x => x.Id == transaction.ProductId)
+                              .Single();
                             update.Stock -= transaction.Quantity;
                             await update.Update<Products>();
                         }
                         dgv_Billing.Rows.Clear();
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }
@@ -292,14 +287,16 @@ namespace WindowsFormsApp1
         }
     }
 
-
-
     public partial class QRCodeForm : Form
     {
         private PictureBox pictureBox;
         private Button buttonOK;
         private Button buttonCancel;
-        public bool IsOKClicked { get; private set; }
+        public bool IsOKClicked
+        {
+            get;
+            private set;
+        }
         public QRCodeForm(Image qrCodeImage)
         {
             InitializeComponent();
@@ -326,10 +323,7 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
 
-            this.SuspendLayout();
-            // 
-            // QRCodeForm
-            // 
+            this.SuspendLayout();         
             this.ClientSize = new System.Drawing.Size(264, 300);
             this.Name = "QRCodeForm";
             this.ResumeLayout(false);

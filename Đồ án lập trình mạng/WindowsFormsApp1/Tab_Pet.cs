@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.ComponentModel;
+
 using System.IO;
-using Newtonsoft.Json.Linq;
-using System.Net;
+
 
 namespace Pet_Management
 {
@@ -30,17 +25,9 @@ namespace Pet_Management
             InitializeSupabase();
         }
 
-        private void InitializeSupabase()
+        private async void InitializeSupabase()
         {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
+            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Pet>> GetPet()
@@ -73,12 +60,12 @@ namespace Pet_Management
             CusList = await GetCus();
             tb_age.Text = string.Empty;
             tb_name.Text = string.Empty;
-            cb_Cus.Items.Clear();            
+            cb_Cus.Items.Clear();
             cb_Cus.SelectedIndex = -1;
             cb_type.Items.Clear();
             cb_type.SelectedIndex = -1;
-           // pb_petimage.Image = null;
-           
+            // pb_petimage.Image = null;
+
             try
             {
                 foreach (var cus in CusList)
@@ -121,7 +108,6 @@ namespace Pet_Management
                 //    { "mime_type", "image/jpeg" }
                 //};
 
-
                 Pet newPet = new Pet
                 {
                     Id = Guid.NewGuid(),
@@ -130,7 +116,7 @@ namespace Pet_Management
                     Age = Int32.Parse(tb_age.Text),
                     Created_at = DateTimeOffset.Now,
                     Name_Pet = tb_name.Text,
-                  //  Pet_image = imageObject.ToString(),
+                    //  Pet_image = imageObject.ToString(),
                 };
 
                 await supabase.From<Pet>().Insert(newPet);
@@ -174,14 +160,12 @@ namespace Pet_Management
                     await LoadData();
                 }
 
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "loi");
             }
         }
-
 
         string imagePath;
         private void bt_selectimage_Click(object sender, EventArgs e)
