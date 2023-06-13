@@ -12,22 +12,15 @@ using System.IO;
 
 namespace Pet_Management
 {
-    public partial class Tab_Pet : UserControl
+    public partial class Tab_Pet : SupabaseControl
     {
-        Supabase.Client supabase;
         private List<Pet> PetList;
         private List<pet_types> Pet_TypesList;
         private List<Customers> CusList;
 
-        public Tab_Pet()
+        public Tab_Pet(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
-        }
-
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Pet>> GetPet()
@@ -51,7 +44,7 @@ namespace Pet_Management
             return Cuss;
         }
 
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
             dgv_PET.Rows.Clear();
 
@@ -89,9 +82,9 @@ namespace Pet_Management
             }
         }
 
-        private void Tab_Pet_Load(object sender, EventArgs e)
+        private async void Tab_Pet_Load(object? sender, EventArgs e)
         {
-            LoadData();
+            await ClientRefresh();
         }
 
         private async void bt_Add_Click(object sender, EventArgs e)
@@ -120,7 +113,7 @@ namespace Pet_Management
                 };
 
                 await supabase.From<Pet>().Insert(newPet);
-                LoadData();
+                await ClientRefresh();
             }
         }
 
@@ -157,7 +150,7 @@ namespace Pet_Management
                     txt_cus_ht.Text = string.Empty;
                     txt_ID_HT.Text = string.Empty;
                     pb_petimage_ht.Image = null;
-                    await LoadData();
+                    await ClientRefresh();
                 }
 
             }

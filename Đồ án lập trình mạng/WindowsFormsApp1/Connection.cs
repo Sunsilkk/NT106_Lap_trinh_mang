@@ -1,30 +1,46 @@
-﻿using Supabase;
+﻿using Postgrest;
+using Supabase;
+using System.Security.Policy;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Pet_Management
 {
     public class SupabaseManager
     {
-        private static Supabase.Client supabase;
+        public Supabase.Client Client;
 
-        public static async Task<Supabase.Client> GetSupabase()
+        public bool IsConnected;
+
+        private const string Url = "https://hpvdlorgdoeaooibnffe.supabase.co";
+
+        private const string Key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
+
+        private readonly SupabaseOptions Options = new SupabaseOptions
         {
-            if (supabase == null)
-            {
-                var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-                var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
+            AutoConnectRealtime = true
+        };
 
-                var options = new SupabaseOptions
-                {
-                    AutoConnectRealtime = true
-                };
+        public SupabaseManager()
+        {
+            Client = new Supabase.Client(Url, Key, Options);
+        }
 
+<<<<<<< HEAD
                 supabase = new Supabase.Client(url, key, options);
                 //await supabase.InitializeAsync();
                 //var session = await supabase.Auth.SignIn("duongttt8@gmail.com", "SunsilkSunshine1708");
             }
 
             return supabase;
+=======
+        public async Task Connect()
+        {
+            Client ??= new Supabase.Client(Url, Key, Options);
+            await Client.InitializeAsync();
+            await Client.Auth.SignIn("duongttt8@gmail.com", "SunsilkSunshine1708");
+            IsConnected = true;
+>>>>>>> 434708280cb2bed5bb7bf448544167a887325e46
         }
     }
 }

@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System;
-using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1;
 using WindowsFormsApp1.Class;
 
 namespace Pet_Management
 {
-    public partial class Home : UserControl
+    public partial class Home : SupabaseControl
     {
+<<<<<<< HEAD
         Supabase.Client supabase;
         private List<pet_types> Pet_TypesList;
         private List<Cages> CagesList;
@@ -25,6 +19,30 @@ namespace Pet_Management
         InitializeComponent();
         this.supabase = Supabase;
     }
+=======
+        private List<pet_types> Pet_TypesList = null!;
+        private List<Cages> CagesList = null!;
+        private List<(string, string, int)> petList = null!;
+
+        public Home(SupabaseManager manager) : base(manager)
+        {
+            InitializeComponent();
+        }
+
+        public override async Task ClientRefresh()
+        {
+            chart_pet.Size = new System.Drawing.Size(600, 600);
+            await LoadData();
+            chart_pet.ChartAreas[0].AxisY.Minimum = 0;
+            chart_pet.ChartAreas[0].AxisY.Maximum = 10;
+            chart_pet.ChartAreas[0].AxisY.Interval = 1;
+            foreach (var item in petList)
+            {
+                chart_pet.Series["Series1"].Points.AddXY(item.Item2, item.Item3);
+            }
+        }
+
+>>>>>>> 434708280cb2bed5bb7bf448544167a887325e46
         private async Task<List<(string, string, int)>> List_pet()
         {
             List<(string, string, int)> petList = new List<(string, string, int)>();
@@ -80,18 +98,10 @@ namespace Pet_Management
             }
             catch (Exception ex) { }
         }
-        public async void Home_Load(object sender, EventArgs e)
-        {
-            chart_pet.Size = new System.Drawing.Size(600, 600);
-            await LoadData();
-            chart_pet.ChartAreas[0].AxisY.Minimum = 0;
-            chart_pet.ChartAreas[0].AxisY.Maximum = 10;
-            chart_pet.ChartAreas[0].AxisY.Interval = 1;
-            foreach (var item in petList)
-            {
-                chart_pet.Series["Series1"].Points.AddXY(item.Item2, item.Item3);
-            }
 
+        public async void Home_Load(object? sender, EventArgs e)
+        {
+            await ClientRefresh();
         }
     }
 }
