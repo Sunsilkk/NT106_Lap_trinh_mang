@@ -69,18 +69,19 @@
             // 
             cb_Cus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_Cus.FormattingEnabled = true;
-            cb_Cus.Location = new System.Drawing.Point(398, 373);
+            cb_Cus.Location = new System.Drawing.Point(348, 280);
+            cb_Cus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             cb_Cus.Name = "cb_Cus";
-            cb_Cus.Size = new System.Drawing.Size(204, 37);
+            cb_Cus.Size = new System.Drawing.Size(179, 32);
             cb_Cus.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(18, 338);
+            label1.Location = new System.Drawing.Point(16, 254);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(78, 29);
+            label1.Size = new System.Drawing.Size(61, 24);
             label1.TabIndex = 2;
             label1.Text = "Name";
             // 
@@ -88,9 +89,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(198, 338);
+            label2.Location = new System.Drawing.Point(173, 254);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(68, 29);
+            label2.Size = new System.Drawing.Size(53, 24);
             label2.TabIndex = 3;
             label2.Text = "Type";
             // 
@@ -98,36 +99,39 @@
             // 
             cb_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cb_type.FormattingEnabled = true;
-            cb_type.Location = new System.Drawing.Point(198, 373);
+            cb_type.Location = new System.Drawing.Point(173, 280);
+            cb_type.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             cb_type.Name = "cb_type";
-            cb_type.Size = new System.Drawing.Size(151, 37);
+            cb_type.Size = new System.Drawing.Size(133, 32);
             cb_type.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(398, 338);
+            label3.Location = new System.Drawing.Point(348, 254);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(117, 29);
+            label3.Size = new System.Drawing.Size(91, 24);
             label3.TabIndex = 5;
             label3.Text = "Customer";
             // 
             // tb_name
             // 
             tb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            tb_name.Location = new System.Drawing.Point(18, 373);
+            tb_name.Location = new System.Drawing.Point(16, 280);
+            tb_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tb_name.Name = "tb_name";
-            tb_name.Size = new System.Drawing.Size(125, 34);
+            tb_name.Size = new System.Drawing.Size(110, 29);
             tb_name.TabIndex = 6;
             tb_name.KeyPress += tb_name_KeyPress;
             // 
             // tb_age
             // 
             tb_age.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            tb_age.Location = new System.Drawing.Point(637, 376);
+            tb_age.Location = new System.Drawing.Point(557, 282);
+            tb_age.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             tb_age.Name = "tb_age";
-            tb_age.Size = new System.Drawing.Size(125, 34);
+            tb_age.Size = new System.Drawing.Size(110, 29);
             tb_age.TabIndex = 7;
             tb_age.KeyPress += tb_age_KeyPress;
             // 
@@ -135,9 +139,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(637, 338);
+            label4.Location = new System.Drawing.Point(557, 254);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(56, 29);
+            label4.Size = new System.Drawing.Size(45, 24);
             label4.TabIndex = 8;
             label4.Text = "Age";
             // 
@@ -146,9 +150,10 @@
             bt_Add.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
             bt_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_Add.Location = new System.Drawing.Point(1114, 364);
+            bt_Add.Location = new System.Drawing.Point(975, 273);
+            bt_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             bt_Add.Name = "bt_Add";
-            bt_Add.Size = new System.Drawing.Size(104, 53);
+            bt_Add.Size = new System.Drawing.Size(91, 40);
             bt_Add.TabIndex = 9;
             bt_Add.Text = "Add";
             bt_Add.UseVisualStyleBackColor = false;
@@ -156,11 +161,11 @@
             // 
             // label5
             // 
-            label5.Dock = System.Windows.Forms.DockStyle.Top;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label5.Font = new System.Drawing.Font("Mouldy Cheese", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label5.Location = new System.Drawing.Point(0, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(1286, 142);
+            label5.Size = new System.Drawing.Size(1125, 140);
             label5.TabIndex = 10;
             label5.Text = "Pet";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,9 +173,10 @@
             // pb_petimage
             // 
             pb_petimage.BackColor = System.Drawing.Color.FromArgb(202, 242, 239);
-            pb_petimage.Location = new System.Drawing.Point(828, 152);
+            pb_petimage.Location = new System.Drawing.Point(754, 124);
+            pb_petimage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             pb_petimage.Name = "pb_petimage";
-            pb_petimage.Size = new System.Drawing.Size(230, 206);
+            pb_petimage.Size = new System.Drawing.Size(201, 154);
             pb_petimage.TabIndex = 11;
             pb_petimage.TabStop = false;
             // 
@@ -179,9 +185,10 @@
             bt_selectimage.BackColor = System.Drawing.Color.FromArgb(195, 129, 84);
             bt_selectimage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             bt_selectimage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            bt_selectimage.Location = new System.Drawing.Point(844, 364);
+            bt_selectimage.Location = new System.Drawing.Point(738, 273);
+            bt_selectimage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             bt_selectimage.Name = "bt_selectimage";
-            bt_selectimage.Size = new System.Drawing.Size(188, 53);
+            bt_selectimage.Size = new System.Drawing.Size(164, 40);
             bt_selectimage.TabIndex = 12;
             bt_selectimage.Text = "Select Image";
             bt_selectimage.UseVisualStyleBackColor = false;
@@ -209,12 +216,11 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgv_PET.DefaultCellStyle = dataGridViewCellStyle4;
-            dgv_PET.Location = new System.Drawing.Point(18, 438);
-            dgv_PET.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dgv_PET.Location = new System.Drawing.Point(16, 328);
             dgv_PET.Name = "dgv_PET";
             dgv_PET.RowHeadersWidth = 51;
             dgv_PET.RowTemplate.Height = 24;
-            dgv_PET.Size = new System.Drawing.Size(629, 547);
+            dgv_PET.Size = new System.Drawing.Size(550, 410);
             dgv_PET.TabIndex = 14;
             dgv_PET.CellClick += dgv_PET_CellClick;
             dgv_PET.CellDoubleClick += dgv_PET_CellDoubleClick_1;
@@ -256,18 +262,19 @@
             panel2.Controls.Add(txt_type_ht);
             panel2.Controls.Add(txt_age_ht);
             panel2.Controls.Add(txt_cus_ht);
-            panel2.Location = new System.Drawing.Point(668, 438);
+            panel2.Location = new System.Drawing.Point(584, 328);
+            panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(550, 534);
+            panel2.Size = new System.Drawing.Size(481, 400);
             panel2.TabIndex = 15;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label10.Location = new System.Drawing.Point(64, 354);
+            label10.Location = new System.Drawing.Point(56, 266);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(116, 29);
+            label10.Size = new System.Drawing.Size(90, 24);
             label10.TabIndex = 20;
             label10.Text = "Pet Type:";
             // 
@@ -275,9 +282,9 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label9.Location = new System.Drawing.Point(64, 419);
+            label9.Location = new System.Drawing.Point(56, 314);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(123, 29);
+            label9.Size = new System.Drawing.Size(96, 24);
             label9.TabIndex = 19;
             label9.Text = "Customer:";
             // 
@@ -285,9 +292,9 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(64, 485);
+            label8.Location = new System.Drawing.Point(56, 364);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(62, 29);
+            label8.Size = new System.Drawing.Size(50, 24);
             label8.TabIndex = 18;
             label8.Text = "Age:";
             // 
@@ -295,9 +302,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(64, 284);
+            label7.Location = new System.Drawing.Point(56, 213);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(84, 29);
+            label7.Size = new System.Drawing.Size(66, 24);
             label7.TabIndex = 17;
             label7.Text = "Name:";
             // 
@@ -305,9 +312,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(64, 223);
+            label6.Location = new System.Drawing.Point(56, 167);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(42, 29);
+            label6.Size = new System.Drawing.Size(32, 24);
             label6.TabIndex = 16;
             label6.Text = "ID:";
             // 
@@ -315,8 +322,9 @@
             // 
             pb_petimage_ht.BackColor = System.Drawing.Color.FromArgb(202, 242, 239);
             pb_petimage_ht.Location = new System.Drawing.Point(0, 0);
+            pb_petimage_ht.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             pb_petimage_ht.Name = "pb_petimage_ht";
-            pb_petimage_ht.Size = new System.Drawing.Size(230, 206);
+            pb_petimage_ht.Size = new System.Drawing.Size(201, 154);
             pb_petimage_ht.TabIndex = 16;
             pb_petimage_ht.TabStop = false;
             // 
@@ -324,50 +332,55 @@
             // 
             txt_ID_HT.Enabled = false;
             txt_ID_HT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_ID_HT.Location = new System.Drawing.Point(265, 220);
+            txt_ID_HT.Location = new System.Drawing.Point(232, 165);
+            txt_ID_HT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txt_ID_HT.Name = "txt_ID_HT";
-            txt_ID_HT.Size = new System.Drawing.Size(259, 34);
+            txt_ID_HT.Size = new System.Drawing.Size(227, 29);
             txt_ID_HT.TabIndex = 12;
             // 
             // txt_name_ht
             // 
             txt_name_ht.Enabled = false;
             txt_name_ht.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_name_ht.Location = new System.Drawing.Point(265, 281);
+            txt_name_ht.Location = new System.Drawing.Point(232, 211);
+            txt_name_ht.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txt_name_ht.Name = "txt_name_ht";
-            txt_name_ht.Size = new System.Drawing.Size(259, 34);
+            txt_name_ht.Size = new System.Drawing.Size(227, 29);
             txt_name_ht.TabIndex = 11;
             // 
             // txt_type_ht
             // 
             txt_type_ht.Enabled = false;
             txt_type_ht.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_type_ht.Location = new System.Drawing.Point(265, 351);
+            txt_type_ht.Location = new System.Drawing.Point(232, 263);
+            txt_type_ht.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txt_type_ht.Name = "txt_type_ht";
-            txt_type_ht.Size = new System.Drawing.Size(259, 34);
+            txt_type_ht.Size = new System.Drawing.Size(227, 29);
             txt_type_ht.TabIndex = 10;
             // 
             // txt_age_ht
             // 
             txt_age_ht.Enabled = false;
             txt_age_ht.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_age_ht.Location = new System.Drawing.Point(265, 480);
+            txt_age_ht.Location = new System.Drawing.Point(232, 360);
+            txt_age_ht.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txt_age_ht.Name = "txt_age_ht";
-            txt_age_ht.Size = new System.Drawing.Size(259, 34);
+            txt_age_ht.Size = new System.Drawing.Size(227, 29);
             txt_age_ht.TabIndex = 9;
             // 
             // txt_cus_ht
             // 
             txt_cus_ht.Enabled = false;
             txt_cus_ht.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txt_cus_ht.Location = new System.Drawing.Point(265, 416);
+            txt_cus_ht.Location = new System.Drawing.Point(232, 312);
+            txt_cus_ht.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txt_cus_ht.Name = "txt_cus_ht";
-            txt_cus_ht.Size = new System.Drawing.Size(259, 34);
+            txt_cus_ht.Size = new System.Drawing.Size(227, 29);
             txt_cus_ht.TabIndex = 8;
             // 
             // Tab_Pet
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(249, 224, 187);
             Controls.Add(panel2);
@@ -384,8 +397,9 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(cb_Cus);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "Tab_Pet";
-            Size = new System.Drawing.Size(1286, 985);
+            Size = new System.Drawing.Size(1125, 739);
             Load += Tab_Pet_Load;
             ((System.ComponentModel.ISupportInitialize)pb_petimage).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgv_PET).EndInit();

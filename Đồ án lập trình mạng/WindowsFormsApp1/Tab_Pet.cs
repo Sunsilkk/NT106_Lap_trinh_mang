@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.ComponentModel;
 using System.IO;
 using Newtonsoft.Json.Linq;
-using System.Net;
 
 namespace Pet_Management
 {
@@ -73,12 +67,12 @@ namespace Pet_Management
             CusList = await GetCus();
             tb_age.Text = string.Empty;
             tb_name.Text = string.Empty;
-            cb_Cus.Items.Clear();            
+            cb_Cus.Items.Clear();
             cb_Cus.SelectedIndex = -1;
             cb_type.Items.Clear();
             cb_type.SelectedIndex = -1;
             pb_petimage.Image = null;
-           
+
             try
             {
                 foreach (var cus in CusList)
