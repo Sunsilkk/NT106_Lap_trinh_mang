@@ -8,19 +8,12 @@ using WindowsFormsApp1.Class;
 
 namespace WindowsFormsApp1
 {
-    public partial class Transaction_panel2 : UserControl
+    public partial class Transaction_panel2 : SupabaseControl
     {
-        Supabase.Client supabase;
         private List<Products> productList;
-        public Transaction_panel2()
+        public Transaction_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
-        }
-
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Transactions>> GetTransactions()
@@ -32,7 +25,7 @@ namespace WindowsFormsApp1
 
         private async void Transactor_panel2_Load(object sender, EventArgs e)
         {
-            await LoadData();
+            await ClientRefresh();
         }
         private async Task<List<Products>> GetProducts()
         {
@@ -40,7 +33,7 @@ namespace WindowsFormsApp1
             var product = result.Models;
             return product;
         }
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
             productList = await GetProducts();
             var transactions = await GetTransactions();

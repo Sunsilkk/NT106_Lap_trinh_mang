@@ -8,24 +8,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Product_panel2 : UserControl
+    public partial class Product_panel2 : SupabaseControl
     {
 
         Products_Registration_Form products_Registration_Form = new Products_Registration_Form();
         Products_Update_Form products_Update_Form = new Products_Update_Form();
-        Supabase.Client supabase;
         private List<product_types> productList;
         private List<pet_types> pet_typeList;
 
-        public Product_panel2()
+        public Product_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
-        }
-
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<product_types>> GetProducts_type()
@@ -43,7 +36,7 @@ namespace WindowsFormsApp1
 
         private async void Product_panel2_Load(object sender, EventArgs e)
         {
-            await loaddata();
+            await ClientRefresh();
         }
 
         private async Task<List<Products>> GetProducts()
@@ -53,8 +46,9 @@ namespace WindowsFormsApp1
             return product;
         }
 
-        async Task loaddata()
+        public override async Task ClientRefresh()
         {
+            dgv_product.Rows.Clear();
             var product = await GetProducts();
             productList = await GetProducts_type();
             pet_typeList = await Getpet_type();

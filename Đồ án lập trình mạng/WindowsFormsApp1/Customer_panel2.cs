@@ -6,12 +6,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Customer_panel2 : UserControl
+    public partial class Customer_panel2 : SupabaseControl
     {
-        public Customer_panel2()
+        public Customer_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
         }
 
         private async void Customer_panel2_Load(object sender, EventArgs e)
@@ -19,14 +18,8 @@ namespace WindowsFormsApp1
             await LoadDataAsync();
         }
 
-        private Supabase.Client supabase;
         private Customers_Registration_Form customers_Registration_Form = new Customers_Registration_Form();
         private Customers_Update_Form customers_Update_Form = new Customers_Update_Form();
-
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
-        }
 
         private async Task<List<Customers>> GetCustomersAsync()
         {

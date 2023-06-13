@@ -9,22 +9,15 @@ using System.ComponentModel;
 
 namespace Pet_Management
 {
-    public partial class Cage : UserControl
+    public partial class Cage : SupabaseControl
     {
-        private Supabase.Client supabase;
         private List<Pet> PetList;
         private List<pet_types> Pet_TypesList;
         private List<Cages> CagesList;
 
-        public Cage()
+        public Cage(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
-        }
-
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Cages>> Getcage()
@@ -45,7 +38,7 @@ namespace Pet_Management
             var Pet_t = result.Models;
             return Pet_t;
         }
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
             dgv_Cages.Rows.Clear();
             CagesList = await Getcage();
@@ -75,13 +68,14 @@ namespace Pet_Management
             catch (Exception ex) { }
             SortDataGridViewByID();
         }
+
         private void SortDataGridViewByID()
         {
             dgv_Cages.Sort(dgv_Cages.Columns["ID"], ListSortDirection.Ascending);
         }
         private async void Cage_Load(object sender, EventArgs e)
         {
-            await LoadData();
+            await ClientRefresh();
         }
 
         private void dgv_Cages_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -153,7 +147,7 @@ namespace Pet_Management
                 {
                     MessageBox.Show(ex.Message);
                 }
-                LoadData();
+                await ClientRefresh();
             }
         }
 

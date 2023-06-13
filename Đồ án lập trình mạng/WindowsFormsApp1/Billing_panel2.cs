@@ -15,30 +15,16 @@ using ZXing.Windows.Compatibility;
 
 namespace WindowsFormsApp1
 {
-    public partial class Billing_panel2 : UserControl
+    public partial class Billing_panel2 : SupabaseControl
     {
-        private Supabase.Client supabase;
         private List<Products> productList;
         private Products currentProduct = new Products();
         private List<Transactions> transactions;
         private Billing billing;
 
-        public Billing_panel2()
+        public Billing_panel2(SupabaseManager manager) : base(manager)
         {
-            transactions = new List<Transactions>();
-
-            billing = new Billing
-            {
-                Id = Guid.NewGuid()
-            };
-
             InitializeComponent();
-            InitializeSupabase();
-
-        }
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
         }
 
         private async Task<List<Products>> GetProducts()
@@ -47,6 +33,7 @@ namespace WindowsFormsApp1
             var product = result.Models;
             return product;
         }
+
         private void dgv_Billing_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -155,9 +142,9 @@ namespace WindowsFormsApp1
             lb_total.Text = total.ToString();
         }
 
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
-
+            lb_total.Text = "0";
             productList = await GetProducts();
             foreach (var product in productList)
             {
@@ -167,8 +154,7 @@ namespace WindowsFormsApp1
 
         private async void Billing_Load(object sender, EventArgs e)
         {
-            lb_total.Text = "0";
-            await LoadData();
+            await ClientRefresh();
         }
 
         private void cb_Select_SelectedIndexChanged(object sender, EventArgs e)

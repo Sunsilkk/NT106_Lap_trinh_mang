@@ -1,44 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System;
-using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1;
 using WindowsFormsApp1.Class;
 
 namespace Pet_Management
 {
-    public partial class Home : UserControl
+    public partial class Home : SupabaseControl
     {
-        private List<pet_types> Pet_TypesList;
-        private List<Cages> CagesList;
-        private List<(string, string, int)> petList;
-        Supabase.Client supabase;
-        public Home()
+        private List<pet_types> Pet_TypesList = null!;
+        private List<Cages> CagesList = null!;
+        private List<(string, string, int)> petList = null!;
+
+        public Home(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
         }
 
-        private async void InitializeSupabase()
+        public override async Task ClientRefresh()
         {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
+            chart_pet.Size = new System.Drawing.Size(600, 600);
+            await LoadData();
+            chart_pet.ChartAreas[0].AxisY.Minimum = 0;
+            chart_pet.ChartAreas[0].AxisY.Maximum = 10;
+            chart_pet.ChartAreas[0].AxisY.Interval = 1;
+            foreach (var item in petList)
             {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
-
+                chart_pet.Series["Series1"].Points.AddXY(item.Item2, item.Item3);
+            }
         }
+
         private async Task<List<(string, string, int)>> List_pet()
         {
             List<(string, string, int)> petList = new List<(string, string, int)>();
@@ -94,18 +86,10 @@ namespace Pet_Management
             }
             catch (Exception ex) { }
         }
-        public async void Home_Load(object sender, EventArgs e)
-        {
-            chart_pet.Size = new System.Drawing.Size(600, 600);
-            await LoadData();
-            chart_pet.ChartAreas[0].AxisY.Minimum = 0;
-            chart_pet.ChartAreas[0].AxisY.Maximum = 10;
-            chart_pet.ChartAreas[0].AxisY.Interval = 1;
-            foreach (var item in petList)
-            {
-                chart_pet.Series["Series1"].Points.AddXY(item.Item2, item.Item3);
-            }
 
+        public async void Home_Load(object? sender, EventArgs e)
+        {
+            await ClientRefresh();
         }
     }
 }
