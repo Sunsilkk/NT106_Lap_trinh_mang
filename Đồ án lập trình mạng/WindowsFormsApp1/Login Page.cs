@@ -17,9 +17,7 @@ namespace Pet_Management
 
         public Login_Page()
         {
-            InitializeComponent();
-            textBox1.Text = "duongttt8@gmail.com";
-            textBox2.Text = "SunsilkSunshine1708";
+            InitializeComponent();        
         }
 
         private async void button1_Click(object sender, EventArgs e)
