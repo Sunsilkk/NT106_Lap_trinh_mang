@@ -7,24 +7,29 @@ namespace WindowsFormsApp1
     public partial class MainForm : Form
     {
         private Home homeTab;
+        private Transaction_panel2 TranTab;
+        Supabase.Client supabase;
         public MainForm()
         {
             InitializeComponent();
-            AddNewTab(new Home(), "Home");
+            InitializeSupabase();
+            AddNewTab(new Home(supabase), "Home");
             AddNewTab(new Customer_panel2(), "Customers");
             AddNewTab(new Tab_Pet(), "Pet");
             AddNewTab(new Cage(), "Cage");
             AddNewTab(new Product_panel2(), "Products");
-            AddNewTab(new Billing_panel2(), "Billing");
-            AddNewTab(new Transaction_panel2(), "Transactions");
+           AddNewTab(new Billing_panel2(supabase), "Billing");
+           // AddNewTab(new Transaction_panel2(supabase), "Transactions");
 
         }
-
+        private async void InitializeSupabase()
+        {
+            supabase = await SupabaseManager.GetSupabase();
+        }
         private void AddNewTab(Control control, string tabTitle)
         {
             var tab = new TabPage(control.Text);
             tab.Text = tabTitle;
-
             control.Dock = DockStyle.Fill;
             tab.Controls.Add(control);
             tabControl1.TabPages.Add(tab);

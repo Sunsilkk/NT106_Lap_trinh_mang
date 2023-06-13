@@ -23,8 +23,9 @@ namespace WindowsFormsApp1
         private List<Transactions> transactions;
         private Billing billing;
 
-        public Billing_panel2()
+        public Billing_panel2(Supabase.Client Supabase)
         {
+            InitializeComponent();
             transactions = new List<Transactions>();
 
             billing = new Billing
@@ -32,9 +33,8 @@ namespace WindowsFormsApp1
                 Id = Guid.NewGuid()
             };
 
-            InitializeComponent();
-            InitializeSupabase();
-
+            
+            this.supabase = Supabase;
         }
         private async void InitializeSupabase()
         {

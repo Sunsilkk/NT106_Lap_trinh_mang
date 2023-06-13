@@ -20,8 +20,8 @@ namespace Pet_Management
                 };
 
                 supabase = new Supabase.Client(url, key, options);
-                await supabase.InitializeAsync();
-                var session = await supabase.Auth.SignIn("duongttt8@gmail.com", "SunsilkSunshine1708");
+                //await supabase.InitializeAsync();
+                //var session = await supabase.Auth.SignIn("duongttt8@gmail.com", "SunsilkSunshine1708");
             }
 
             return supabase;

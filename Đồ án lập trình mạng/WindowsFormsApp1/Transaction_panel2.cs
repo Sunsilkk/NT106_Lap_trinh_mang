@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Class;
+using WindowsFormsApp1;
 
 namespace WindowsFormsApp1
 {
@@ -12,15 +13,10 @@ namespace WindowsFormsApp1
     {
         Supabase.Client supabase;
         private List<Products> productList;
-        public Transaction_panel2()
+        public Transaction_panel2(Supabase.Client Supabase)
         {
             InitializeComponent();
-            InitializeSupabase();
-        }
-
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
+            this.supabase = Supabase;
         }
 
         private async Task<List<Transactions>> GetTransactions()

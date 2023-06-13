@@ -20,30 +20,11 @@ namespace Pet_Management
         private List<pet_types> Pet_TypesList;
         private List<Cages> CagesList;
         private List<(string, string, int)> petList;
-       
-        public Home()
-        {
-            InitializeComponent();
-            InitializeSupabase();
-        }
-        //private async void InitializeSupabase()
-        //{
-        //    supabase = await SupabaseManager.GetSupabase();
-        //}
-
-        private async void InitializeSupabase()
-        {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
-
-        }
+        public Home(Supabase.Client Supabase)
+    {
+        InitializeComponent();
+        this.supabase = Supabase;
+    }
         private async Task<List<(string, string, int)>> List_pet()
         {
             List<(string, string, int)> petList = new List<(string, string, int)>();
