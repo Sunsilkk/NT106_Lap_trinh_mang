@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Class;
 using WindowsFormsApp1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.ComponentModel;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace Pet_Management
 {
@@ -67,12 +73,12 @@ namespace Pet_Management
             CusList = await GetCus();
             tb_age.Text = string.Empty;
             tb_name.Text = string.Empty;
-            cb_Cus.Items.Clear();
+            cb_Cus.Items.Clear();            
             cb_Cus.SelectedIndex = -1;
             cb_type.Items.Clear();
             cb_type.SelectedIndex = -1;
-            pb_petimage.Image = null;
-
+           // pb_petimage.Image = null;
+           
             try
             {
                 foreach (var cus in CusList)
@@ -107,13 +113,13 @@ namespace Pet_Management
             {
                 var petlist = Pet_TypesList.FirstOrDefault(t => t.Type == cb_type.SelectedItem);
                 var cuslist = CusList.FirstOrDefault(t => t.Name == cb_Cus.SelectedItem);
-                byte[] imageBytes = File.ReadAllBytes(imagePath);
-                string base64Image = Convert.ToBase64String(imageBytes);
-                JObject imageObject = new JObject
-                {
-                    { "data", base64Image },
-                    { "mime_type", "image/jpeg" }
-                };
+                //byte[] imageBytes = File.ReadAllBytes(imagePath);
+                //string base64Image = Convert.ToBase64String(imageBytes);
+                //JObject imageObject = new JObject
+                //{
+                //    { "data", base64Image },
+                //    { "mime_type", "image/jpeg" }
+                //};
 
 
                 Pet newPet = new Pet
@@ -124,7 +130,7 @@ namespace Pet_Management
                     Age = Int32.Parse(tb_age.Text),
                     Created_at = DateTimeOffset.Now,
                     Name_Pet = tb_name.Text,
-                    Pet_image = imageObject.ToString(),
+                  //  Pet_image = imageObject.ToString(),
                 };
 
                 await supabase.From<Pet>().Insert(newPet);
@@ -228,31 +234,31 @@ namespace Pet_Management
                 var cus_id = CusList.FirstOrDefault(t => t.Id == search_pet.Custommer_id);
                 txt_cus_ht.Text = cus_id.Name;
                 txt_age_ht.Text = search_pet.Age.ToString();
-                if (search_pet.Pet_image != null)
-                {
-                    display_image(search_pet);
-                }
-                else
-                {
-                    pb_petimage_ht.SizeMode = PictureBoxSizeMode.Normal;
-                    pb_petimage_ht.Text = "No Image";
-                }
+                //if (search_pet.Pet_image != null)
+                //{
+                //    display_image(search_pet);
+                //}
+                //else
+                //{
+                //    pb_petimage_ht.SizeMode = PictureBoxSizeMode.Normal;
+                //    pb_petimage_ht.Text = "No Image";
+                //}
             }
         }
         private void display_image(Pet pet)
         {
-            string image_j = pet.Pet_image.ToString();
-            JObject image_object = JObject.Parse(image_j);
+            //string image_j = pet.Pet_image.ToString();
+            //JObject image_object = JObject.Parse(image_j);
 
-            string base64Image = image_object["data"].ToString();
-            string mimeType = image_object["mime_type"].ToString();
-            byte[] imageBytes = Convert.FromBase64String(base64Image);
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                Image image = Image.FromStream(ms);
-                Image resized_image = ResizeImage(image, pb_petimage_ht.Width, pb_petimage_ht.Height);
-                pb_petimage_ht.Image = resized_image;
-            }
+            //string base64Image = image_object["data"].ToString();
+            //string mimeType = image_object["mime_type"].ToString();
+            //byte[] imageBytes = Convert.FromBase64String(base64Image);
+            //using (MemoryStream ms = new MemoryStream(imageBytes))
+            //{
+            //    Image image = Image.FromStream(ms);
+            //    Image resized_image = ResizeImage(image, pb_petimage_ht.Width, pb_petimage_ht.Height);
+            //    pb_petimage_ht.Image = resized_image;
+            //}
         }
     }
 }
