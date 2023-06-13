@@ -127,20 +127,10 @@ namespace Pet_Management
                     }
                     else
                     {
-                        update.Pet_id = null;
+                        update.Pet_id=null;
                         update.Pet_type_id = null;
                     }
-                    // Create a new instance of Cages with the fields you want to update
-                    var updatedCage = new Cages()
-                    {
-                        Id = update.Id,
-                        Pet_id = update.Pet_id,
-                        Pet_type_id = update.Pet_type_id,
-                        empty = update.empty
-                    };
-
-                    // Use the new instance in the Update method
-                    await supabase.From<Cages>().Update(updatedCage);
+                    await supabase.From<Cages>().Update(update);
 
                 }
                 catch (Exception ex)

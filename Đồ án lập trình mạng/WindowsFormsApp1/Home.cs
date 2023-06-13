@@ -9,17 +9,6 @@ namespace Pet_Management
 {
     public partial class Home : SupabaseControl
     {
-<<<<<<< HEAD
-        Supabase.Client supabase;
-        private List<pet_types> Pet_TypesList;
-        private List<Cages> CagesList;
-        private List<(string, string, int)> petList;
-        public Home(Supabase.Client Supabase)
-    {
-        InitializeComponent();
-        this.supabase = Supabase;
-    }
-=======
         private List<pet_types> Pet_TypesList = null!;
         private List<Cages> CagesList = null!;
         private List<(string, string, int)> petList = null!;
@@ -36,13 +25,16 @@ namespace Pet_Management
             chart_pet.ChartAreas[0].AxisY.Minimum = 0;
             chart_pet.ChartAreas[0].AxisY.Maximum = 10;
             chart_pet.ChartAreas[0].AxisY.Interval = 1;
+            chart_pet.Series["Series1"].Points.Clear();
             foreach (var item in petList)
             {
+                string petId = item.Item1;
+                string petType = item.Item2;
+                int petCount = item.Item3;
                 chart_pet.Series["Series1"].Points.AddXY(item.Item2, item.Item3);
             }
         }
 
->>>>>>> 434708280cb2bed5bb7bf448544167a887325e46
         private async Task<List<(string, string, int)>> List_pet()
         {
             List<(string, string, int)> petList = new List<(string, string, int)>();
@@ -101,6 +93,7 @@ namespace Pet_Management
 
         public async void Home_Load(object? sender, EventArgs e)
         {
+
             await ClientRefresh();
         }
     }

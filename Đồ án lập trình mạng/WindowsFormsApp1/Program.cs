@@ -1,6 +1,4 @@
-﻿using Pet_Management;
-using Supabase;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -16,13 +14,11 @@ namespace WindowsFormsApp1
         /// </summary>
         [STAThread]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-       
-        static async Task Main()
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-        
     }
 }

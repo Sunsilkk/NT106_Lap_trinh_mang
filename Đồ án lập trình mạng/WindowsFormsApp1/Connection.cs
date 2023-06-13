@@ -24,29 +24,11 @@ namespace Pet_Management
             Client = new Supabase.Client(Url, Key, Options);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                supabase = new Supabase.Client(url, key, options);
-                //await supabase.InitializeAsync();
-                //var session = await supabase.Auth.SignIn("duongttt8@gmail.com", "SunsilkSunshine1708");
-            }
-
-            return supabase;
-=======
-        public async Task Connect()
-        {
-            Client ??= new Supabase.Client(Url, Key, Options);
-            await Client.InitializeAsync();
-            await Client.Auth.SignIn("duongttt8@gmail.com", "SunsilkSunshine1708");
-            IsConnected = true;
->>>>>>> 434708280cb2bed5bb7bf448544167a887325e46
-=======
         public async Task Connect(string email, string password)
         {
             Client ??= new Supabase.Client(Url, Key, Options);
             await Client.InitializeAsync();
             await Client.Auth.SignIn(email, password);
->>>>>>> 6f1b6e0a95d1c79f8483809a05b0d1003b0394d9
         }
     }
 }

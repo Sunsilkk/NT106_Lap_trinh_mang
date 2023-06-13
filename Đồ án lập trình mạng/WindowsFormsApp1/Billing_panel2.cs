@@ -22,28 +22,9 @@ namespace WindowsFormsApp1
         private List<Transactions> transactions;
         private Billing billing;
 
-<<<<<<< HEAD
-        public Billing_panel2(Supabase.Client Supabase)
-        {
-            InitializeComponent();
-            transactions = new List<Transactions>();
-
-            billing = new Billing
-            {
-                Id = Guid.NewGuid()
-            };
-
-            
-            this.supabase = Supabase;
-        }
-        private async void InitializeSupabase()
-        {
-            supabase = await SupabaseManager.GetSupabase();
-=======
         public Billing_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
->>>>>>> 434708280cb2bed5bb7bf448544167a887325e46
         }
 
         private async Task<List<Products>> GetProducts()

@@ -5,23 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Class;
-using WindowsFormsApp1;
 
 namespace WindowsFormsApp1
 {
     public partial class Transaction_panel2 : SupabaseControl
     {
         private List<Products> productList;
-<<<<<<< HEAD
-        public Transaction_panel2(Supabase.Client Supabase)
-        {
-            InitializeComponent();
-            this.supabase = Supabase;
-=======
         public Transaction_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
->>>>>>> 434708280cb2bed5bb7bf448544167a887325e46
         }
 
         private async Task<List<Transactions>> GetTransactions()
