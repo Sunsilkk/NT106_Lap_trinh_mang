@@ -63,6 +63,36 @@ namespace Pet_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _7757272 {
+            get {
+                object obj = ResourceManager.GetObject("7757272", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8388521 {
+            get {
+                object obj = ResourceManager.GetObject("8388521", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8892789 {
+            get {
+                object obj = ResourceManager.GetObject("8892789", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download_upscayl_4x_realesrgan_x4plus {
             get {
                 object obj = ResourceManager.GetObject("download_upscayl_4x_realesrgan-x4plus", resourceCulture);
