@@ -16,15 +16,20 @@ namespace Pet_Management
 {
     public partial class Home : UserControl
     {
+        Supabase.Client supabase;
         private List<pet_types> Pet_TypesList;
         private List<Cages> CagesList;
         private List<(string, string, int)> petList;
-        Supabase.Client supabase;
+       
         public Home()
         {
             InitializeComponent();
             InitializeSupabase();
         }
+        //private async void InitializeSupabase()
+        //{
+        //    supabase = await SupabaseManager.GetSupabase();
+        //}
 
         private async void InitializeSupabase()
         {

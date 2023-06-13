@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         {
             var tab = new TabPage(control.Text);
             tab.Text = tabTitle;
+
             control.Dock = DockStyle.Fill;
             tab.Controls.Add(control);
             tabControl1.TabPages.Add(tab);
