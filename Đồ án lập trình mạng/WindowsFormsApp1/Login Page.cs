@@ -24,6 +24,9 @@ namespace Pet_Management
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            button1.Text = "Logging in...";
+            button1.ForeColor = Color.FromArgb(236, 176, 58);
+            button1.Enabled = false;
             try
             {
                 SupabaseManager = new SupabaseManager();
@@ -35,6 +38,8 @@ namespace Pet_Management
             {
 
             }
+            button1.Text = "Submit";
+            button1.Enabled = true;
         }
     }
 }

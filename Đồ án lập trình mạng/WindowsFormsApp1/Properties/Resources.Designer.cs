@@ -114,6 +114,16 @@ namespace Pet_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mesa_de_trabajo_1_4x {
+            get {
+                object obj = ResourceManager.GetObject("Mesa de trabajo 1@4x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MoMo_Logo {
             get {
                 object obj = ResourceManager.GetObject("MoMo_Logo", resourceCulture);
