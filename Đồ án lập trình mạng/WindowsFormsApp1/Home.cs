@@ -25,8 +25,12 @@ namespace Pet_Management
             chart_pet.ChartAreas[0].AxisY.Minimum = 0;
             chart_pet.ChartAreas[0].AxisY.Maximum = 10;
             chart_pet.ChartAreas[0].AxisY.Interval = 1;
+            chart_pet.Series["Series1"].Points.Clear();
             foreach (var item in petList)
             {
+                string petId = item.Item1;
+                string petType = item.Item2;
+                int petCount = item.Item3;
                 chart_pet.Series["Series1"].Points.AddXY(item.Item2, item.Item3);
             }
         }
@@ -89,6 +93,7 @@ namespace Pet_Management
 
         public async void Home_Load(object? sender, EventArgs e)
         {
+
             await ClientRefresh();
         }
     }
