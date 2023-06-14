@@ -21,15 +21,17 @@ namespace WindowsFormsApp1
         private Products currentProduct = new Products();
         private List<Transactions> transactions;
         private Billing billing;
+        private SupabaseManager supabaseManager;
 
         public Billing_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
+            supabaseManager =  new SupabaseManager();
         }
 
         private async Task<List<Products>> GetProducts()
         {
-            var result = await supabase.From<Products>().Get();
+            var result = await supabaseManager.Client.From<Products>().Get();
             var product = result.Models;
             return product;
         }
@@ -86,20 +88,20 @@ namespace WindowsFormsApp1
                 else
                 {
                     var order = dgv_Billing.RowCount;
-                    var typeNameResult = await supabase
+                    var typeNameResult = await supabaseManager.Client
                       .From<product_types>()
                       .Select("type")
                       .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
                       .Get();
 
-                    var petTypeNameResult = await supabase
+                    var petTypeNameResult = await supabaseManager.Client
                       .From<pet_types>()
                       .Select("type")
                       .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
                       .Get();
 
-                    var typeName = typeNameResult.Model.Type;
-                    var petTypeName = petTypeNameResult.Model.Type;
+                        var typeName = typeNameResult.Model?.Type;
+                        var petTypeName = petTypeNameResult.Model.Type;
 
                     dgv_Billing.Rows.Add(order, currentProduct.Name, typeName, petTypeName, qty, currentProduct.Price);
 
@@ -191,7 +193,7 @@ namespace WindowsFormsApp1
             var qrBitmap = GenerateQRBitmap();
 
             billing.CustomerId = Guid.Parse("784e3bab-a8db-45d6-a1af-dbbda3093a82");
-            billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
+            billing.CashierId = Guid.Parse(supabaseManager.Client.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
             using
@@ -199,15 +201,16 @@ namespace WindowsFormsApp1
             var dialogResult = qrCodeForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
+
                 if (qrCodeForm.IsOKClicked)
                 {
                     try
                     {
-                        await supabase.From<Billing>().Insert(billing);
-                        await supabase.From<Transactions>().Insert(transactions);
+                        await supabaseManager.Client.From<Billing>().Insert(billing);
+                        await supabaseManager.Client.From<Transactions>().Insert(transactions);
                         foreach (var transaction in transactions)
                         {
-                            var update = await supabase
+                            var update = await supabaseManager.Client
                               .From<Products>()
                               .Where(x => x.Id == transaction.ProductId)
                               .Single();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pet_Management;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -7,10 +8,11 @@ namespace WindowsFormsApp1
 {
     public partial class Customers_Registration_Form : Form
     {
+        private SupabaseManager supabaseManager;
         public Customers_Registration_Form()
         {
             InitializeComponent();
-
+            supabaseManager = new SupabaseManager();
         }
         public Supabase.Client SupabaseClient
         {
@@ -39,15 +41,15 @@ namespace WindowsFormsApp1
                     Created_at = createdAt
                 };
 
-                var result = await SupabaseClient.From<Customers>().Insert(model);
+                var result = await supabaseManager.Client.From<Customers>().Insert(model);
                 MessageBox.Show("Them khach hang thanh cong!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Them khach hang khong thanh cong!" + ex.Message);
             }
-
         }
+
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -67,7 +69,7 @@ namespace WindowsFormsApp1
 
         private void Customers_Registration_Form_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void txt_name_KeyPress(object sender, KeyPressEventArgs e)

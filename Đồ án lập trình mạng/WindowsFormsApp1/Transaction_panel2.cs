@@ -11,14 +11,16 @@ namespace WindowsFormsApp1
     public partial class Transaction_panel2 : SupabaseControl
     {
         private List<Products> productList;
+        private SupabaseManager supabaseManager;
         public Transaction_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
+            supabaseManager = new SupabaseManager();
         }
 
         private async Task<List<Transactions>> GetTransactions()
         {
-            var result = await supabase.From<Transactions>().Get();
+            var result = await supabaseManager.Client.From<Transactions>().Get();
             var transactions = result.Models;
             return transactions;
         }
@@ -31,7 +33,7 @@ namespace WindowsFormsApp1
         private async Task<List<Products>> GetProducts()
         {
             dgv_transaction.Rows.Clear();
-            var result = await supabase.From<Products>().Get();
+            var result = await supabaseManager.Client.From<Products>().Get();
             var product = result.Models;
             return product;
         }

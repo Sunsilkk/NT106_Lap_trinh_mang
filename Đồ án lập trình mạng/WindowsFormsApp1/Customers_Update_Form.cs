@@ -9,9 +9,11 @@ namespace Pet_Management
 {
     public partial class Customers_Update_Form : Form
     {
+        private SupabaseManager supabaseManager;
         public Customers_Update_Form()
         {
             InitializeComponent();
+            supabaseManager = new SupabaseManager();
         }
         public Supabase.Client SupabaseClient
         {
@@ -21,7 +23,7 @@ namespace Pet_Management
         Guid idcustomer;
         private async Task<List<Customers>> GetCustomers()
         {
-            var result = await SupabaseClient.From<Customers>().Get();
+            var result = await supabaseManager.Client.From<Customers>().Get();
             var cust = result.Models;
             return cust;
         }
@@ -72,7 +74,7 @@ namespace Pet_Management
                 idcustomer = Guid.Parse(columnValue);
                 try
                 {
-                    var update = await SupabaseClient
+                    var update = await supabaseManager.Client
                       .From<Customers>()
                       .Where(x => x.Id == idcustomer)
                       .Single();
