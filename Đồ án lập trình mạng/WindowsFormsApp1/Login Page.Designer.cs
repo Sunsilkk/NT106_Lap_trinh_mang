@@ -45,6 +45,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new System.Drawing.Size(339, 28);
             textBox2.TabIndex = 1;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // button1
             // 

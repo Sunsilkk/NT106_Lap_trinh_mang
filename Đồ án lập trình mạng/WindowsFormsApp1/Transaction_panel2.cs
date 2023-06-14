@@ -25,10 +25,12 @@ namespace WindowsFormsApp1
 
         private async void Transactor_panel2_Load(object sender, EventArgs e)
         {
+
             await ClientRefresh();
         }
         private async Task<List<Products>> GetProducts()
         {
+            dgv_transaction.Rows.Clear();
             var result = await supabase.From<Products>().Get();
             var product = result.Models;
             return product;

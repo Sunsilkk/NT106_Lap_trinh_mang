@@ -58,7 +58,6 @@ namespace WindowsFormsApp1
 
         private void txt_phone_TextChanged(object sender, EventArgs e)
         {
-            //check đầu vào sdt
             if (!string.IsNullOrEmpty(txt_phone.Text) && !txt_phone.Text.All(Char.IsDigit))
             {
                 MessageBox.Show("Vui long nhap dung dinh dang!");

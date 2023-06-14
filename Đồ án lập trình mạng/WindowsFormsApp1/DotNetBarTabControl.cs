@@ -3,8 +3,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-// thanks to Mavamaarten~ for coding this
-
 namespace Pet_Management
 {
     internal class DotNetBarTabControl : TabControl

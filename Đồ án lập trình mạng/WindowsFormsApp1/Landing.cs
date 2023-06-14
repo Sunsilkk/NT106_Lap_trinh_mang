@@ -19,10 +19,10 @@ namespace Pet_Management
             {
                 progressBar.Value = 0;
                 timer1.Stop();
+
                 this.Hide();
             }
         }
-
         private void Landing_Load(object sender, EventArgs e)
         {
             timer1.Start();

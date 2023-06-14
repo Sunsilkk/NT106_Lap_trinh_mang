@@ -1,5 +1,6 @@
 ﻿using Pet_Management;
 using System;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -34,19 +35,22 @@ namespace WindowsFormsApp1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            using var Loginform = new Login_Page();
-            if (Loginform.ShowDialog() == DialogResult.OK && Loginform.SupabaseManager != null)
-            {
-                _manager = Loginform.SupabaseManager;
-                var homeTab = AddNewTab(new Home(_manager), "Home");
-                AddNewTab(new Customer_panel2(_manager), "Customers");
-                AddNewTab(new Tab_Pet(_manager), "Pet");
-                AddNewTab(new Cage(_manager), "Cage");
-                AddNewTab(new Product_panel2(_manager), "Products");
-                AddNewTab(new Billing_panel2(_manager), "Billing");
-                AddNewTab(new Transaction_panel2(_manager), "Transactions");
-                tabControl1.SelectedTab = homeTab;
-            }
+
+            using var Landing = new Landing();
+            Landing.ShowDialog();
+                using var Loginform = new Login_Page();
+                if (Loginform.ShowDialog() == DialogResult.OK && Loginform.SupabaseManager != null)
+                {
+                    _manager = Loginform.SupabaseManager;
+                    var homeTab = AddNewTab(new Home(_manager), "Home");
+                    AddNewTab(new Customer_panel2(_manager), "Customers");
+                    AddNewTab(new Tab_Pet(_manager), "Pet");
+                    AddNewTab(new Cage(_manager), "Cage");
+                    AddNewTab(new Product_panel2(_manager), "Products");
+                    AddNewTab(new Billing_panel2(_manager), "Billing");
+                    AddNewTab(new Transaction_panel2(_manager), "Transactions");
+                    tabControl1.SelectedTab = homeTab;
+                }
             else
             {
                 Close();

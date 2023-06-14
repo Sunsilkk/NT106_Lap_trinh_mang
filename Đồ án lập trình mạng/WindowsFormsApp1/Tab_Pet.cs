@@ -149,7 +149,6 @@ namespace Pet_Management
                     txt_type_ht.Text = string.Empty;
                     txt_cus_ht.Text = string.Empty;
                     txt_ID_HT.Text = string.Empty;
-                    pb_petimage_ht.Image = null;
                     await ClientRefresh();
                 }
 
@@ -161,27 +160,7 @@ namespace Pet_Management
         }
 
         string imagePath;
-        private void bt_selectimage_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Image Files (*.jpg, *.png)|*.jpg;*.png|All Files (*.*)|*.*";
-            opf.Title = "Select an Image";
 
-            if (opf.ShowDialog() == DialogResult.OK)
-            {
-                imagePath = opf.FileName;
-                byte[] imageBytes = File.ReadAllBytes(imagePath);
-
-                using (MemoryStream ms = new MemoryStream(imageBytes))
-                {
-                    Bitmap image = new Bitmap(ms);
-                    Image resized_Image = ResizeImage(image, pb_petimage.Width, pb_petimage.Height);
-                    pb_petimage.Image = resized_Image;
-                }
-
-            }
-
-        }
         private Image ResizeImage(Image image, int width, int height)
         {
             Bitmap resized_Image = new Bitmap(width, height);
@@ -198,7 +177,7 @@ namespace Pet_Management
 
         private void dgv_PET_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            pb_petimage_ht.Image = null;
+
             DataGridViewRow selectedRow = dgv_PET.Rows[e.RowIndex];
             if (selectedRow.Cells["id"].Value != null)
             {

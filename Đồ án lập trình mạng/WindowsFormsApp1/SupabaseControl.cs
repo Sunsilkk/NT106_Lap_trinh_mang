@@ -19,7 +19,13 @@ namespace Pet_Management
         public SupabaseControl(SupabaseManager manager)
         {
             InitializeComponent();
-            Manager = manager;
+            Manager = manager;  
+        }
+
+        public SupabaseControl()
+        {
+            InitializeComponent();
+            Manager = new();
         }
 
         public virtual Task ClientRefresh()

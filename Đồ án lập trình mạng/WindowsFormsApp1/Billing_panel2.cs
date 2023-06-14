@@ -61,8 +61,13 @@ namespace WindowsFormsApp1
             {
                 if (cb_Qty.SelectedItem == null) return;
                 if (cb_Select.SelectedItem == null) return;
+                try
+                {
+                    var qty = int.Parse(cb_Qty.SelectedItem.ToString());
+                    if (qty == null)
+                        MessageBox.Show("trthrtyh");
 
-                var qty = int.Parse(cb_Qty.SelectedItem.ToString());
+
                 var existingTransaction = transactions.FirstOrDefault(t => t.ProductId == currentProduct.Id);
 
                 if (existingTransaction != null)
@@ -118,6 +123,8 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.ToString());
             }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return; }
         }
 
         private void UpdateRowQty(Transactions transaction)
@@ -144,6 +151,7 @@ namespace WindowsFormsApp1
 
         public override async Task ClientRefresh()
         {
+            dgv_Billing.Rows.Clear();
             lb_total.Text = "0";
             productList = await GetProducts();
             foreach (var product in productList)
@@ -182,7 +190,7 @@ namespace WindowsFormsApp1
         {
             var qrBitmap = GenerateQRBitmap();
 
-            billing.CustomerId = Guid.Parse("58e1feea-fd2e-4bb4-943a-a37a9407c164");
+            billing.CustomerId = Guid.Parse("784e3bab-a8db-45d6-a1af-dbbda3093a82");
             billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
