@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pet_Management;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -7,12 +8,18 @@ namespace WindowsFormsApp1
 {
     public partial class Products_Registration_Form : Form
     {
+        private SupabaseManager _supabaseManager;
         public Products_Registration_Form()
         {
             InitializeComponent();
+            _supabaseManager = new SupabaseManager();
 
         }
-        public Supabase.Client SupabaseClient { get; set; }
+        public Supabase.Client SupabaseClient
+        {
+            get;
+            set;
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -43,7 +50,7 @@ namespace WindowsFormsApp1
                     Created_at = createdAt
                 };
 
-                var result = await SupabaseClient.From<Products>().Insert(model);
+                var result = await _supabaseManager.Client.From<Products>().Insert(model);
                 MessageBox.Show("Them san pham thanh cong!");
 
             }
@@ -53,14 +60,12 @@ namespace WindowsFormsApp1
             }
         }
 
-
         async Task load_product_type()
         {
 
-            var response = await SupabaseClient.From<product_types>().Get();
+            var response = await _supabaseManager.Client.From<product_types>().Get();
 
             var type = response.Models;
-
 
             foreach (var ty in type)
             {
@@ -73,7 +78,7 @@ namespace WindowsFormsApp1
         }
         async Task load_pet_type()
         {
-            var response1 = await SupabaseClient.From<pet_types>().Get();
+            var response1 = await _supabaseManager.Client.From<pet_types>().Get();
             var type1 = response1.Models;
 
             foreach (var pty in type1)
@@ -84,7 +89,6 @@ namespace WindowsFormsApp1
             panel4.Controls.Add(dgv_pet_type);
 
         }
-
 
         private void Delete_Click(object sender, EventArgs e)
         {

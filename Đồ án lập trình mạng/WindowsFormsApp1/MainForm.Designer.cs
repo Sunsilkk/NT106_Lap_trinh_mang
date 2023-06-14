@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
             Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             Name = "MainForm";
             Text = "Form1";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 

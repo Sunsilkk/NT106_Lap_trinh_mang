@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pet_Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,48 +8,36 @@ using WindowsFormsApp1.Class;
 
 namespace WindowsFormsApp1
 {
-    public partial class Transaction_panel2 : UserControl
+    public partial class Transaction_panel2 : SupabaseControl
     {
-        Supabase.Client supabase;
         private List<Products> productList;
-        //private Products currentProduct = new Products();
-        public Transaction_panel2()
+        private SupabaseManager supabaseManager;
+        public Transaction_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
-        }
-
-        private void InitializeSupabase()
-        {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
+            supabaseManager = new SupabaseManager();
         }
 
         private async Task<List<Transactions>> GetTransactions()
         {
-            var result = await supabase.From<Transactions>().Get();
+            var result = await supabaseManager.Client.From<Transactions>().Get();
             var transactions = result.Models;
             return transactions;
         }
 
         private async void Transactor_panel2_Load(object sender, EventArgs e)
         {
-            await LoadData();
+
+            await ClientRefresh();
         }
         private async Task<List<Products>> GetProducts()
         {
-            var result = await supabase.From<Products>().Get();
+            dgv_transaction.Rows.Clear();
+            var result = await supabaseManager.Client.From<Products>().Get();
             var product = result.Models;
             return product;
         }
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
             productList = await GetProducts();
             var transactions = await GetTransactions();
@@ -62,7 +51,10 @@ namespace WindowsFormsApp1
                         dgv_transaction.Rows.Add(transaction.Id, existingProduct.Name, transaction.Quantity, transaction.Total);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void bt_Search_Click(object sender, EventArgs e)
         {
@@ -76,7 +68,7 @@ namespace WindowsFormsApp1
             {
                 foreach (DataGridViewRow row in dgv_transaction.Rows)
                 {
-                    if (!row.IsNewRow) // Kiểm tra xem dòng có phải là dòng mới chưa được xác nhận hay không
+                    if (!row.IsNewRow) 
                     {
                         bool found = false;
                         foreach (DataGridViewCell cell in row.Cells)
@@ -92,8 +84,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            else
-            {
+            else {
                 foreach (DataGridViewRow row in dgv_transaction.Rows)
                 {
                     row.Visible = true;

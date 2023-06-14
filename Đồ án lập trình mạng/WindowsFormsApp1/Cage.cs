@@ -5,39 +5,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
 using System.Linq;
-using System.Transactions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Data.Common;
-using Postgrest.Models;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.ComponentModel;
 
 namespace Pet_Management
 {
-    public partial class Cage : UserControl
+    public partial class Cage : SupabaseControl
     {
-        Supabase.Client supabase;
         private List<Pet> PetList;
         private List<pet_types> Pet_TypesList;
         private List<Cages> CagesList;
-        public Cage()
+
+        public Cage(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
         }
-        private void InitializeSupabase()
-        {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
 
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
-
-        }
         private async Task<List<Cages>> Getcage()
         {
             var result = await supabase.From<Cages>().Get();
@@ -56,7 +38,7 @@ namespace Pet_Management
             var Pet_t = result.Models;
             return Pet_t;
         }
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
             dgv_Cages.Rows.Clear();
             CagesList = await Getcage();
@@ -71,7 +53,6 @@ namespace Pet_Management
                     string name_pet = string.Empty, name_pet_type = string.Empty;
                     if (existingPet != null) name_pet = existingPet.Name_Pet.ToString();
                     if (existingPetList != null) name_pet_type = existingPetList.Type;
-
                     dgv_Cages.Rows.Add(cage.Id, name_pet, name_pet_type, cage.empty);
                 }
             }
@@ -86,20 +67,15 @@ namespace Pet_Management
             }
             catch (Exception ex) { }
             SortDataGridViewByID();
-
         }
+
         private void SortDataGridViewByID()
         {
             dgv_Cages.Sort(dgv_Cages.Columns["ID"], ListSortDirection.Ascending);
         }
         private async void Cage_Load(object sender, EventArgs e)
         {
-            await LoadData();
-        }
-
-        private void metroProgressBar1_Click(object sender, EventArgs e)
-        {
-
+            await ClientRefresh();
         }
 
         private void dgv_Cages_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -151,22 +127,19 @@ namespace Pet_Management
                     }
                     else
                     {
-                        update.Pet_id = null;
+                        update.Pet_id=null;
                         update.Pet_type_id = null;
                     }
-                    // Create a new instance of Cages with the fields you want to update
-                    var updatedCage = new Cages() { Id = update.Id, Pet_id = update.Pet_id, Pet_type_id = update.Pet_type_id, empty = update.empty };
-
-                    // Use the new instance in the Update method
-                    await supabase.From<Cages>().Update(updatedCage);
+                    await supabase.From<Cages>().Update(update);
 
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-                LoadData();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                await ClientRefresh();
             }
         }
-
-
 
         private void cb_PetName_SelectedIndexChanged(object sender, EventArgs e)
         {

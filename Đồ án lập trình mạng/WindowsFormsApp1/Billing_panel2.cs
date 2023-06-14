@@ -1,4 +1,5 @@
-﻿using Postgrest;
+﻿using Pet_Management;
+using Postgrest;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,46 +15,27 @@ using ZXing.Windows.Compatibility;
 
 namespace WindowsFormsApp1
 {
-    public partial class Billing_panel2 : UserControl
+    public partial class Billing_panel2 : SupabaseControl
     {
-        private Supabase.Client supabase;
         private List<Products> productList;
         private Products currentProduct = new Products();
         private List<Transactions> transactions;
         private Billing billing;
+        private SupabaseManager supabaseManager;
 
-        public Billing_panel2()
+        public Billing_panel2(SupabaseManager manager) : base(manager)
         {
-            transactions = new List<Transactions>();
-
-            billing = new Billing
-            {
-                Id = Guid.NewGuid()
-            };
-
             InitializeComponent();
-            InitializeSupabase();
-
-        }
-        private void InitializeSupabase()
-        {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
+            supabaseManager =  new SupabaseManager();
         }
 
         private async Task<List<Products>> GetProducts()
         {
-            var result = await supabase.From<Products>().Get();
+            var result = await supabaseManager.Client.From<Products>().Get();
             var product = result.Models;
             return product;
         }
+
         private void dgv_Billing_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -81,8 +63,13 @@ namespace WindowsFormsApp1
             {
                 if (cb_Qty.SelectedItem == null) return;
                 if (cb_Select.SelectedItem == null) return;
+                try
+                {
+                    var qty = int.Parse(cb_Qty.SelectedItem.ToString());
+                    if (qty == null)
+                        MessageBox.Show("trthrtyh");
 
-                var qty = int.Parse(cb_Qty.SelectedItem.ToString());
+
                 var existingTransaction = transactions.FirstOrDefault(t => t.ProductId == currentProduct.Id);
 
                 if (existingTransaction != null)
@@ -101,20 +88,20 @@ namespace WindowsFormsApp1
                 else
                 {
                     var order = dgv_Billing.RowCount;
-                    var typeNameResult = await supabase
-                        .From<product_types>()
-                        .Select("type")
-                        .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
-                        .Get();
+                    var typeNameResult = await supabaseManager.Client
+                      .From<product_types>()
+                      .Select("type")
+                      .Filter("id", Constants.Operator.Equals, currentProduct.Type_id)
+                      .Get();
 
-                    var petTypeNameResult = await supabase
-                        .From<pet_types>()
-                        .Select("type")
-                        .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
-                        .Get();
+                    var petTypeNameResult = await supabaseManager.Client
+                      .From<pet_types>()
+                      .Select("type")
+                      .Filter("id", Constants.Operator.Equals, currentProduct.Pet_type_id)
+                      .Get();
 
-                    var typeName = typeNameResult.Model.Type;
-                    var petTypeName = petTypeNameResult.Model.Type;
+                        var typeName = typeNameResult.Model?.Type;
+                        var petTypeName = petTypeNameResult.Model.Type;
 
                     dgv_Billing.Rows.Add(order, currentProduct.Name, typeName, petTypeName, qty, currentProduct.Price);
 
@@ -138,6 +125,8 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.ToString());
             }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return; }
         }
 
         private void UpdateRowQty(Transactions transaction)
@@ -162,9 +151,10 @@ namespace WindowsFormsApp1
             lb_total.Text = total.ToString();
         }
 
-        private async Task LoadData()
+        public override async Task ClientRefresh()
         {
-
+            dgv_Billing.Rows.Clear();
+            lb_total.Text = "0";
             productList = await GetProducts();
             foreach (var product in productList)
             {
@@ -174,8 +164,7 @@ namespace WindowsFormsApp1
 
         private async void Billing_Load(object sender, EventArgs e)
         {
-            lb_total.Text = "0";
-            await LoadData();
+            await ClientRefresh();
         }
 
         private void cb_Select_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,34 +192,37 @@ namespace WindowsFormsApp1
         {
             var qrBitmap = GenerateQRBitmap();
 
-            billing.CustomerId = Guid.Parse("58e1feea-fd2e-4bb4-943a-a37a9407c164");
-            billing.CashierId = Guid.Parse(supabase.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
+            billing.CustomerId = Guid.Parse("784e3bab-a8db-45d6-a1af-dbbda3093a82");
+            billing.CashierId = Guid.Parse(supabaseManager.Client.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
-
-
-            using var qrCodeForm = new QRCodeForm(qrBitmap);
+            using
+            var qrCodeForm = new QRCodeForm(qrBitmap);
             var dialogResult = qrCodeForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
+
                 if (qrCodeForm.IsOKClicked)
                 {
                     try
                     {
-                        await supabase.From<Billing>().Insert(billing);
-                        await supabase.From<Transactions>().Insert(transactions);
+                        await supabaseManager.Client.From<Billing>().Insert(billing);
+                        await supabaseManager.Client.From<Transactions>().Insert(transactions);
                         foreach (var transaction in transactions)
                         {
-                            var update = await supabase
-                            .From<Products>()
-                            .Where(x => x.Id == transaction.ProductId)
-                            .Single();
+                            var update = await supabaseManager.Client
+                              .From<Products>()
+                              .Where(x => x.Id == transaction.ProductId)
+                              .Single();
                             update.Stock -= transaction.Quantity;
                             await update.Update<Products>();
                         }
                         dgv_Billing.Rows.Clear();
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }
@@ -292,14 +284,16 @@ namespace WindowsFormsApp1
         }
     }
 
-
-
     public partial class QRCodeForm : Form
     {
         private PictureBox pictureBox;
         private Button buttonOK;
         private Button buttonCancel;
-        public bool IsOKClicked { get; private set; }
+        public bool IsOKClicked
+        {
+            get;
+            private set;
+        }
         public QRCodeForm(Image qrCodeImage)
         {
             InitializeComponent();
@@ -326,10 +320,7 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
 
-            this.SuspendLayout();
-            // 
-            // QRCodeForm
-            // 
+            this.SuspendLayout();         
             this.ClientSize = new System.Drawing.Size(264, 300);
             this.Name = "QRCodeForm";
             this.ResumeLayout(false);

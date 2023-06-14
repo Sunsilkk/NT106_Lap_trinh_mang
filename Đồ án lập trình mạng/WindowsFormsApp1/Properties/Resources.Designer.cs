@@ -63,9 +63,101 @@ namespace Pet_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _7757272 {
+            get {
+                object obj = ResourceManager.GetObject("7757272", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7757278 {
+            get {
+                object obj = ResourceManager.GetObject("7757278", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7757278_upscayl_4x_realesrgan_x4plus {
+            get {
+                object obj = ResourceManager.GetObject("7757278_upscayl_4x_realesrgan-x4plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8388521 {
+            get {
+                object obj = ResourceManager.GetObject("8388521", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8892789 {
+            get {
+                object obj = ResourceManager.GetObject("8892789", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download_upscayl_4x_realesrgan_x4plus {
+            get {
+                object obj = ResourceManager.GetObject("download_upscayl_4x_realesrgan-x4plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filhote_de_golden_retriever_fofo_com_desenho_de_óculos_de_sol__ilustração_vetorial {
+            get {
+                object obj = ResourceManager.GetObject("filhote de golden retriever fofo com desenho de óculos de sol, ilustração vetoria" +
+                        "l", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mesa_de_trabajo_1_4x {
+            get {
+                object obj = ResourceManager.GetObject("Mesa de trabajo 1@4x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MoMo_Logo {
             get {
                 object obj = ResourceManager.GetObject("MoMo_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Premium_Vector___Lazy_beagle_puppy_lying_on_back_icon_upscayl_4x_realesrgan_x4plus {
+            get {
+                object obj = ResourceManager.GetObject("Premium Vector _ Lazy beagle puppy lying on back icon_upscayl_4x_realesrgan-x4plu" +
+                        "s", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

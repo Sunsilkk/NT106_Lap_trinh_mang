@@ -4,23 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Class;
 
 
 namespace WindowsFormsApp1
 {
-    public partial class Product_panel2 : UserControl
+    public partial class Product_panel2 : SupabaseControl
     {
-        public Product_panel2()
-        {
-            InitializeComponent();
-            InitializeSupabase();
-        }
+
         Products_Registration_Form products_Registration_Form = new Products_Registration_Form();
         Products_Update_Form products_Update_Form = new Products_Update_Form();
-        Supabase.Client supabase;
         private List<product_types> productList;
         private List<pet_types> pet_typeList;
+
+        public Product_panel2(SupabaseManager manager) : base(manager)
+        {
+            InitializeComponent();
+        }
+
         private async Task<List<product_types>> GetProducts_type()
         {
             var result = await supabase.From<product_types>().Get();
@@ -36,22 +36,9 @@ namespace WindowsFormsApp1
 
         private async void Product_panel2_Load(object sender, EventArgs e)
         {
-            await loaddata();
+            await ClientRefresh();
         }
-        private void InitializeSupabase()
-        {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
 
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
-            products_Registration_Form.SupabaseClient = supabase;
-            products_Update_Form.SupabaseClient = supabase;
-        }
         private async Task<List<Products>> GetProducts()
         {
             var result = await supabase.From<Products>().Get();
@@ -59,12 +46,12 @@ namespace WindowsFormsApp1
             return product;
         }
 
-        async Task loaddata()
+        public override async Task ClientRefresh()
         {
+            dgv_product.Rows.Clear();
             var product = await GetProducts();
             productList = await GetProducts_type();
             pet_typeList = await Getpet_type();
-
 
             foreach (var pro in product)
             {
@@ -117,8 +104,6 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
-
 
         private async void bt_delete_Click(object sender, EventArgs e)
         {

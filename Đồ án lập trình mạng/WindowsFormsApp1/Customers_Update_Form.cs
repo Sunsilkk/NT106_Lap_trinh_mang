@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
@@ -13,15 +9,21 @@ namespace Pet_Management
 {
     public partial class Customers_Update_Form : Form
     {
+        private SupabaseManager supabaseManager;
         public Customers_Update_Form()
         {
             InitializeComponent();
+            supabaseManager = new SupabaseManager();
         }
-        public Supabase.Client SupabaseClient { get; set; }
+        public Supabase.Client SupabaseClient
+        {
+            get;
+            set;
+        }
         Guid idcustomer;
         private async Task<List<Customers>> GetCustomers()
         {
-            var result = await SupabaseClient.From<Customers>().Get();
+            var result = await supabaseManager.Client.From<Customers>().Get();
             var cust = result.Models;
             return cust;
         }
@@ -30,11 +32,9 @@ namespace Pet_Management
         {
             var cust = await GetCustomers();
 
-
             foreach (var cus in cust)
             {
                 dgv_customer.Rows.Add(cus.Id, cus.Name, cus.Address, cus.Phone, cus.Created_at);
-
 
             }
         }
@@ -74,10 +74,10 @@ namespace Pet_Management
                 idcustomer = Guid.Parse(columnValue);
                 try
                 {
-                    var update = await SupabaseClient
-                        .From<Customers>()
-                        .Where(x => x.Id == idcustomer)
-                        .Single();
+                    var update = await supabaseManager.Client
+                      .From<Customers>()
+                      .Where(x => x.Id == idcustomer)
+                      .Single();
                     update.Name = txt_name.Text;
                     update.Address = txt_address.Text;
                     update.Phone = (int)Convert.ToInt64(txt_phone.Text);

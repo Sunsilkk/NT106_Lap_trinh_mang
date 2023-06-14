@@ -6,12 +6,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Customer_panel2 : UserControl
+    public partial class Customer_panel2 : SupabaseControl
     {
-        public Customer_panel2()
+        public Customer_panel2(SupabaseManager manager) : base(manager)
         {
             InitializeComponent();
-            InitializeSupabase();
         }
 
         private async void Customer_panel2_Load(object sender, EventArgs e)
@@ -19,24 +18,8 @@ namespace WindowsFormsApp1
             await LoadDataAsync();
         }
 
-        private Supabase.Client supabase;
         private Customers_Registration_Form customers_Registration_Form = new Customers_Registration_Form();
         private Customers_Update_Form customers_Update_Form = new Customers_Update_Form();
-
-        private void InitializeSupabase()
-        {
-            var url = "https://hpvdlorgdoeaooibnffe.supabase.co";
-            var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwdmRsb3JnZG9lYW9vaWJuZmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ0MzA3ODMsImV4cCI6MjAwMDAwNjc4M30.toI_Vn6TKJFbM8YBT3qbYzLCiAfQtj9VHKw53qQNYOU";
-
-            var options = new Supabase.SupabaseOptions
-            {
-                AutoConnectRealtime = true
-            };
-
-            supabase = new Supabase.Client(url, key, options);
-            customers_Registration_Form.SupabaseClient = supabase;
-            customers_Update_Form.SupabaseClient = supabase;
-        }
 
         private async Task<List<Customers>> GetCustomersAsync()
         {
