@@ -1,0 +1,14 @@
+D:\NT106\FTP\FTP\bin\Debug\FTP.exe.config
+D:\NT106\FTP\FTP\bin\Debug\FTP.exe
+D:\NT106\FTP\FTP\bin\Debug\FTP.pdb
+D:\NT106\FTP\FTP\obj\Debug\FTP.csproj.AssemblyReference.cache
+D:\NT106\FTP\FTP\obj\Debug\FTP.csproj.SuggestedBindingRedirects.cache
+D:\NT106\FTP\FTP\obj\Debug\FTP.Form1.resources
+D:\NT106\FTP\FTP\obj\Debug\FTP.Properties.Resources.resources
+D:\NT106\FTP\FTP\obj\Debug\FTP.csproj.GenerateResource.cache
+D:\NT106\FTP\FTP\obj\Debug\FTP.csproj.CoreCompileInputs.cache
+D:\NT106\FTP\FTP\obj\Debug\FTP.exe
+D:\NT106\FTP\FTP\obj\Debug\FTP.pdb
+D:\NT106\FTP\FTP\bin\Debug\FluentFTP.dll
+D:\NT106\FTP\FTP\bin\Debug\FluentFTP.xml
+D:\NT106\FTP\FTP\obj\Debug\FTP.csproj.CopyComplete
