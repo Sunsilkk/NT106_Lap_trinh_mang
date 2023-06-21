@@ -21,17 +21,10 @@ namespace WindowsFormsApp1
         private Customers_Registration_Form customers_Registration_Form = new Customers_Registration_Form();
         private Customers_Update_Form customers_Update_Form = new Customers_Update_Form();
 
-        private async Task<List<Customers>> GetCustomersAsync()
-        {
-            var result = await supabase.From<Customers>().Get();
-            var customers = result.Models;
-            return customers;
-        }
-
         private async Task LoadDataAsync()
         {
             dgv_customer.Rows.Clear();
-            var customers = await GetCustomersAsync();
+            var customers = await Get<Customers>();
 
             foreach (var customer in customers)
             {

@@ -44,31 +44,13 @@ namespace Pet_Management
             }
             return petList;
         }
-        private async Task<List<pet_types>> GetPetTypeList()
-        {
-            var result = await supabase.From<pet_types>().Get();
-            var Pet_t = result.Models;
-            return Pet_t;
-        }
-        private async Task<List<Cages>> Getcage()
-        {
-            var result = await supabase.From<Cages>().Get();
-            var cages = result.Models;
-            return cages;
-        }
-        private async Task<List<Transactions>> GetTrans()
-        {
-            var result = await supabase.From<Transactions>().Get();
-            var trans = result.Models;
-            return trans;
-        }
 
         private async Task LoadData()
         {
-            Pet_TypesList = await GetPetTypeList();
-            CagesList = await Getcage();
+            Pet_TypesList = await Get<pet_types>();
+            CagesList = await Get<Cages>();
             petList = await List_pet();
-            var Trans = await GetTrans();
+            var Trans = await Get<Transactions>();
             long total = 0;
             try
             {

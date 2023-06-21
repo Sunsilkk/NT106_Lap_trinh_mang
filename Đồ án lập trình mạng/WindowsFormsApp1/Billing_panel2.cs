@@ -27,13 +27,10 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             supabaseManager =  new SupabaseManager();
-        }
-
-        private async Task<List<Products>> GetProducts()
-        {
-            var result = await supabaseManager.Client.From<Products>().Get();
-            var product = result.Models;
-            return product;
+            billing = new Billing
+            {
+                Id = Guid.NewGuid(),
+            };
         }
 
         private void dgv_Billing_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -155,7 +152,8 @@ namespace WindowsFormsApp1
         {
             dgv_Billing.Rows.Clear();
             lb_total.Text = "0";
-            productList = await GetProducts();
+            productList = await Get<Products>();
+            transactions = await Get<Transactions>();
             foreach (var product in productList)
             {
                 cb_Select.Items.Add(product.Name);
@@ -192,7 +190,7 @@ namespace WindowsFormsApp1
         {
             var qrBitmap = GenerateQRBitmap();
 
-            billing.CustomerId = Guid.Parse("784e3bab-a8db-45d6-a1af-dbbda3093a82");
+            billing.CustomerId = Guid.Parse("f78795be-b106-4078-9a83-26dd8d48eb1e");
             billing.CashierId = Guid.Parse(supabaseManager.Client.Auth.CurrentUser?.Id ?? "bf475bc9-f8dc-4cf0-978b-c2c25967e9e4");
             billing.CreatedAt = DateTime.Now;
 
