@@ -18,29 +18,19 @@ namespace WindowsFormsApp1
             supabaseManager = new SupabaseManager();
         }
 
-        private async Task<List<Transactions>> GetTransactions()
-        {
-            var result = await supabaseManager.Client.From<Transactions>().Get();
-            var transactions = result.Models;
-            return transactions;
-        }
+        
 
         private async void Transactor_panel2_Load(object sender, EventArgs e)
         {
 
             await ClientRefresh();
         }
-        private async Task<List<Products>> GetProducts()
-        {
-            dgv_transaction.Rows.Clear();
-            var result = await supabaseManager.Client.From<Products>().Get();
-            var product = result.Models;
-            return product;
-        }
+
         public override async Task ClientRefresh()
         {
-            productList = await GetProducts();
-            var transactions = await GetTransactions();
+            dgv_transaction.Rows.Clear();
+            productList = await Get<Products>();
+            var transactions = await Get<Transactions>();
             try
             {
                 foreach (var transaction in transactions)

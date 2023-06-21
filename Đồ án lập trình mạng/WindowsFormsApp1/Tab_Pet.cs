@@ -23,34 +23,13 @@ namespace Pet_Management
             InitializeComponent();
         }
 
-        private async Task<List<Pet>> GetPet()
-        {
-            var result = await supabase.From<Pet>().Get();
-            var Pet_p = result.Models;
-            return Pet_p;
-        }
-
-        private async Task<List<pet_types>> GetPetTypeList()
-        {
-            var result = await supabase.From<pet_types>().Get();
-            var Pet_t = result.Models;
-            return Pet_t;
-        }
-
-        private async Task<List<Customers>> GetCus()
-        {
-            var result = await supabase.From<Customers>().Get();
-            var Cuss = result.Models;
-            return Cuss;
-        }
-
         public override async Task ClientRefresh()
         {
             dgv_PET.Rows.Clear();
 
-            PetList = await GetPet();
-            Pet_TypesList = await GetPetTypeList();
-            CusList = await GetCus();
+            PetList = await Get<Pet>();
+            Pet_TypesList = await Get<pet_types>();
+            CusList = await Get<Customers>();
             tb_age.Text = string.Empty;
             tb_name.Text = string.Empty;
             cb_Cus.Items.Clear();

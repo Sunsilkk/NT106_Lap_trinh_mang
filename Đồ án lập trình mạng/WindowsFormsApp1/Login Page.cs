@@ -19,8 +19,6 @@ namespace Pet_Management
             button1.Enabled = false;
             try
             {
-                textBox1.Text = "vtht@gmail.com";
-                textBox2.Text = "hoaithanhdangiu";
                 SupabaseManager = new SupabaseManager();
                 await SupabaseManager.Connect(textBox1.Text, textBox2.Text);
                 DialogResult = DialogResult.OK;

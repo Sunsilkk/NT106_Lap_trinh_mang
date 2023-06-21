@@ -1,6 +1,7 @@
 ﻿using Pet_Management;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,37 +22,17 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private async Task<List<product_types>> GetProducts_type()
-        {
-            var result = await supabase.From<product_types>().Get();
-            var product_type = result.Models;
-            return product_type;
-        }
-        private async Task<List<pet_types>> Getpet_type()
-        {
-            var result = await supabase.From<pet_types>().Get();
-            var pet_type = result.Models;
-            return pet_type;
-        }
-
         private async void Product_panel2_Load(object sender, EventArgs e)
         {
             await ClientRefresh();
         }
 
-        private async Task<List<Products>> GetProducts()
-        {
-            var result = await supabase.From<Products>().Get();
-            var product = result.Models;
-            return product;
-        }
-
         public override async Task ClientRefresh()
         {
             dgv_product.Rows.Clear();
-            var product = await GetProducts();
-            productList = await GetProducts_type();
-            pet_typeList = await Getpet_type();
+            var product = await Get<Products>();
+            productList = await Get<product_types>();
+            pet_typeList = await Get<pet_types>();
 
             foreach (var pro in product)
             {
@@ -127,14 +108,20 @@ namespace WindowsFormsApp1
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            products_Registration_Form.ShowDialog();
+            var form = new Form();
+            form.Size = new Size(600, 800);
+            form.Controls.Add(products_Registration_Form);
+            form.ShowDialog();
             dgv_product.Rows.Clear();
             Product_panel2_Load(sender, e);
         }
 
         private void bt_update_Click(object sender, EventArgs e)
         {
-            products_Update_Form.ShowDialog();
+            var form = new Form();
+            form.Size = new Size(600, 800);
+            form.Controls.Add(products_Update_Form);
+            form.ShowDialog();
             dgv_product.Rows.Clear();
             Product_panel2_Load(sender, e);
         }

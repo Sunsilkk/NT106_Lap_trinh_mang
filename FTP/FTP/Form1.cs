@@ -136,7 +136,7 @@ namespace FTP
                 lbl_Wrong.Text = "";
                 FileInfo info = new FileInfo(txt_url.Text);
 
-                request = (FtpWebRequest)WebRequest.Create(txt_host.Text + "/" + info.Name);
+                request = (FtpWebRequest)WebRequest.Create("ftp://" + txt_host.Text);
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 request.Credentials = new NetworkCredential(txt_username.Text, txt_password.Text);
 

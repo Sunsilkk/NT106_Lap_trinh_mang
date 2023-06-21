@@ -355,7 +355,6 @@
             Controls.Add(Delete);
             Controls.Add(bt_add);
             Controls.Add(panel2);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Name = "Products_Registration_Form";
             Text = "Products";
             Load += Products_Registration_Form_Load;

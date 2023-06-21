@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Products_Registration_Form : Form
+    public partial class Products_Registration_Form : SupabaseControl
     {
         private SupabaseManager _supabaseManager;
         public Products_Registration_Form()
@@ -14,11 +14,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             _supabaseManager = new SupabaseManager();
 
-        }
-        public Supabase.Client SupabaseClient
-        {
-            get;
-            set;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -63,11 +58,9 @@ namespace WindowsFormsApp1
         async Task load_product_type()
         {
 
-            var response = await _supabaseManager.Client.From<product_types>().Get();
+            var product_types = await Get<product_types>();
 
-            var type = response.Models;
-
-            foreach (var ty in type)
+            foreach (var ty in product_types)
             {
                 dgv_type.Rows.Add(ty.Id, ty.Type);
             }
@@ -78,10 +71,9 @@ namespace WindowsFormsApp1
         }
         async Task load_pet_type()
         {
-            var response1 = await _supabaseManager.Client.From<pet_types>().Get();
-            var type1 = response1.Models;
+            var pet_types = await Get<pet_types>();
 
-            foreach (var pty in type1)
+            foreach (var pty in pet_types)
             {
                 dgv_pet_type.Rows.Add(pty.Id, pty.Type);
             }

@@ -44,9 +44,7 @@
             progressBar.Location = new System.Drawing.Point(355, 634);
             progressBar.Name = "progressBar";
             progressBar.Size = new System.Drawing.Size(544, 23);
-            progressBar.Step = 20;
             progressBar.TabIndex = 2;
-            progressBar.Value = 100;
             // 
             // label1
             // 

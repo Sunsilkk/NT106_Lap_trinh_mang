@@ -15,7 +15,7 @@ namespace Pet_Management
         {
             startPoint += 2;
             progressBar.Value = startPoint;
-            if (progressBar.Value == 10)
+            if (progressBar.Value == 100)
             {
                 progressBar.Value = 0;
                 timer1.Stop();

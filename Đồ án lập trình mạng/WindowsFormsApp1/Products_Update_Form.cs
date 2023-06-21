@@ -7,30 +7,19 @@ using WindowsFormsApp1;
 
 namespace Pet_Management
 {
-    public partial class Products_Update_Form : Form
+    public partial class Products_Update_Form : SupabaseControl
     {
         private SupabaseManager supabaseManager;
+        
         public Products_Update_Form()
         {
             InitializeComponent();
             supabaseManager = new SupabaseManager();
         }
-        public Supabase.Client SupabaseClient
-        {
-            get;
-            set;
-        }
-        Guid idproduct;
-        private async Task<List<Products>> GetProducts()
-        {
-            var result = await supabaseManager.Client.From<Products>().Get();
-            var product = result.Models;
-            return product;
-        }
 
         async Task loaddata()
         {
-            var product = await GetProducts();
+            var product = await Get<Products>();
 
             foreach (var pro in product)
             {
@@ -53,7 +42,7 @@ namespace Pet_Management
             if (selectedRow.Cells["id"].Value != null)
             {
                 string columnValue = selectedRow.Cells["id"].Value.ToString();
-                idproduct = Guid.Parse(columnValue);
+                var idproduct = Guid.Parse(columnValue);
                 try
                 {
                     var update = await supabaseManager.Client
